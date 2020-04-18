@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements
             /* feedUrl; */ "https://anchor.fm/s/1958091c/podcast/rss",
             /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/nourhan%20kandil%20600.jpg",
 
-            "https://anchor.fm/nurhan-kandil"
+            ""
 
     );
 
@@ -220,9 +220,33 @@ public class MainActivity extends AppCompatActivity implements
             /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
             /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/omarbahaa600.jpg",
 
-            "https://anchor.fm/nurhan-kandil"
+            ""
 
     );
+
+    static  Podcast SeifEldeeb_podcast = new Podcast(
+
+            /* artistName;*/"Seif Eldeeb",
+            /* collectionName;*/ "سيف الديب",
+            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
+            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/SeifElDeeb600.jpg",
+
+            ""
+
+    );
+
+    static  Podcast AhmedHossamAbdeen_podcast = new Podcast(
+
+            /* artistName;*/"Ahmed Hossam",
+            /* collectionName;*/ "احمد حسام عابدين",
+            /* feedUrl; */ "https://anchor.fm/s/1b6d50a4/podcast/rss",
+            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmedhossamabdeen600.png",
+
+            ""
+
+    );
+
+
 
 
 
@@ -274,15 +298,18 @@ public class MainActivity extends AppCompatActivity implements
 //                ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
                 ArrayList<Podcast> list;
                 ArrayList <Podcast>  LifeStyle_Podcast_list = new ArrayList<Podcast>() ;
+                ArrayList <Podcast>  Religion_Podcast_list = new ArrayList<Podcast>() ;
                 ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
                 ArrayList <Podcast>  Health_Podcast_list = new ArrayList<Podcast>() ;
                 LifeStyle_Podcast_list.add(OmarBahaa_podcast);
+                LifeStyle_Podcast_list.add(SeifEldeeb_podcast);
+                Religion_Podcast_list.add(AhmedHossamAbdeen_podcast);
 //                Comedy_Podcast_list.add(ObamaElMasry_podcast);
-                Health_Podcast_list.add(NourhanKandil_podcast);
+//                Health_Podcast_list.add(NourhanKandil_podcast);
 
 
-                if (genreTitle == "Health") {
-                   list = Health_Podcast_list ;
+                if (genreTitle == "Religion and Spirituality") {
+                   list = Religion_Podcast_list ;
                 }
                 else if (genreTitle == "Life Coaching")
                 {
@@ -290,7 +317,7 @@ public class MainActivity extends AppCompatActivity implements
                 }
                 else
                 {
-                  list = Health_Podcast_list;
+                  list = LifeStyle_Podcast_list;
                 }
 
                 if (list != null && list.size() > 0) {

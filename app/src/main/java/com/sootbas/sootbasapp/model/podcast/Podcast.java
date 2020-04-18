@@ -278,10 +278,10 @@ public class Podcast implements Parcelable {
         this.trackName = in.readString();
         this.collectionViewUrl = in.readString();
         this.feedUrl = in.readString();
-//        this.feedUrl= "https://anchor.fm/ahmed-hassan-w-zeinab";
+
         this.trackViewUrl = in.readString();
         this.artworkUrl100 = in.readString();
-//        this.artworkUrl600 = "https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmed%20w%20zenab%20600.jpg";
+
         this.artworkUrl600 = in.readString();
         this.releaseDate = in.readString();
         this.trackCount = in.readInt();
