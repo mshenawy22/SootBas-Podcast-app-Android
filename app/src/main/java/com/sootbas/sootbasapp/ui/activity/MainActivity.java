@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements
                 ArrayList <Podcast>  Health_Podcast_list = new ArrayList<Podcast>() ;
                 LifeStyle_Podcast_list.add(OmarBahaa_podcast);
 //                Comedy_Podcast_list.add(ObamaElMasry_podcast);
-//                Health_Podcast_list.add(NourhanKandil_podcast);
+                Health_Podcast_list.add(NourhanKandil_podcast);
 
 
                 if (genreTitle == "Health") {

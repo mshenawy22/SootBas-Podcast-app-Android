@@ -90,6 +90,12 @@ public class Podcast implements Parcelable {
         this.artworkUrl600 = artworkUrl600;
         this.collectionViewUrl = collectionViewUrl;
 
+        String delims = "[/]+";
+        String[] tokens = feedUrl.split(delims);
+        this.collectionId  = tokens[3];
+
+
+
     }
 
     public String getWrapperType() {
@@ -110,7 +116,17 @@ public class Podcast implements Parcelable {
 
     public String getCollectionId()
     {
-        return "0";
+//
+
+        //feedUrl ex https://anchor.fm/s/19661084/podcast/rss
+
+//
+//        String delims = "[/]+";
+//        String[] tokens = feedUrl.split(delims);
+//
+//        collectionId = tokens[3];
+
+        return collectionId;
 //                collectionId;
     }
 

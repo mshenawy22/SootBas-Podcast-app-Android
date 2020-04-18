@@ -373,7 +373,9 @@ public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> 
 
     private void retrieveValues() {
 
-        mPlaylistId = Long.valueOf(EpisodesDataCache.getInstance().getPodcast().getCollectionId());
+       //replaced valueof with decode as the collectionid may contain ascii characters when using anhcor
+        mPlaylistId = Long.parseLong(EpisodesDataCache.getInstance().getPodcast().getCollectionId() , 36 );
+
     }
 
     private class SeekBarChanged implements SeekBar.OnSeekBarChangeListener {
