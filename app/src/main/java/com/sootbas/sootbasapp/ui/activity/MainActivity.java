@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements
 
             /* artistName;*/"Seif Eldeeb",
             /* collectionName;*/ "سيف الديب",
-            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
+            /* feedUrl; */ "https://anchor.fm/s/1b342d4c/podcast/rss",
             /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/SeifElDeeb600.jpg",
 
             ""
