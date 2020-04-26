@@ -24,4 +24,14 @@
         android:title="@string/action_settings"
         app:showAsAction="never"/>
 
+
+
+    <item
+        android:id="@+id/useLogo"
+        android:title="@string/menu_item_search"
+        android:orderInCategory="100"
+        android:icon="@mipmap/sootbas_logo"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+
 </menu>

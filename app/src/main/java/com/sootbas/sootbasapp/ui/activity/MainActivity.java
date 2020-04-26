@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements
     private ProgressBar mProgressBar;
     private TabLayout mTabLayout;
     private int[] mTabIcons = {
-            R.drawable.ic_explore,
+            R.mipmap.sootbas_logo,
+//            R.drawable.ic_explore,
             R.drawable.ic_subscription,
             R.drawable.ic_playlist
     };
@@ -346,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @SuppressWarnings("ConstantConditions")
     private void setupTabIcons() {
-        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
+//        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
 //        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
 //        mTabLayout.getTabAt(2).setIcon(mTabIcons[2]);
         //mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);

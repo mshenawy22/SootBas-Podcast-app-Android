@@ -21,7 +21,10 @@ public class BaseActivity extends BlankActivity{
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//            getSupportActionBar().setHomeButtonEnabled(true);
+////            getSupportActionBar().setIcon(R.mipmap.sootbas_logo_round);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_white);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
     }
 
