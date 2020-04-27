@@ -7,15 +7,15 @@
 
     <!-- Ring shape drawable-->
     <shape
-        android:innerRadiusRatio="3"
+        android:innerRadiusRatio="5"
         android:shape="ring"
-        android:thicknessRatio="8"
+        android:thicknessRatio="40"
         android:useLevel="false">
 
         <gradient
-            android:centerColor="@color/color_swipe_1"
-            android:centerY="0.50"
-            android:endColor="@color/color_swipe_2"
+            android:centerColor="#f64a2d"
+            android:centerY="0.2"
+            android:endColor="#f64a2d"
             android:startColor="#EFEFEF"
             android:type="sweep"
             android:useLevel="false"/>

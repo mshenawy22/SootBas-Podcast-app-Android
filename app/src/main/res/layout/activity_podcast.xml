@@ -24,7 +24,9 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
 
+
     </android.support.design.widget.AppBarLayout>
+
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -44,9 +46,12 @@
     <ProgressBar
         android:id="@+id/progress_bar"
         android:indeterminateDrawable="@drawable/progress_bar_circular"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:visibility="gone"
         android:layout_width="@dimen/progress_bar_size"
         android:layout_height="@dimen/progress_bar_size"/>
+
+
 
 </android.support.design.widget.CoordinatorLayout>

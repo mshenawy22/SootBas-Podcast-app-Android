@@ -128,9 +128,6 @@ public class PodcastActivity extends BaseActivity implements
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-//        initToolbar();
         setContentView(R.layout.activity_podcast);
 
 
@@ -139,7 +136,7 @@ public class PodcastActivity extends BaseActivity implements
         mProgressBar.setY(72f); // 66f
 
         // instantiate the toolbar with up nav arrow and set page title
-
+        initToolbar();
 
         boolean isSearch = getIntent().getBooleanExtra(Constants.PODCAST_SEARCH, false);
         String title = getIntent().getStringExtra(Constants.PODCAST_TITLE);
