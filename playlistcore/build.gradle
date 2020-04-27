@@ -12,16 +12,16 @@ def libraryVersion = "${versionMajor}.${versionMinor}.${versionPatch}" // releas
 
 dependencies {
     // Android
-    compile 'com.android.support:appcompat-v7:25.3.0' // includes support-v4
+    compile 'com.android.support:appcompat-v7:26.0.0' // includes support-v4
 }
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 28
     buildToolsVersion '25.0.2'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 28
 
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
@@ -48,6 +48,8 @@ android {
 // ======== MAVEN DEPLOY to local cache or nexus repo (to make accessible to local projects) (command: ./gradlew clean aRel uploadArchives) ========
 uploadArchives {
     repositories {
+        jcenter()
+        google()
         // deploy to local
         mavenDeployer {
             repository (url: "file://${System.env.HOME}/.m2/repository/")

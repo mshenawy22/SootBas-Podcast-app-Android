@@ -16,7 +16,13 @@
 
 package com.devbrackets.android.playlistcore.service;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import	android.app.NotificationChannel;
+//import 	androidx.core.app.NotificationCompat;
+
 import android.app.PendingIntent;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -205,6 +211,27 @@ public abstract class BasePlaylistService<I extends IPlaylistItem, M extends Bas
 //            startForeground(getNotificationId(), notificationHelper.getNotification(getNotificationClickPendingIntent(), getClass()));
         }
     }
+
+
+//    private void startMyOwnForeground(){
+//        String NOTIFICATION_CHANNEL_ID = "com.example.androidpodcastplayer";
+//        String channelName = "My Background Service";
+//        NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+////        chan.setLightColor(Color.BLUE);
+//        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        assert manager != null;
+//        manager.createNotificationChannel(chan);
+//
+//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
+//        Notification notification = notificationBuilder.setOngoing(true)
+////                .setSmallIcon(R.drawable.icon_1)
+//                .setContentTitle("App is running in background")
+//                .setPriority(NotificationManager.IMPORTANCE_MIN)
+//                .setCategory(Notification.CATEGORY_SERVICE)
+//                .build();
+//        startForeground(2, notification);
+//    }
 
     /**
      * If the service is registered as a foreground service then it will be unregistered
