@@ -10,7 +10,7 @@
     <color name="accent_light">@color/md_amber_50</color>
     <color name="primary_text">#f64d2b</color>
     <color name="secondary_text">#f64d2b</color>
-    <color name="inverse_text">@color/md_amber_700</color>
+    <color name="inverse_text">@color/md_white_1000</color>
     <color name="primary_background">@color/md_black_1000</color>
     <!--<color name="secondary_background">#F1F5F8</color>-->
     <color name="secondary_background">@color/md_black_1000</color>
