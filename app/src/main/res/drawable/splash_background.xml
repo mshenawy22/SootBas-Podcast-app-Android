@@ -5,7 +5,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/ic_mic_white"/>
+            android:src="@mipmap/sootbas_logo"/>
     </item>
 
 

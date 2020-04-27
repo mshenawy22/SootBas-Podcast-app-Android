@@ -186,12 +186,12 @@ public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_download:
-                getContract().downloadEpisode();
-                return true;
-            case R.id.action_playlist:
-                getContract().addEpisodeToPlaylist();
-                return true;
+//            case R.id.action_download:
+//                getContract().downloadEpisode();
+//                return true;
+//            case R.id.action_playlist:
+//                getContract().addEpisodeToPlaylist();
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

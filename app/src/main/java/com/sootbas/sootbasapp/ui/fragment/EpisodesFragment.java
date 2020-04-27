@@ -273,12 +273,12 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
                 mEpisodeTitle = (TextView) itemView.findViewById(R.id.episode_title);
                 mEpisodeDuration = (TextView) itemView.findViewById(R.id.episode_duration);
                 mEpisodePlay = (ImageView) itemView.findViewById(R.id.episode_play);
-                mEpisodeDownload = (ImageView) itemView.findViewById(R.id.episode_download);
-                mEpisodePlaylist = (ImageView) itemView.findViewById(R.id.episode_playlist);
+//                mEpisodeDownload = (ImageView) itemView.findViewById(R.id.episode_download);
+//                mEpisodePlaylist = (ImageView) itemView.findViewById(R.id.episode_playlist);
                 mEpisodeOnClick.setOnClickListener(this);
                 mEpisodePlay.setOnClickListener(this);
-                mEpisodeDownload.setOnClickListener(this);
-                mEpisodePlaylist.setOnClickListener(this);
+//                mEpisodeDownload.setOnClickListener(this);
+//                mEpisodePlaylist.setOnClickListener(this);
             }
 
             public void bindModelItem(Item episode) {
@@ -335,14 +335,14 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
                     case R.id.episode_play:
                         getContract().launchPlayer(getAdapterPosition());
                         break;
-                    case R.id.episode_download:
-                        // TODO
-                        Utils.showSnackbar(mLayout, "Clicked download");
-                        break;
-                    case R.id.episode_playlist:
-                        // TODO
-                        Utils.showSnackbar(mLayout, "Clicked playlist");
-                        break;
+//                    case R.id.episode_download:
+////                        // TODO
+////                        Utils.showSnackbar(mLayout, "Clicked download");
+////                        break;
+////                    case R.id.episode_playlist:
+////                        // TODO
+////                        Utils.showSnackbar(mLayout, "Clicked playlist");
+////                        break;
                 }
             }
         }
