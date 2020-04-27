@@ -128,13 +128,18 @@ public class PodcastActivity extends BaseActivity implements
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+//        initToolbar();
         setContentView(R.layout.activity_podcast);
+
+
         mLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setY(72f); // 66f
 
         // instantiate the toolbar with up nav arrow and set page title
-        initToolbar();
+
 
         boolean isSearch = getIntent().getBooleanExtra(Constants.PODCAST_SEARCH, false);
         String title = getIntent().getStringExtra(Constants.PODCAST_TITLE);
@@ -142,7 +147,7 @@ public class PodcastActivity extends BaseActivity implements
             if (isSearch) {
                 setTitle(String.format(Locale.ENGLISH, "Results for : %s", title));
             } else {
-                setTitle(String.format(Locale.ENGLISH, "Genre : %s", title));
+//                setTitle(String.format(Locale.ENGLISH, "Genre : %s", title));
             }
         }
 

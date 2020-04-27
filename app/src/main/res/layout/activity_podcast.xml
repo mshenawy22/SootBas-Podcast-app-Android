@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorSecondaryBackground"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.activity.MainActivity"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,21 +25,21 @@
 
 
     </android.support.design.widget.AppBarLayout>
-mai
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+
     <ImageView
-        android:id="@+id/toolbar_logo"
-        android:src="@mipmap/sootbas_logo_round"
+        android:id="@+id/toolbar_logo_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerInParent="true"
-        android:layout_gravity="center|top"
-        />
+        android:layout_centerVertical="true"
+        android:layout_gravity="center|bottom"
+        android:src="@mipmap/sootbas_logo_round" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

@@ -3,6 +3,7 @@ package com.sootbas.sootbasapp.ui.activity;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.sootbas.sootbasapp.R;
 
@@ -21,8 +22,17 @@ public class BaseActivity extends BlankActivity{
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//            getSupportActionBar().setHomeButtonEnabled(true);
+
+//            getSupportActionBar().setHomeButtonEnabled(false);
+//            getSupportActionBar().setCustomView(R.id.toolbar_logo_icon);
+//            getSupportActionBar().setDisplayUseLogoEnabled(true);
+//            getSupportActionBar().setIcon(R.mipmap.sootbas_logo_round);
+//            getSupportActionBar().setLogo(R.mipmap.sootbas_logo_round);
+//            ImageView myImageView = (ImageView)findViewById(R.id.toolbar_logo_icon);
+//            getSupportActionBar().setCustomView(myImageView);
 ////            getSupportActionBar().setIcon(R.mipmap.sootbas_logo_round);
+
+
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_white);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
