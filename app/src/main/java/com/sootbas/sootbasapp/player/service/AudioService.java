@@ -61,23 +61,23 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         return super.onStartCommand(intent, flags, startId);
     }
 
-    @Override
-    protected void onMediaStopped(AudioItem playlistItem) {
-        super.onMediaStopped(playlistItem);
-        // Timber.i("LOG Service onMediaStopped called");
-    }
+//    @Override
+//    protected void onMediaStopped(AudioItem playlistItem) {
+//        super.onMediaStopped(playlistItem);
+//        // Timber.i("LOG Service onMediaStopped called");
+//    }
 
-    @Override
-    protected void onMediaPlaybackStarted(AudioItem playlistItem, long currentPosition, long duration) {
-        super.onMediaPlaybackStarted(playlistItem, currentPosition, duration);
-        // Timber.i("LOG Service onMediaPlayBackStarted called");
-    }
+//    @Override
+//    protected void onMediaPlaybackStarted(AudioItem playlistItem, long currentPosition, long duration) {
+//        super.onMediaPlaybackStarted(playlistItem, currentPosition, duration);
+//        // Timber.i("LOG Service onMediaPlayBackStarted called");
+//    }
 
-    @Override
-    protected void onMediaPlaybackEnded() {
-        super.onMediaPlaybackEnded();
-        // Timber.i("LOG Service onMediaPlaybackEnded called");
-    }
+//    @Override
+//    protected void onMediaPlaybackEnded() {
+//        super.onMediaPlaybackEnded();
+//        // Timber.i("LOG Service onMediaPlaybackEnded called");
+//    }
 
     @Override
     protected int getNotificationId() {
@@ -92,21 +92,21 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
                 FOREGROUND_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    @Nullable
-    @Override
-    protected Bitmap getDefaultLargeNotificationImage() {
-        if (mDefaultLargeNotificationImage == null) {
-            mDefaultLargeNotificationImage =
-                BitmapFactory.decodeResource(getResources(), R.drawable.no_image_600x600);
-        }
-        return mDefaultLargeNotificationImage;
-    }
+//    @Nullable
+//    @Override
+//    protected Bitmap getDefaultLargeNotificationImage() {
+//        if (mDefaultLargeNotificationImage == null) {
+//            mDefaultLargeNotificationImage =
+//                BitmapFactory.decodeResource(getResources(), R.drawable.no_image_600x600);
+//        }
+//        return mDefaultLargeNotificationImage;
+//    }
 
-    @Nullable
-    @Override
-    protected Bitmap getDefaultLargeNotificationSecondaryImage() {
-        return null;
-    }
+//    @Nullable
+//    @Override
+//    protected Bitmap getDefaultLargeNotificationSecondaryImage() {
+//        return null;
+//    }
 
     @Override
     protected void updateLargeNotificationImage(int size, AudioItem playlistItem) {
@@ -118,17 +118,17 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         mPicasso.load(playlistItem.getArtworkUrl()).into(mLockScreenTarget);
     }
 
-    @Nullable
-    @Override
-    protected Bitmap getRemoteViewArtwork() {
-        return mLockScreenArtwork;
-    }
+//    @Nullable
+//    @Override
+//    protected Bitmap getRemoteViewArtwork() {
+//        return mLockScreenArtwork;
+//    }
 
-    @Nullable
-    @Override
-    public Bitmap getLargeNotificationImage() {
-        return mLargeNotificationImage;
-    }
+//    @Nullable
+//    @Override
+//    public Bitmap getLargeNotificationImage() {
+//        return mLargeNotificationImage;
+//    }
 
     @Override
     protected int getNotificationIconRes() {
@@ -162,7 +162,7 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     @Override
     protected void performOnMediaCompletion() {
         performNext();
-        immediatelyPause = false;
+//        startPaused = false;
     }
 
 

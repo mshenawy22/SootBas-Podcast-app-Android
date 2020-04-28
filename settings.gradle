@@ -1,1 +1,1 @@
-include ':app', ':playlistcore'
+include ':app', ':playlitcore_3.6.17'

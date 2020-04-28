@@ -7,6 +7,8 @@ import com.sootbas.sootbasapp.model.episode.Item;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 import com.sootbas.sootbasapp.player.manager.PlaylistManager;
 
+
+
 import static com.sootbas.sootbasapp.common.Utils.htmlToStringParser;
 
 public class AudioItem implements IPlaylistItem {
@@ -32,6 +34,7 @@ public class AudioItem implements IPlaylistItem {
 
     @Override
     public int getMediaType() {
+
         return PlaylistManager.AUDIO;
     }
 

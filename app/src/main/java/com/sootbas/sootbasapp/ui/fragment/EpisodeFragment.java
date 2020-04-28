@@ -358,8 +358,10 @@ public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> 
 
     private void updateCurrentPlaybackInformation() {
         PlaylistItemChange<AudioItem> playlistItem = mPlaylistManager.getCurrentItemChange();
+
         if (playlistItem != null) {
-            onPlaylistItemChanged(playlistItem.getCurrentItem(), playlistItem.hasNext(), playlistItem.hasPrevious());
+            onPlaylistItemChanged(playlistItem.getCurrentItem(), true, true);
+//            onPlaylistItemChanged(playlistItem.getCurrentItem(), playlistItem.hasNext(), playlistItem.hasPrevious());
         }
         PlaylistServiceCore.PlaybackState currentState = mPlaylistManager.getCurrentPlaybackState();
         if (currentState != PlaylistServiceCore.PlaybackState.STOPPED) {
