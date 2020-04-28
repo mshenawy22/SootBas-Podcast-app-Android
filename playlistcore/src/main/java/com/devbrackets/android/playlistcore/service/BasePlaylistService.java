@@ -19,8 +19,11 @@ package com.devbrackets.android.playlistcore.service;
 import android.app.Notification;
 import android.app.NotificationManager;
 import	android.app.NotificationChannel;
-//import 	androidx.core.app.NotificationCompat;
 
+import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -208,30 +211,59 @@ public abstract class BasePlaylistService<I extends IPlaylistItem, M extends Bas
     protected void setupForeground() {
         if (!foregroundSetup && notificationSetup && notificationHelper != null) {
             foregroundSetup = true;
-//            startForeground(getNotificationId(), notificationHelper.getNotification(getNotificationClickPendingIntent(), getClass()));
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
+                // if the phone has android version earlier than Oreo
+            startForeground(getNotificationId(), notificationHelper.getNotification(getNotificationClickPendingIntent(), getClass()));
+            }
+            else {
+
+                start28APIForeground();
+            }
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private synchronized String createChannel() {
+        NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-//    private void startMyOwnForeground(){
-//        String NOTIFICATION_CHANNEL_ID = "com.example.androidpodcastplayer";
-//        String channelName = "My Background Service";
-//        NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
-////        chan.setLightColor(Color.BLUE);
-//        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//        assert manager != null;
-//        manager.createNotificationChannel(chan);
-//
-//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
-//        Notification notification = notificationBuilder.setOngoing(true)
-////                .setSmallIcon(R.drawable.icon_1)
-//                .setContentTitle("App is running in background")
-//                .setPriority(NotificationManager.IMPORTANCE_MIN)
-//                .setCategory(Notification.CATEGORY_SERVICE)
-//                .build();
-//        startForeground(2, notification);
-//    }
+        String name = "snap map fake location ";
+        int importance = NotificationManager.IMPORTANCE_LOW;
+
+        NotificationChannel mChannel = new NotificationChannel("snap map channel", name, importance);
+
+        mChannel.enableLights(true);
+        mChannel.setLightColor(Color.BLUE);
+        if (mNotificationManager != null) {
+            mNotificationManager.createNotificationChannel(mChannel);
+        } else {
+            stopSelf();
+        }
+        return "snap map channel";
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void start28APIForeground(){
+        String NOTIFICATION_CHANNEL_ID = "com.example.androidpodcastplayer";
+        String channelName = "My Background Service";
+        NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+//        chan.setLightColor(Color.BLUE);
+        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        assert manager != null;
+        manager.createNotificationChannel(chan);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
+        Notification notification = notificationBuilder.setOngoing(true)
+//                .setSmallIcon(R.drawable.icon_1)
+                .setContentTitle("SootBas is running in background")
+                .setPriority(NotificationManager.IMPORTANCE_MIN)
+                .setCategory(Notification.CATEGORY_SERVICE)
+                .build();
+        startForeground(106 , notification);
+
+
+    }
 
     /**
      * If the service is registered as a foreground service then it will be unregistered
@@ -283,6 +315,9 @@ public abstract class BasePlaylistService<I extends IPlaylistItem, M extends Bas
         //Starts the service as the foreground audio player
         notificationSetup = true;
         setupForeground();
+
+
+
 
         updateRemoteViews();
         updateNotification();

@@ -12,12 +12,13 @@ def libraryVersion = "${versionMajor}.${versionMinor}.${versionPatch}" // releas
 
 dependencies {
     // Android
-    compile 'com.android.support:appcompat-v7:26.0.0' // includes support-v4
+    compile 'com.android.support:appcompat-v7:26.0.0'  // includes support-v4
+
 }
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 14
