@@ -1,17 +1,16 @@
 package com.sootbas.sootbasapp.player.model;
 
 
-import com.devbrackets.android.playlistcore.manager.IPlaylistItem;
+import com.devbrackets.android.playlistcore.api.PlaylistItem;
 import com.sootbas.sootbasapp.common.Utils;
 import com.sootbas.sootbasapp.model.episode.Item;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 import com.sootbas.sootbasapp.player.manager.PlaylistManager;
-
-
-
+import com.devbrackets.android.playlistcore.annotation.SupportedMediaType;
 import static com.sootbas.sootbasapp.common.Utils.htmlToStringParser;
 
-public class AudioItem implements IPlaylistItem {
+public class AudioItem implements PlaylistItem {
+
 
     private Item mEpisode;
     private Podcast mPodcast;
@@ -26,11 +25,7 @@ public class AudioItem implements IPlaylistItem {
     public long getId() {
         return 0;
     }
-
-    @Override
-    public long getPlaylistId() {
-        return 0;
-    }
+    
 
     @Override
     public int getMediaType() {
@@ -142,4 +137,8 @@ public class AudioItem implements IPlaylistItem {
         return feed;
     }
 
+    @Override
+    public boolean getDownloaded() {
+        return false;
+    }
 }
