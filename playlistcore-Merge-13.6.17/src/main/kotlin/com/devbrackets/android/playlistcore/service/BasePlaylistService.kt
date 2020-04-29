@@ -17,24 +17,35 @@
 package com.devbrackets.android.playlistcore.service
 
 import android.Manifest
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.IBinder
+import android.support.annotation.DrawableRes
 import android.support.annotation.FloatRange
 import android.util.Log
+import com.devbrackets.android.playlistcore.R
 import com.devbrackets.android.playlistcore.annotation.ServiceContinuationMethod
 import com.devbrackets.android.playlistcore.api.MediaPlayerApi
+import com.devbrackets.android.playlistcore.api.PlaylistItem
 import com.devbrackets.android.playlistcore.event.MediaProgress
 import com.devbrackets.android.playlistcore.event.PlaylistItemChange
 import com.devbrackets.android.playlistcore.helper.AudioFocusHelper
+import com.devbrackets.android.playlistcore.helper.MediaControlsHelper
+import com.devbrackets.android.playlistcore.helper.mediasession.DefaultMediaSessionProvider
+import com.devbrackets.android.playlistcore.helper.mediasession.MediaSessionProvider
+import com.devbrackets.android.playlistcore.helper.notification.DefaultPlaylistNotificationPresenter
+import com.devbrackets.android.playlistcore.helper.notification.MediaInfo
+import com.devbrackets.android.playlistcore.helper.notification.PlaylistNotificationPresenter
 import com.devbrackets.android.playlistcore.listener.ProgressListener
 import com.devbrackets.android.playlistcore.listener.ServiceListener
 import com.devbrackets.android.playlistcore.manager.BasePlaylistManager
-import com.devbrackets.android.playlistcore.api.PlaylistItem
 import com.devbrackets.android.playlistcore.util.DefaultPlaylistServiceMediaStatusListener
 import com.devbrackets.android.playlistcore.util.MediaProgressPoll
 
@@ -53,9 +64,9 @@ import com.devbrackets.android.playlistcore.util.MediaProgressPoll
  * to create your own [android.content.BroadcastReceiver] as outlined at
  * [http://developer.android.com/guid/topics/media/mediaplayer.html#noisyintent](http://developer.android.com/guide/topics/media/mediaplayer.html#noisyintent)
  */
-abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager<I>> : Service(), AudioFocusHelper.AudioFocusCallback, ProgressListener {
+abstract class BasePlaylistService<I : PlaylistItem, out M : BasePlaylistManager<I>> : Service(), AudioFocusHelper.AudioFocusCallback, ProgressListener {
     companion object {
-        private val TAG = "PlaylistServiceCore"
+        private val TAG = "BasePlaylistService"
     }
 
     enum class PlaybackState {
@@ -79,17 +90,13 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
     protected val mediaPlayers = mutableListOf<MediaPlayerApi<I>>()
 
     /**
-     * Retrieves the current playback progress.
-     *
-     * @return The current playback progress
+     * Retrieves the current playback progress
      */
     var currentMediaProgress = MediaProgress(0, 0, 0)
         protected set
 
     /**
-     * Retrieves the current playback state of the service.
-     *
-     * @return The current playback state
+     * Retrieves the current playback state of the service
      */
     var currentPlaybackState = PlaybackState.PREPARING
         protected set
@@ -102,8 +109,6 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
      * when performing the initial setup of playback position.  For
      * normal seeking process use the [.performSeekStarted] in
      * conjunction with [.performSeekEnded]
-     *
-     * @param position The position to seek to in milliseconds
      */
     protected var seekToPosition: Long = -1
 
@@ -117,18 +122,119 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
 
     var serviceListener: ServiceListener<I>? = null
 
-    protected abstract fun setupAsForeground()
-    protected abstract fun setupForeground()
-    protected abstract fun stopForeground()
+    protected var mediaControlsHelper: MediaControlsHelper? = null
+
+    protected var currentLargeNotificationUrl: String? = null
+    protected var currentRemoteViewArtworkUrl: String? = null
+
+    protected var foregroundSetup: Boolean = false
+    protected var notificationSetup: Boolean = false
+
+    protected lateinit var notificationPresenter: PlaylistNotificationPresenter
+    protected lateinit var mediaSessionProvider: MediaSessionProvider
+
+    protected val notificationManager: NotificationManager by lazy {
+        baseContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    }
+
+    protected val mediaInfo = MediaInfo()
+
+    /**
+     * Retrieves the ID to use for the notification and registering this
+     * service as Foreground when media is playing. (Foreground is removed
+     * when paused)
+     */
+    protected abstract val notificationId: Int
+
+    /**
+     * Returns the PendingIntent to use when the playback notification is clicked.
+     * This is called when the playback is started initially to setup the notification
+     * and the service as Foreground.
+     */
+    protected abstract val notificationClickPendingIntent: PendingIntent
+
+    /**
+     * Retrieves the Drawable resource that specifies the icon to place in the
+     * status bar for the media playback notification.
+     */
+    @get:DrawableRes
+    protected abstract val notificationIconRes: Int
+
+    /**
+     * Retrieves the Drawable resource that specifies the icon to place on the
+     * lock screen to indicate the app the owns the content being displayed.
+     */
+    @get:DrawableRes
+    protected abstract val remoteViewIconRes: Int
+
+    /**
+     * Retrieves the image that will be displayed in the notification to represent
+     * the currently playing item.
+     */
+    protected var largeNotificationImage: Bitmap? = null
+
+    /**
+     * Retrieves the Image to use for the large notification (the double tall notification)
+     * when [.getLargeNotificationImage] returns null.
+     */
+    protected var defaultLargeNotificationImage: Bitmap? = null
+
+    /**
+     * Retrieves the image that will be displayed as the remote view artwork
+     * for the currently playing item.
+     */
+    protected var remoteViewArtwork: Bitmap? = null
+
+    /**
+     * Retrieves the image that will be displayed as the remote view artwork
+     * image if [.getRemoteViewArtwork] returns null.
+     */
+    protected var defaultRemoteViewArtwork: Bitmap? = null
+
+    /**
+     * Requests the service be transferred to the foreground, initializing the
+     * RemoteView and Notification helpers for playback control.
+     */
+    protected fun setupAsForeground() {
+        //Sets up the Notifications
+        mediaInfo.showNotifications = true
+        mediaInfo.notificationId = notificationId
+        mediaInfo.appIcon = notificationIconRes
+
+        //Starts the service as the foreground audio player
+        notificationSetup = true
+        setupForeground()
+    }
+
+    /**
+     * Sets up the service as a Foreground service only if we aren't already registered as such
+     */
+    protected fun setupForeground() {
+        if (!notificationSetup || foregroundSetup) {
+            return
+        }
+
+        foregroundSetup = true
+        startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
+    }
+
+    /**
+     * If the service is registered as a foreground service then it will be unregistered
+     * as such without removing the notification
+     */
+    protected fun stopForeground() {
+        if (foregroundSetup) {
+            foregroundSetup = false
+            stopForeground(false)
+        }
+    }
 
     /**
      * Retrieves the volume level to use when audio focus has been temporarily
      * lost due to a higher importance notification.  The media will continue
      * playback but be reduced to the specified volume for the duration of the
      * notification.  This usually happens when receiving an alert for MMS, EMail,
-     * etc.
-     *
-     * @return The volume level to use when a temporary notification sounds. [0.0 - 1.0]
+     * etc
      */
     @get:FloatRange(from = 0.0, to = 1.0)
     protected abstract val audioDuckVolume: Float
@@ -139,36 +245,39 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
      *
      * NOTE: this is only used for retrieving information, it isn't used to register notifications
      * for playlist changes, however as long as the change isn't breaking (e.g. cleared playlist)
-     * then nothing additional needs to be performed.
-     *
-     * @return The [BasePlaylistManager] containing the playback information
+     * then nothing additional needs to be performed
      */
     protected abstract val playlistManager: M
 
     /**
      * Retrieves the continuity bits associated with the service.  These
      * are the bits returned by [.onStartCommand] and can be
-     * one of the [.START_CONTINUATION_MASK] values.
-     *
-     * @return The continuity bits for the service [default: [.START_NOT_STICKY]]
+     * one of the [.START_CONTINUATION_MASK] values
      */
+    @ServiceContinuationMethod
     val serviceContinuationMethod: Int
-        @ServiceContinuationMethod
         get() = Service.START_NOT_STICKY
 
     /**
      * Used to determine if the device is connected to a network that has
      * internet access.  This is used in conjunction with [.isDownloaded]
      * to determine what items in the playlist manager, specified with [.getPlaylistManager], can be
-     * played.
-     *
-     * @return True if the device currently has internet connectivity
+     * played
      */
     protected val isNetworkAvailable: Boolean
         get() = true
 
     protected open fun updateMediaControls() {
-        //todo
+        if (currentPlaylistItem == null || !notificationSetup) {
+            return
+        }
+
+        updateMediaInfo()
+        mediaSessionProvider.update(mediaInfo)
+        mediaControlsHelper?.update(mediaInfo, mediaSessionProvider.get())
+
+        // Updates the notification
+        notificationManager.notify(mediaInfo.notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
     }
 
     override fun onBind(intent: Intent): IBinder? {
@@ -207,6 +316,7 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
         }
 
         onCreateCalled = false
+        mediaControlsHelper = null
     }
 
     /**
@@ -302,6 +412,26 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
     }
 
     /**
+     * Called when the image in the notification needs to be updated.
+
+     * @param size The square size for the image to display
+     * *
+     * @param playlistItem The media item to get the image for
+     */
+    protected open fun updateLargeNotificationImage(size: Int, playlistItem: I) {
+        //Purposefully left blank
+    }
+
+    /**
+     * Called when the image for the Remote View needs to be updated.
+     *
+     * @param playlistItem The playlist item to get the remote view image for
+     */
+    protected open fun updateRemoteViewArtwork(playlistItem: I) {
+        //Purposefully left blank
+    }
+
+    /**
      * Retrieves the current item change event which represents any media item changes.
      * This is intended as a utility method for initializing, or returning to, a media
      * playback UI.  In order to get the changed events you will need to register for
@@ -344,6 +474,10 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
             startService(it)
             workaroundIntent = null
         }
+
+        notificationPresenter = DefaultPlaylistNotificationPresenter(applicationContext)
+        mediaSessionProvider = DefaultMediaSessionProvider(applicationContext, javaClass)
+        mediaControlsHelper = MediaControlsHelper(applicationContext)
     }
 
     /**
@@ -611,7 +745,7 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
         }
     }
 
-    protected fun getMediaPlayerForItem(item: I) : MediaPlayerApi<I>? {
+    protected fun getMediaPlayerForItem(item: I): MediaPlayerApi<I>? {
         // TODO: should we prioritize the current player or ones higher in the list?
         if (currentMediaPlayer?.handlesItem(item) ?: false) {
             return currentMediaPlayer
@@ -724,6 +858,14 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
 
         abandonAudioFocus()
         updateWiFiLock(false)
+
+        stopForeground(true)
+
+        foregroundSetup = false
+        notificationSetup = false
+
+        notificationManager.cancel(notificationId)
+        mediaSessionProvider.get().release()
     }
 
     /**
@@ -756,13 +898,13 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
      * Normally this will be the current item, however if they don't have network then
      * it will be the next downloaded item.
      */
-    protected open fun getNextPlayableItem() : I? {
+    protected open fun getNextPlayableItem(): I? {
         currentPlaylistItem = playlistManager.currentItem
         currentPlaylistItem ?: return null
 
         // TODO: if we can't play an item should we inform the listener as to why exactly? or just say "eh, we can't play `this` item"
         var item = currentPlaylistItem
-        while(item != null && !isPlayable(item)) {
+        while (item != null && !isPlayable(item)) {
             item = playlistManager.next()
         }
 
@@ -773,7 +915,7 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
         return currentPlaylistItem
     }
 
-    protected open fun isPlayable(item: I) : Boolean {
+    protected open fun isPlayable(item: I): Boolean {
         return (isNetworkAvailable || item.downloaded) && getMediaPlayerForItem(item) != null
     }
 
@@ -781,11 +923,26 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
      * Called when the current media item has changed, this will update the notification and
      * media control values.
      */
-    protected open fun mediaItemChanged(item : I?) {
+    protected open fun mediaItemChanged(item: I?) {
         //Validates that the currentPlaylistItem is for the currentItem
         if (!playlistManager.isPlayingItem(item)) {
             Log.d(TAG, "forcing currentPlaylistItem update")
             currentPlaylistItem = playlistManager.currentItem
+        }
+
+        item?.let { playlistItem ->
+            //Starts the notification loading
+            if (!(currentLargeNotificationUrl?.equals(playlistItem.thumbnailUrl) ?: false)) {
+                val size = resources.getDimensionPixelSize(R.dimen.playlistcore_large_notification_size)
+                updateLargeNotificationImage(size, playlistItem)
+                currentLargeNotificationUrl = playlistItem.thumbnailUrl
+            }
+
+            //Starts the remote view loading
+            if (currentRemoteViewArtworkUrl?.equals(playlistItem.artworkUrl, ignoreCase = true) ?: false) {
+                updateRemoteViewArtwork(playlistItem)
+                currentRemoteViewArtworkUrl = playlistItem.artworkUrl
+            }
         }
 
         postPlaylistItemChanged()
@@ -831,4 +988,33 @@ abstract class PlaylistServiceCore<I : PlaylistItem, out M : BasePlaylistManager
         mediaProgressPoll.reset()
     }
 
+    /**
+     * This should be called when the extending class has loaded an updated
+     * image for the Large Notification.
+     */
+    protected open fun onLargeNotificationImageUpdated() {
+        updateMediaControls()
+    }
+
+    /**
+     * This should be called when the extending class has loaded an updated
+     * image for the Remote Views Artwork.
+     */
+    protected open fun onRemoteViewArtworkUpdated() {
+        updateMediaControls()
+    }
+
+    protected open fun updateMediaInfo() {
+        // Generate the notification state
+        mediaInfo.mediaState.isPlaying = isPlaying
+        mediaInfo.mediaState.isLoading = isLoading
+        mediaInfo.mediaState.isNextEnabled = playlistManager.isNextAvailable
+        mediaInfo.mediaState.isPreviousEnabled = playlistManager.isPreviousAvailable
+
+        // Updates the notification information
+        mediaInfo.playlistItem = currentPlaylistItem
+        mediaInfo.pendingIntent = notificationClickPendingIntent
+        mediaInfo.artwork = remoteViewArtwork ?: defaultRemoteViewArtwork
+        mediaInfo.largeNotificationIcon = largeNotificationImage ?: defaultLargeNotificationImage
+    }
 }

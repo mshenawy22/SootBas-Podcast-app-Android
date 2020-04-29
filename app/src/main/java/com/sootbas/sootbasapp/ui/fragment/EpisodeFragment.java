@@ -25,7 +25,8 @@ import com.devbrackets.android.playlistcore.event.MediaProgress;
 import com.devbrackets.android.playlistcore.event.PlaylistItemChange;
 import com.devbrackets.android.playlistcore.listener.PlaylistListener;
 import com.devbrackets.android.playlistcore.listener.ProgressListener;
-import com.devbrackets.android.playlistcore.service.PlaylistServiceCore;
+//import com.devbrackets.android.playlistcore.service.PlaylistServiceCore;
+import com.devbrackets.android.playlistcore.service.BasePlaylistService;
 import com.sootbas.sootbasapp.PodcastPlayerApplication;
 import com.sootbas.sootbasapp.R;
 import com.sootbas.sootbasapp.common.Constants;
@@ -37,11 +38,14 @@ import com.sootbas.sootbasapp.player.manager.PlaylistManager;
 import com.sootbas.sootbasapp.player.model.AudioItem;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> implements
         PlaylistListener<AudioItem>, ProgressListener{
+
 
     public interface Contract {
         void onNavigationIconBackPressed();
@@ -137,7 +141,7 @@ public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> 
     }
 
     @Override
-    public boolean onPlaybackStateChanged(@NonNull PlaylistServiceCore.PlaybackState playbackState) {
+    public boolean onPlaybackStateChanged(@NonNull BasePlaylistService.PlaybackState playbackState) {
         switch (playbackState) {
             case STOPPED:
                 getActivity().finish();
@@ -363,8 +367,8 @@ public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> 
             onPlaylistItemChanged(playlistItem.getCurrentItem(), true, true);
 //            onPlaylistItemChanged(playlistItem.getCurrentItem(), playlistItem.hasNext(), playlistItem.hasPrevious());
         }
-        PlaylistServiceCore.PlaybackState currentState = mPlaylistManager.getCurrentPlaybackState();
-        if (currentState != PlaylistServiceCore.PlaybackState.STOPPED) {
+        BasePlaylistService.PlaybackState currentState = mPlaylistManager.getCurrentPlaybackState();
+        if (currentState != BasePlaylistService.PlaybackState.STOPPED) {
             onPlaybackStateChanged(currentState);
         }
         MediaProgress currentProgress = mPlaylistManager.getCurrentProgress();
