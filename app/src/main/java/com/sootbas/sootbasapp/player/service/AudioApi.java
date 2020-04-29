@@ -6,15 +6,30 @@ import android.net.Uri;
 import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
+import android.media.MediaPlayer;
+import android.media.AudioManager;
+import android.os.PowerManager;
 
 import com.devbrackets.android.exomedia.EMAudioPlayer;
-import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
+//import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
+import com.devbrackets.android.playlistcore.manager.BasePlaylistManager;
+import com.sootbas.sootbasapp.player.model.AudioItem;
 
-public class AudioApi extends BaseMediaApi implements AudioPlayerApi{
+import org.jetbrains.annotations.NotNull;
 
+
+//public class AudioApi extends BaseMediaApi implements AudioPlayerApi{
+
+    public class AudioApi extends BaseMediaApi {
+
+        @NonNull
+        private Context context;
+        @NonNull
     private EMAudioPlayer mAudioPlayer;
 
-    public AudioApi(EMAudioPlayer player) {
+//    public AudioApi(EMAudioPlayer player) {
+public AudioApi(@NonNull Context context, @NonNull EMAudioPlayer player) {
+        this.context = context.getApplicationContext();
         mAudioPlayer = player;
         mAudioPlayer.setOnPreparedListener(this);
         mAudioPlayer.setOnCompletionListener(this);
@@ -78,26 +93,18 @@ public class AudioApi extends BaseMediaApi implements AudioPlayerApi{
         return mAudioPlayer.getBufferPercentage();
     }
 
+        @Override
+        public boolean getHandlesOwnAudioFocus() {
+            return false;
+        }
 
-    @Override
-    public void setStreamType(int streamType) {
-        mAudioPlayer.setAudioStreamType(streamType);
+        @Override
+        public boolean handlesItem(@NotNull AudioItem item) {
+            return false;
+        }
+
+        @Override
+        public void playItem(@NotNull AudioItem item) {
+
+        }
     }
-
-    @Override
-    public void setWakeMode(Context context, int mode) {
-        mAudioPlayer.setWakeMode(context, mode);
-    }
-
-    @Override
-    public void setDataSource(@NonNull Context context, @NonNull Uri uri) {
-        mAudioPlayer.setDataSource(context, uri);
-    }
-
-    @Override
-    public void prepareAsync() {
-        mAudioPlayer.prepareAsync();
-    }
-
-
-}
