@@ -9,7 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.devbrackets.android.exomedia.EMAudioPlayer;
-import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
+//import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
+import com.devbrackets.android.playlistcore.manager.BasePlaylistManager;
 import com.devbrackets.android.playlistcore.service.BasePlaylistService;
 import com.sootbas.sootbasapp.PodcastPlayerApplication;
 import com.sootbas.sootbasapp.R;
@@ -52,8 +53,10 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     @Override
     protected void onServiceCreate() {
         super.onServiceCreate();
+        getMediaPlayers().add(new AudioApi(getApplicationContext(), new EMAudioPlayer(getApplicationContext())));
         Timber.i("LOG Service onServiceCreated called");
     }
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -142,11 +145,7 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         return R.mipmap.ic_launcher;
     }
 
-    @NonNull
-    @Override
-    protected AudioPlayerApi getNewAudioPlayer() {
-        return new AudioApi(new EMAudioPlayer(getApplicationContext()));
-    }
+
 
     @Override
     protected float getAudioDuckVolume() {
@@ -159,11 +158,6 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         return PodcastPlayerApplication.getsPlaylistManager();
     }
 
-    @Override
-    protected void performOnMediaCompletion() {
-        performNext();
-//        startPaused = false;
-    }
 
 
 
