@@ -2,6 +2,7 @@ package com.sootbas.sootbasapp.player.service;
 
 
 import android.support.annotation.IntRange;
+import com.sootbas.sootbasapp.player.model.AudioItem;
 
 import com.devbrackets.android.exomedia.listener.OnBufferUpdateListener;
 import com.devbrackets.android.exomedia.listener.OnCompletionListener;
@@ -9,81 +10,78 @@ import com.devbrackets.android.exomedia.listener.OnErrorListener;
 import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.devbrackets.android.exomedia.listener.OnSeekCompletionListener;
 import com.devbrackets.android.playlistcore.api.MediaPlayerApi;
-import com.devbrackets.android.playlistcore.listener.OnMediaBufferUpdateListener;
-import com.devbrackets.android.playlistcore.listener.OnMediaCompletionListener;
-import com.devbrackets.android.playlistcore.listener.OnMediaErrorListener;
-import com.devbrackets.android.playlistcore.listener.OnMediaPreparedListener;
-import com.devbrackets.android.playlistcore.listener.OnMediaSeekCompletionListener;
+//import com.devbrackets.android.playlistcore.listener.OnMediaBufferUpdateListener;
+//import com.devbrackets.android.playlistcore.listener.OnMediaCompletionListener;
+//import com.devbrackets.android.playlistcore.listener.OnMediaErrorListener;
+//import com.devbrackets.android.playlistcore.listener.OnMediaPreparedListener;
+//import com.devbrackets.android.playlistcore.listener.OnMediaSeekCompletionListener;
+import com.devbrackets.android.playlistcore.listener.MediaStatusListener;
 
-public abstract class BaseMediaApi implements
-        MediaPlayerApi,
+import org.jetbrains.annotations.NotNull;
+
+
+
+public abstract class BaseMediaApi implements MediaPlayerApi<AudioItem>,
         OnPreparedListener,
         OnCompletionListener,
         OnErrorListener,
         OnSeekCompletionListener,
-        OnBufferUpdateListener{
+        OnBufferUpdateListener {
 
     protected boolean mPrepared;
     protected int mBufferPercent;
 
-    // define and register the appropriate listeners
-    protected OnMediaPreparedListener mMediaPreparedListener;
-    protected OnMediaCompletionListener mMediaCompletionListener;
-    protected OnMediaSeekCompletionListener mMediaSeekCompletionListener;
-    protected OnMediaErrorListener mMediaErrorListener;
-    protected OnMediaBufferUpdateListener  mBufferUpdateListener;
+//    // define and register the appropriate listeners
+//    protected OnMediaPreparedListener mMediaPreparedListener;
+//    protected OnMediaCompletionListener mMediaCompletionListener;
+//    protected OnMediaSeekCompletionListener mMediaSeekCompletionListener;
+//    protected OnMediaErrorListener mMediaErrorListener;
+//    protected OnMediaBufferUpdateListener  mBufferUpdateListener;
+
+    protected MediaStatusListener<AudioItem> mediaStatusListener;
+
 
     @Override
-    public void setOnMediaPreparedListener(OnMediaPreparedListener listener) {
-        mMediaPreparedListener = listener;
+    public void setMediaStatusListener(@NotNull MediaStatusListener<AudioItem> listener) {
+        mediaStatusListener = listener;
     }
 
-    @Override
-    public void setOnMediaCompletionListener(OnMediaCompletionListener listener) {
-        mMediaCompletionListener = listener;
-    }
 
-    @Override
-    public void setOnMediaSeekCompletionListener(OnMediaSeekCompletionListener listener) {
-        mMediaSeekCompletionListener = listener;
-    }
-
-    @Override
-    public void setOnMediaErrorListener(OnMediaErrorListener listener) {
-        mMediaErrorListener = listener;
-    }
-
-    @Override
-    public void setOnMediaBufferUpdateListener(OnMediaBufferUpdateListener listener) {
-        mBufferUpdateListener = listener;
-    }
-
-    // forward exoplayer's listeners events
+    //     forward exoplayer's listeners events
     @Override
     public void onPrepared() {
         mPrepared = true;
-        if (mMediaPreparedListener != null) mMediaPreparedListener.onPrepared(this);
+        if (mediaStatusListener != null) {
+            mediaStatusListener.onPrepared(this);
+        }
     }
 
     @Override
     public void onCompletion() {
-        if (mMediaCompletionListener != null) mMediaCompletionListener.onCompletion(this);
+        if (mediaStatusListener != null) {
+            mediaStatusListener.onCompletion(this);
+        }
     }
 
     @Override
     public boolean onError() {
-        return mMediaErrorListener != null && mMediaErrorListener.onError(this);
+        return mediaStatusListener != null && mediaStatusListener.onError(this);
     }
 
     @Override
     public void onSeekComplete() {
-        if (mMediaSeekCompletionListener != null) mMediaSeekCompletionListener.onSeekComplete(this);
+        if (mediaStatusListener != null) {
+            mediaStatusListener.onSeekComplete(this);
+        }
     }
 
     @Override
     public void onBufferingUpdate(@IntRange(from = 0L, to = 100L) int percent) {
         mBufferPercent = percent;
-        if (mBufferUpdateListener != null) mBufferUpdateListener.onBufferingUpdate(this, percent);
+        if (mediaStatusListener != null) {
+            mediaStatusListener.onBufferingUpdate(this, percent);
+        }
+
     }
 
 }
