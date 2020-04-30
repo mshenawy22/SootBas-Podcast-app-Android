@@ -25,9 +25,9 @@ import android.support.v4.media.session.MediaSessionCompat
  * for the Playlist.
  *
  * TODO: This should end up taking place of the notification helper and be delegated by
- * the PlaylistService so that we won't need the BasePlaylistService and PlaylistServiceCore
+ * the PlaylistService so that we won't need the BasePlaylistService and BasePlaylistService
  * to be separate anymore
  */
-interface PlaylistNotificationPresenter {
+interface PlaylistNotificationProvider {
     fun buildNotification(info: MediaInfo, mediaSession: MediaSessionCompat, serviceClass: Class<out Service>) : Notification
 }

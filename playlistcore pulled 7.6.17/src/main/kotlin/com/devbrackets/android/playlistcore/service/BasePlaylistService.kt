@@ -25,9 +25,9 @@ import com.devbrackets.android.playlistcore.R
 import com.devbrackets.android.playlistcore.helper.MediaControlsHelper
 import com.devbrackets.android.playlistcore.helper.mediasession.DefaultMediaSessionProvider
 import com.devbrackets.android.playlistcore.helper.mediasession.MediaSessionProvider
-import com.devbrackets.android.playlistcore.helper.notification.DefaultPlaylistNotificationPresenter
+import com.devbrackets.android.playlistcore.helper.notification.DefaultPlaylistNotificationProvider
 import com.devbrackets.android.playlistcore.helper.notification.MediaInfo
-import com.devbrackets.android.playlistcore.helper.notification.PlaylistNotificationPresenter
+import com.devbrackets.android.playlistcore.helper.notification.PlaylistNotificationProvider
 import com.devbrackets.android.playlistcore.manager.BasePlaylistManager
 import com.devbrackets.android.playlistcore.manager.IPlaylistItem
 
@@ -48,7 +48,7 @@ abstract class BasePlaylistService<I : IPlaylistItem, M : BasePlaylistManager<I>
     protected var foregroundSetup: Boolean = false
     protected var notificationSetup: Boolean = false
 
-    protected lateinit var notificationPresenter: PlaylistNotificationPresenter
+    protected lateinit var notificationPresenter: PlaylistNotificationProvider
     protected lateinit var mediaSessionProvider: MediaSessionProvider
 
     protected val notificationManager: NotificationManager by lazy {
@@ -152,7 +152,7 @@ abstract class BasePlaylistService<I : IPlaylistItem, M : BasePlaylistManager<I>
 
     override fun onServiceCreate() {
         super.onServiceCreate()
-        notificationPresenter = DefaultPlaylistNotificationPresenter(applicationContext)
+        notificationPresenter = DefaultPlaylistNotificationProvider(applicationContext)
         mediaSessionProvider = DefaultMediaSessionProvider(applicationContext, javaClass)
         mediaControlsHelper = MediaControlsHelper(applicationContext)
     }
@@ -166,7 +166,7 @@ abstract class BasePlaylistService<I : IPlaylistItem, M : BasePlaylistManager<I>
         }
 
         foregroundSetup = true
-//        startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
+    //        startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
     }
 
     /**
