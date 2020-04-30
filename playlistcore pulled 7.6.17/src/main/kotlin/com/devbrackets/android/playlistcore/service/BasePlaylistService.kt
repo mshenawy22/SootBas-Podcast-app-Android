@@ -166,7 +166,7 @@ abstract class BasePlaylistService<I : IPlaylistItem, M : BasePlaylistManager<I>
         }
 
         foregroundSetup = true
-        startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
+//        startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
     }
 
     /**

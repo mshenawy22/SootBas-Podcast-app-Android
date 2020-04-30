@@ -37,8 +37,9 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     private Picasso mPicasso;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void onServiceCreate() {
+
+        super.onServiceCreate();
         mPicasso = Picasso.with(getApplicationContext());
         // Timber.i("LOG Service onCreate called");
     }
@@ -49,11 +50,11 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         // Timber.i("LOG Service onDestroy called");
     }
 
-    @Override
-    protected void onServiceCreate() {
-        super.onServiceCreate();
-        Timber.i("LOG Service onServiceCreated called");
-    }
+//    @Override
+//    protected void onServiceCreate() {
+//        super.onServiceCreate();
+//        Timber.i("LOG Service onServiceCreated called");
+//    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
