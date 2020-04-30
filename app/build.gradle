@@ -64,7 +64,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation project(path: ':playlistcore 7.6.17')
+    implementation project(path: ':playlistcore pulled 7.6.17')
 
 }
 repositories {

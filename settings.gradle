@@ -1,1 +1,1 @@
-include ':app', ':playlistcore 7.6.17'
+include ':app', ':playlistcore pulled 7.6.17'

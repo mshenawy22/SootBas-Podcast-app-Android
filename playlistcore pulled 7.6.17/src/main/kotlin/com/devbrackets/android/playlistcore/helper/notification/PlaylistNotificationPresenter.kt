@@ -29,5 +29,5 @@ import android.support.v4.media.session.MediaSessionCompat
  * to be separate anymore
  */
 interface PlaylistNotificationPresenter {
-    fun buildNotification(info: NotificationInfo, mediaSession: MediaSessionCompat, serviceClass: Class<out Service>) : Notification
+    fun buildNotification(info: MediaInfo, mediaSession: MediaSessionCompat, serviceClass: Class<out Service>) : Notification
 }
