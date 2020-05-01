@@ -26,7 +26,7 @@ import android.support.v7.app.NotificationCompat
 import com.devbrackets.android.playlistcore.R
 import com.devbrackets.android.playlistcore.service.RemoteActions
 
-open class fDefaultPlaylistNotificationProvider(protected val context: Context) : PlaylistNotificationProvider {
+open class DefaultPlaylistNotificationProvider(protected val context: Context) : PlaylistNotificationProvider {
     companion object {
         const val CHANNEL_ID = "PlaylistCoreMediaNotificationChannel"
     }
