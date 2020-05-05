@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "136107236592",
+    "firebase_url": "https://sootbas.firebaseio.com",
+    "project_id": "sootbas",
+    "storage_bucket": "sootbas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136107236592:android:7d22298a6dea85f8997635",
+        "android_client_info": {
+          "package_name": "com.sootbas.sootbasapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136107236592-5qdrt45bpfvrl4ip0o20u3qm9iima7e1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQqY1QirkAoU2bI-ia4E5CXPNp3zyJh3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136107236592-5qdrt45bpfvrl4ip0o20u3qm9iima7e1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136107236592-ddi6t6pditc2f9nmuil4cct4ig7a3ft3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sootbas.sootbasapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
