@@ -12,7 +12,7 @@ public class ItunesGenreDataCache {
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_GAMES_AND_HOBBIES, "Games and Hobbies", R.drawable.games),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_GOVERNMENT_AND_ORGANISATIONS, "Government", R.drawable.government),
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_HEALTH, "Health & Fitness", R.drawable.health),
-            new ItunesGenre(ItunesGenreIdConstants.LIFE_COACHING, "Life Coaching", R.drawable.lifecoach),
+            new ItunesGenre(ItunesGenreIdConstants.PODCAST_SELFDEVELOPMENT, "Self Development", R.drawable.selfdevelopment),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_MUSIC, "Music", R.drawable.music),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_NEWS_AND_POLITICS, "News and Politics", R.drawable.news_and_politics),
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_RELIGION_AND_SPIRITUALITY, "Islamic", R.drawable.religion),

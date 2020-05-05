@@ -309,14 +309,32 @@ public class MainActivity extends AppCompatActivity implements
 
             "" );
 
+    static  Podcast AymanMostafa_podcast = new Podcast(
 
+            /* artistName;*/"Ayman Mostafa",
+            /* collectionName;*/ "أيمن مصطفي",
+            /* feedUrl; */ "https://anchor.fm/s/1f96a608/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AymanMostafa600.jpg",
 
+            "" );
 
+    static  Podcast AhmedRoshdy_podcast = new Podcast(
 
+            /* artistName;*/"Ahmed Roshdy",
+            /* collectionName;*/ "أحمد رشدي",
+            /* feedUrl; */ "https://anchor.fm/s/1fa83a6c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AhmedRoshdy.jpg",
 
+            "" );
 
+    static Podcast karimanMaher_podcast = new Podcast(
 
+            /* artistName;*/"Kariman Maher",
+            /* collectionName;*/ "كريمان ماهر",
+            /* feedUrl; */ "https://anchor.fm/s/1f979db0/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/KarimanMaher.jpg",
 
+            "" );
 
 
 
@@ -366,7 +384,7 @@ public class MainActivity extends AppCompatActivity implements
                 mProgressBar.setVisibility(View.GONE);
 //                ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
                 ArrayList<Podcast> list;
-                ArrayList <Podcast>  Lifecoach_Podcast_list = new ArrayList<Podcast>() ;
+                ArrayList <Podcast>  SelfDevelopment_Podcast_list = new ArrayList<Podcast>() ;
                 ArrayList <Podcast>  Religion_Podcast_list = new ArrayList<Podcast>() ;
                 ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
                 ArrayList <Podcast>  HealthandFitness_Podcast_list = new ArrayList<Podcast>() ;
@@ -376,20 +394,25 @@ public class MainActivity extends AppCompatActivity implements
                 ArrayList <Podcast> BooksReview_Podcast_list = new ArrayList<Podcast>() ;
                 ArrayList <Podcast> Women_Podcast_list = new ArrayList<Podcast>() ;
 
-
-
-                Lifecoach_Podcast_list.add(OmarBahaa_podcast);
+                SelfDevelopment_Podcast_list.add(OmarBahaa_podcast);
+                SelfDevelopment_Podcast_list.add(AhmedRoshdy_podcast);
+                SelfDevelopment_Podcast_list.add(karimanMaher_podcast);
                 Religion_Podcast_list.add(SeifEldeeb_podcast);
                 Religion_Podcast_list.add(AhmedHossamAbdeen_podcast);
                 HealthandFitness_Podcast_list.add(NourhanKandil_podcast);
                 Comedy_Podcast_list.add(WaleedMostafa_podcast);
                 Comedy_Podcast_list.add(WaelelBasel_podcast);
+                Comedy_Podcast_list.add(AymanMostafa_podcast);
                 Comedy_Podcast_list.add(ObamaElMasry_podcast);
                 Travel_Podcast_list.add(MohamedHady_podcast);
                 FilmReviews_Podcast_list.add(FilmGamed_podcast);
                 SelfLearning_Podcast_list.add(ElDa7ee7_podcast);
                 BooksReview_Podcast_list.add(Zatoona_podcast);
+                BooksReview_Podcast_list.add(AhmedRoshdy_podcast);
                 Women_Podcast_list.add(MariamSakr_podcast);
+
+
+
 
 
 
@@ -397,9 +420,9 @@ public class MainActivity extends AppCompatActivity implements
                 if (genreTitle == "Islamic") {
                    list = Religion_Podcast_list ;
                 }
-                else if (genreTitle == "Life Coaching")
+                else if (genreTitle == "Self Development")
                 {
-                   list = Lifecoach_Podcast_list;
+                   list = SelfDevelopment_Podcast_list;
                 }
                 else if (genreTitle == "Health & Fitness" )
                 {
@@ -430,6 +453,7 @@ public class MainActivity extends AppCompatActivity implements
                 {
                     list = Women_Podcast_list ;
                 }
+
                 else {
                     list = SelfLearning_Podcast_list ;
                 }
