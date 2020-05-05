@@ -32,5 +32,8 @@ public class ItunesGenreIdConstants {
     public static final int PODCAST_SELF_HELP = 1420;
     public static final int PODCAST_VISUAL_ARTS = 1406;
     public static final int PODCAST_INVESTING = 1412;
+    public static final int PODCAST_Books_Reviews = 1413;
+    public static final int PODCAST_Women = 1413;
+
 
 }
