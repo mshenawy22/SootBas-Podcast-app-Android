@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Handler;
+import com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity;
+
 
 
 public class SplashScreenActivity extends AppCompatActivity{
@@ -16,7 +18,10 @@ public class SplashScreenActivity extends AppCompatActivity{
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                MainActivity.launch(SplashScreenActivity.this);
+//                MainActivity.launch(SplashScreenActivity.this);
+                TrendingNewsActivity.launch(SplashScreenActivity.this);
+
+
                 finish();
             }
         }, 2000);
