@@ -38,11 +38,11 @@ public class PodcastActivity extends BaseActivity implements
         // launch EpisodesActivity and display Podcast Info and episode list
         if (Utils.isClientConnected(this)) {
             if (item.getFeedUrl() != null && !item.getFeedUrl().isEmpty()) {
-//                if (item.getFeedUrl().contains(Constants.FEED_BURNER_BASE_URL)) { // FIXME
-//                    Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
-//                } else {
+                if (item.getFeedUrl().contains(Constants.FEED_BURNER_BASE_URL)) { // FIXME
+                    Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
+                } else {
                     executeEpisodeQuery(item);
-                //}
+                }
             } else {
                 Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
             }
