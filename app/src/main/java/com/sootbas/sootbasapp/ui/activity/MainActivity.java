@@ -35,7 +35,7 @@ import com.sootbas.sootbasapp.rest.ApiClient;
 import com.sootbas.sootbasapp.rest.ApiInterface;
 import com.sootbas.sootbasapp.ui.fragment.GenreItemFragment;
 import com.sootbas.sootbasapp.ui.fragment.ListItemFragment;
-
+import com.sootbas.sootbasapp.model.genre.PodcastLists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements
         ListItemFragment.Contract {
 
 
+    private PodcastLists podlist ;
     // implementation of interface methods
     @Override
     public void listItemClick(int position) {
@@ -107,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements
         setupViewPager(viewPager);
         mTabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+//creating  instance of podcast list that will we displayed when opening the categories
+        podlist = new PodcastLists();
 
         // ensures there is a ref to suggestions on startup/device rotation
         mRecentSuggestions = new SearchRecentSuggestions(
@@ -114,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements
                 QuerySuggestionProvider.AUTHORITY,
                 QuerySuggestionProvider.MODE
         );
+
 
     }
 
@@ -182,160 +186,6 @@ public class MainActivity extends AppCompatActivity implements
         }
     };
 
-//
-//    static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
-//
-//            /* artistName;*/"Ahmed jj Hassan Family",
-//            /* collectionName;*/ "AHmed jj Hassan Family vlogs",
-//            /* feedUrl; */ "https://anchor.fm/s/19653114/podcast/rss",
-//            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmed%20w%20zenab%20600.jpg",
-//            "https://anchor.fm/ahmed-hassan-w-zeinab"
-//
-//    );
-//
-    static  Podcast ObamaElMasry_podcast = new Podcast(
-
-            /* artistName;*/"Obama El Masry",
-            /* collectionName;*/ "Obama El Masry comedy",
-            /* feedUrl; */ "https://anchor.fm/s/19661084/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/obama%20el%20masry%20600.jpg",
-            "https://anchor.fm/obama-el-masry"
-
-    );
-
-    static  Podcast NourhanKandil_podcast = new Podcast(
-
-            /* artistName;*/"Dr Nourhan Kandil",
-            /* collectionName;*/ "Dr Nourhan Kandil health tips",
-            /* feedUrl; */ "https://anchor.fm/s/1958091c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/nourhan%20kandil%20600.jpg",
-
-            ""
-
-    );
-
-        static  Podcast OmarBahaa_podcast = new Podcast(
-
-            /* artistName;*/"Omar Bahaa",
-            /* collectionName;*/ "Omar Bahaa life coaching",
-            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/omarbahaa600.jpg",
-
-            ""
-
-    );
-
-    static  Podcast SeifEldeeb_podcast = new Podcast(
-
-            /* artistName;*/"Seif Eldeeb",
-            /* collectionName;*/ "سيف الديب",
-            /* feedUrl; */ "https://anchor.fm/s/1b342d4c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/SeifElDeeb600.jpg",
-
-            ""
-
-    );
-
-    static  Podcast AhmedHossamAbdeen_podcast = new Podcast(
-
-            /* artistName;*/"Ahmed Hossam",
-            /* collectionName;*/ "احمد حسام عابدين",
-            /* feedUrl; */ "https://anchor.fm/s/1b6d50a4/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmedhossamabdeen600.png",
-
-            "" );
-
-    static  Podcast MohamedHady_podcast = new Podcast(
-
-            /* artistName;*/"Mohamed Hady",
-            /* collectionName;*/ "محمد هادي",
-            /* feedUrl; */ " https://anchor.fm/s/1eab2e58/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/MohamedHady600.jpg",
-
-            "" );
-
-
-    static  Podcast FilmGamed_podcast = new Podcast(
-
-            /* artistName;*/"Film Gamed",
-            /* collectionName;*/ "فيلم جامد",
-            /* feedUrl; */ " https://anchor.fm/s/1ebe224c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/filmgamed600.jpg",
-
-            "" );
-
-    static  Podcast WaleedMostafa_podcast = new Podcast(
-
-            /* artistName;*/"Waleed Mostafa",
-            /* collectionName;*/ "وليد مصطفي",
-            /* feedUrl; */ " https://anchor.fm/s/1e71c1f4/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/waleedmostafa600.jpg",
-
-            "" );
-
-    static  Podcast ElDa7ee7_podcast = new Podcast(
-
-            /* artistName;*/"El Da7ee7",
-            /* collectionName;*/ "الدحيح",
-            /* feedUrl; */ " https://anchor.fm/s/19f63614/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/da7ee7%20600.jpg",
-
-            "" );
-
-    static  Podcast Zatoona_podcast = new Podcast(
-
-            /* artistName;*/"El Zatoona",
-            /* collectionName;*/ "الزتونة",
-            /* feedUrl; */ " https://anchor.fm/s/1ebd8b20/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/elzatoona.png",
-
-            "" );
-
-    static  Podcast MariamSakr_podcast = new Podcast(
-
-            /* artistName;*/"Mariam Sakr",
-            /* collectionName;*/ "مريم صقر",
-            /* feedUrl; */ "https://anchor.fm/s/1956f3c4/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/mariamm%20sakr%20600.jpg",
-
-            "" );
-
-    static  Podcast WaelelBasel_podcast = new Podcast(
-
-            /* artistName;*/"Wael ElBasel",
-            /* collectionName;*/ "وائل الباسل",
-            /* feedUrl; */ "https://anchor.fm/s/1f820144/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/waelelbasel600.png",
-
-            "" );
-
-    static  Podcast AymanMostafa_podcast = new Podcast(
-
-            /* artistName;*/"Ayman Mostafa",
-            /* collectionName;*/ "أيمن مصطفي",
-            /* feedUrl; */ "https://anchor.fm/s/1f96a608/podcast/rss",
-            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AymanMostafa600.jpg",
-
-            "" );
-
-    static  Podcast AhmedRoshdy_podcast = new Podcast(
-
-            /* artistName;*/"Ahmed Roshdy",
-            /* collectionName;*/ "أحمد رشدي",
-            /* feedUrl; */ "https://anchor.fm/s/1fa83a6c/podcast/rss",
-            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AhmedRoshdy.jpg",
-
-            "" );
-
-    static Podcast karimanMaher_podcast = new Podcast(
-
-            /* artistName;*/"Kariman Maher",
-            /* collectionName;*/ "كريمان ماهر",
-            /* feedUrl; */ "https://anchor.fm/s/1f979db0/podcast/rss",
-            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/KarimanMaher.jpg",
-
-            "" );
-
 
 
 
@@ -384,78 +234,49 @@ public class MainActivity extends AppCompatActivity implements
                 mProgressBar.setVisibility(View.GONE);
 //                ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
                 ArrayList<Podcast> list;
-                ArrayList <Podcast>  SelfDevelopment_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Religion_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  HealthandFitness_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Travel_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  FilmReviews_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  SelfLearning_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast> BooksReview_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast> Women_Podcast_list = new ArrayList<Podcast>() ;
 
-                SelfDevelopment_Podcast_list.add(OmarBahaa_podcast);
-                SelfDevelopment_Podcast_list.add(AhmedRoshdy_podcast);
-                SelfDevelopment_Podcast_list.add(karimanMaher_podcast);
-                Religion_Podcast_list.add(SeifEldeeb_podcast);
-                Religion_Podcast_list.add(AhmedHossamAbdeen_podcast);
-                HealthandFitness_Podcast_list.add(NourhanKandil_podcast);
-                Comedy_Podcast_list.add(WaleedMostafa_podcast);
-                Comedy_Podcast_list.add(WaelelBasel_podcast);
-                Comedy_Podcast_list.add(AymanMostafa_podcast);
-                Comedy_Podcast_list.add(ObamaElMasry_podcast);
-                Travel_Podcast_list.add(MohamedHady_podcast);
-                FilmReviews_Podcast_list.add(FilmGamed_podcast);
-                SelfLearning_Podcast_list.add(ElDa7ee7_podcast);
-                BooksReview_Podcast_list.add(Zatoona_podcast);
-                BooksReview_Podcast_list.add(AhmedRoshdy_podcast);
-                Women_Podcast_list.add(MariamSakr_podcast);
+                if (genreTitle.equals("Islamic")) {
 
-
-
-
-
-
-
-                if (genreTitle == "Islamic") {
-                   list = Religion_Podcast_list ;
+                   list = podlist.getFilmReviews_Podcast_list();
                 }
-                else if (genreTitle == "Self Development")
+                else if (genreTitle.equals("Self Development"))
                 {
-                   list = SelfDevelopment_Podcast_list;
+                   list =  podlist.getSelfDevelopment_Podcast_list();
+
                 }
-                else if (genreTitle == "Health & Fitness" )
+                else if (genreTitle.equals("Health & Fitness") )
                 {
-                  list = HealthandFitness_Podcast_list;
+                  list =  podlist.getHealthandFitness_Podcast_list();
                 }
-                else if (genreTitle == "Comedy")
+                else if (genreTitle.equals("Comedy"))
                 {
-                    list = Comedy_Podcast_list;
+                    list =  podlist.getComedy_Podcast_list();
                 }
-                else if (genreTitle == "Travel Stories")
+                else if (genreTitle.equals("Travel Stories"))
                 {
-                    list = Travel_Podcast_list;
+                    list =  podlist.getTravel_Podcast_list();
                 }
 
-                else if (genreTitle == "TV and Film Reviews")
+                else if (genreTitle.equals("TV and Film Reviews"))
                 {
-                    list = FilmReviews_Podcast_list;
+                    list =  podlist.getFilmReviews_Podcast_list();
                 }
-                else if (genreTitle == "Self Learning")
+                else if (genreTitle.equals("Self Learning"))
                  {
-                    list = SelfLearning_Podcast_list ;
+                    list =  podlist.getSelfLearning_Podcast_list();
                 }
-                else if (genreTitle ==  "Books Reviews"){
-
-                    list = BooksReview_Podcast_list ;
-                }
-                else if (genreTitle ==  "Women")
+                else if (genreTitle.equals("Books Reviews"))
                 {
-                    list = Women_Podcast_list ;
+
+                    list =  podlist.getBooksReview_Podcast_list() ;
+                }
+                else if (genreTitle.equals("Women"))
+                {
+                    list =  podlist.getWomen_Podcast_list() ;
                 }
 
                 else {
-                    list = SelfLearning_Podcast_list ;
+                    list =  podlist.getSelfLearning_Podcast_list() ;
                 }
 
 
