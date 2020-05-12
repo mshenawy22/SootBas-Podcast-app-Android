@@ -69,14 +69,14 @@ public class PodcastActivity extends BaseActivity implements
         activity.startActivity(intent);
     }
 
-    public static void launch(Activity activity, ArrayList<Podcast> list) {
+    public static void launch(Activity activity, Podcast item) {
         Intent intent = new Intent(activity, PodcastActivity.class);
 
 
-        intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, list);
+         intent.putExtra(Constants.PODCAST_ITEM, item);
 
-        intent.putExtra(Constants.PODCAST_TITLE, "Self Learning");
-        intent.putExtra(Constants.PODCAST_SEARCH, false);
+//        intent.putExtra(Constants.PODCAST_TITLE, "Self Learning");
+//        intent.putExtra(Constants.PODCAST_SEARCH, false);
     }
 
     private CoordinatorLayout mLayout;
@@ -105,11 +105,26 @@ public class PodcastActivity extends BaseActivity implements
             }
         }
 
+
+
         // retrieve the genreId and load the genre fragment
         if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) == null) {
             ArrayList<Podcast> list = getIntent().getParcelableArrayListExtra(Constants.PODCAST_LIST);
             initFragment(PodcastFragment.newInstance(list));
         }
+
+        boolean isOpenDirectly = getIntent().getBooleanExtra(Constants.DIRECTLY_OPEN_TRENDING, false);
+        Podcast podcast_open_directly = getIntent().getParcelableExtra(Constants.PODCAST_ITEM);
+
+        if (isOpenDirectly == true)
+        {
+            if (podcast_open_directly != null) {
+                executeEpisodeQuery(podcast_open_directly);
+            }
+        }
+
+
+
 
     }
 

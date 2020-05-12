@@ -132,15 +132,11 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 //mshenawy
-                ArrayList <Podcast>  test_podcast_list = new ArrayList<Podcast>();
-                test_podcast_list.add(PodcastsConstants.AhmedHossamAbdeen_podcast);
-
 
 
                 Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
-                podcast_intent.putExtra(Constants.PODCAST_LIST, test_podcast_list);
-                podcast_intent.putExtra(Constants.PODCAST_TITLE, "test");
-                podcast_intent.putExtra(Constants.PODCAST_SEARCH, false);
+                podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ElDa7ee7_podcast);
+                podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING,true);
 
                 startActivity(podcast_intent);
 
