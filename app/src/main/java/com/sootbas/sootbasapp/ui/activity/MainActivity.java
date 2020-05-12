@@ -310,7 +310,7 @@ public class MainActivity extends AppCompatActivity implements
     private void setupTabIcons() {
 //        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
 //        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
-//        mTabLayout.getTabAt(2).setIcon(mTabIcons[2]);
+//        mTabLayout.getTabAt(2)p.setIcon(mTabIcons[2]);
         //mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);
     }
 

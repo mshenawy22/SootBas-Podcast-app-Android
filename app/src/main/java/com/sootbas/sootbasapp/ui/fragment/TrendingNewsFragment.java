@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.sootbas.sootbasapp.common.Constants;
 import com.sootbas.sootbasapp.common.PodcastsConstants;
+import com.sootbas.sootbasapp.model.genre.PodcastLists;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 import com.sootbas.sootbasapp.ui.Adapters.MainNewsAdapter;
 import com.sootbas.sootbasapp.custom.NewsData;
@@ -59,6 +60,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     private static final String showFieldsValue = "thumbnail";
     private static final String nameOfAuthor = "contributor";
     private static final String showMostViewed = "show-most-viewed";
+
     /** Adapter for the list of earthquakes */
     private MainNewsAdapter mAdapter;
 
@@ -70,6 +72,8 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
      * This really only comes into play if you're using multiple loaders.
      */
     private static final int NEWS_LOADER_ID = 1;
+
+    private PodcastLists podlist ;
 
     LoaderManager loaderManager;
     boolean isConnected;
@@ -131,15 +135,19 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
+
 //mshenawy
 //
+                podlist = new PodcastLists();
                Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
                String podcast_channel = newsData.getUrlOfStory();
+
 
 
                 if( podcast_channel.equals("elda7ee7")) {
 
                     podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ElDa7ee7_podcast);
+                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
 
 
 
@@ -147,11 +155,13 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
                 else if (podcast_channel.equals("filmgamed")) {
 
                     podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.FilmGamed_podcast);
+                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getFilmReviews_Podcast_list());
                 }
 
 
 
-                    podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING, true);
+
+                podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING, true);
                 startActivity(podcast_intent);
 
             }
