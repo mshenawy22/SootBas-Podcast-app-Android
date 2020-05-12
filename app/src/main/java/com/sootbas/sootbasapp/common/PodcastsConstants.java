@@ -150,4 +150,19 @@ public class PodcastsConstants {
             "" );
 
 
+    static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
+
+            /* artistName;*/"Ahmed jj Hassan Family",
+            /* collectionName;*/ "AHmed jj Hassan Family vlogs",
+            /* feedUrl; */ "https://anchor.fm/s/19653114/podcast/rss",
+            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmed%20w%20zenab%20600.jpg",
+            "https://anchor.fm/ahmed-hassan-w-zeinab"
+
+    );
+
+
+
+
 }
+
+

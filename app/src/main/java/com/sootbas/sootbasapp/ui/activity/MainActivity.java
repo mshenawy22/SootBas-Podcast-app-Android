@@ -27,7 +27,6 @@ import android.widget.ProgressBar;
 
 import com.sootbas.sootbasapp.R;
 import com.sootbas.sootbasapp.common.Constants;
-import com.sootbas.sootbasapp.common.PodcastsConstants;
 import com.sootbas.sootbasapp.common.Utils;
 import com.sootbas.sootbasapp.custom.QuerySuggestionProvider;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
@@ -36,8 +35,7 @@ import com.sootbas.sootbasapp.rest.ApiClient;
 import com.sootbas.sootbasapp.rest.ApiInterface;
 import com.sootbas.sootbasapp.ui.fragment.GenreItemFragment;
 import com.sootbas.sootbasapp.ui.fragment.ListItemFragment;
-import com.sootbas.sootbasapp.common.PodcastsConstants;
-
+import com.sootbas.sootbasapp.model.genre.PodcastLists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements
         ListItemFragment.Contract {
 
 
+    private PodcastLists podlist ;
     // implementation of interface methods
     @Override
     public void listItemClick(int position) {
@@ -109,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements
         setupViewPager(viewPager);
         mTabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+//creating  instance of podcast list that will we displayed when opening the categories
+        podlist = new PodcastLists();
 
         // ensures there is a ref to suggestions on startup/device rotation
         mRecentSuggestions = new SearchRecentSuggestions(
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements
                 QuerySuggestionProvider.AUTHORITY,
                 QuerySuggestionProvider.MODE
         );
+
 
     }
 
@@ -186,6 +188,8 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
+
+
     // search iTunes for podcasts matching the search query
     private void executeSearchQuery(final String query) {
         mProgressBar.setVisibility(View.VISIBLE);
@@ -230,78 +234,49 @@ public class MainActivity extends AppCompatActivity implements
                 mProgressBar.setVisibility(View.GONE);
 //                ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
                 ArrayList<Podcast> list;
-                ArrayList <Podcast>  SelfDevelopment_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Religion_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  HealthandFitness_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Travel_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  FilmReviews_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  SelfLearning_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast> BooksReview_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast> Women_Podcast_list = new ArrayList<Podcast>() ;
 
-                SelfDevelopment_Podcast_list.add(PodcastsConstants.OmarBahaa_podcast);
-                SelfDevelopment_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
-                SelfDevelopment_Podcast_list.add(PodcastsConstants.karimanMaher_podcast);
-                Religion_Podcast_list.add(PodcastsConstants.SeifEldeeb_podcast);
-                Religion_Podcast_list.add(PodcastsConstants.AhmedHossamAbdeen_podcast);
-                HealthandFitness_Podcast_list.add(PodcastsConstants.NourhanKandil_podcast);
-                Comedy_Podcast_list.add(PodcastsConstants.WaleedMostafa_podcast);
-                Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
-                Comedy_Podcast_list.add(PodcastsConstants.AymanMostafa_podcast);
-                Comedy_Podcast_list.add(PodcastsConstants.ObamaElMasry_podcast);
-                Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
-                FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
-                SelfLearning_Podcast_list.add(PodcastsConstants.ElDa7ee7_podcast);
-                BooksReview_Podcast_list.add(PodcastsConstants.Zatoona_podcast);
-                BooksReview_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
-                Women_Podcast_list.add(PodcastsConstants.MariamSakr_podcast);
+                if (genreTitle.equals("Islamic")) {
 
-
-
-
-
-
-
-                if (genreTitle == "Islamic") {
-                   list = Religion_Podcast_list ;
+                    list = podlist.getFilmReviews_Podcast_list();
                 }
-                else if (genreTitle == "Self Development")
+                else if (genreTitle.equals("Self Development"))
                 {
-                   list = SelfDevelopment_Podcast_list;
+                    list =  podlist.getSelfDevelopment_Podcast_list();
+
                 }
-                else if (genreTitle == "Health & Fitness" )
+                else if (genreTitle.equals("Health & Fitness") )
                 {
-                  list = HealthandFitness_Podcast_list;
+                    list =  podlist.getHealthandFitness_Podcast_list();
                 }
-                else if (genreTitle == "Comedy")
+                else if (genreTitle.equals("Comedy"))
                 {
-                    list = Comedy_Podcast_list;
+                    list =  podlist.getComedy_Podcast_list();
                 }
-                else if (genreTitle == "Travel Stories")
+                else if (genreTitle.equals("Travel Stories"))
                 {
-                    list = Travel_Podcast_list;
+                    list =  podlist.getTravel_Podcast_list();
                 }
 
-                else if (genreTitle == "TV and Film Reviews")
+                else if (genreTitle.equals("TV and Film Reviews"))
                 {
-                    list = FilmReviews_Podcast_list;
+                    list =  podlist.getFilmReviews_Podcast_list();
                 }
-                else if (genreTitle == "Self Learning")
-                 {
-                    list = SelfLearning_Podcast_list ;
+                else if (genreTitle.equals("Self Learning"))
+                {
+                    list =  podlist.getSelfLearning_Podcast_list();
                 }
-                else if (genreTitle ==  "Books Reviews"){
+                else if (genreTitle.equals("Books Reviews"))
+                {
 
-                    list = BooksReview_Podcast_list ;
+                    list =  podlist.getBooksReview_Podcast_list() ;
                 }
-                else if (genreTitle ==  "Women")
+                else if (genreTitle.equals("Women"))
                 {
-                    list = Women_Podcast_list ;
+                    list =  podlist.getWomen_Podcast_list() ;
                 }
 
                 else {
-                    list = SelfLearning_Podcast_list ;
+                    list =  podlist.getSelfLearning_Podcast_list() ;
                 }
 
 
