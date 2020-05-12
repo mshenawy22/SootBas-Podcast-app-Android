@@ -91,9 +91,10 @@ public class MainNewsAdapter extends ArrayAdapter<NewsData> {
         TextView dateView = (TextView) newsListView.findViewById(R.id.date);
         String Date = originalDateTime.substring(0,10);
         dateView.setText(Date);
-        TextView timeView = (TextView) newsListView.findViewById(R.id.time);
-        String Time = originalDateTime.substring(11,16);
-        timeView.setText(Time);
+        //mshenawy : we don't need to display he publishing time in the trending page 
+//        TextView timeView = (TextView) newsListView.findViewById(R.id.time);
+//        String Time = originalDateTime.substring(11,16);
+//        timeView.setText(Time);
 
         return newsListView;
 
