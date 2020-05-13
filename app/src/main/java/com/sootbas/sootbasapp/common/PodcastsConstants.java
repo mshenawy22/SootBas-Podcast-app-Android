@@ -150,7 +150,7 @@ public class PodcastsConstants {
             "" );
 
 
-    static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
+    public static final  Podcast AhmedHassanwZeinab_podcast = new Podcast(
 
             /* artistName;*/"Ahmed jj Hassan Family",
             /* collectionName;*/ "AHmed jj Hassan Family vlogs",
@@ -159,6 +159,19 @@ public class PodcastsConstants {
             "https://anchor.fm/ahmed-hassan-w-zeinab"
 
     );
+
+
+    public static final Podcast MostafaElBanna_podcast = new Podcast(
+
+            /* artistName;*/"Mostafa ElBanna ",
+            /* collectionName;*/ "سعفان",
+            /* feedUrl; */ "https://anchor.fm/s/1f46570c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MostafaElBanna.jpg",
+            ""
+
+    );
+
+
 
 
 

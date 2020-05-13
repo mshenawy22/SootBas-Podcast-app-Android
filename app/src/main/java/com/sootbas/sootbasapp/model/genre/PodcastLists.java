@@ -29,6 +29,9 @@ public class PodcastLists {
         Comedy_Podcast_list.add(PodcastsConstants.WaleedMostafa_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.AymanMostafa_podcast);
+        Comedy_Podcast_list.add(PodcastsConstants.MostafaElBanna_podcast);
+
+
 
         Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
         FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
