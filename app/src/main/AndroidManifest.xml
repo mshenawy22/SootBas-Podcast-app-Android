@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.sootbas.sootbasapp">
+          package="com.sootbas.sootbasappHizar">
 
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -11,7 +11,7 @@
 
 
     <application
-        android:name="com.sootbas.sootbasapp.PodcastPlayerApplication"
+        android:name="com.sootbas.sootbasappHizar.PodcastPlayerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/notification"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
 
         <!-- Splash Screen -->
         <activity
-            android:name="com.sootbas.sootbasapp.ui.activity.SplashScreenActivity"
+            android:name="com.sootbas.sootbasappHizar.ui.activity.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -41,7 +41,7 @@
 
 
         <activity
-            android:name="com.sootbas.sootbasapp.ui.activity.MainActivity"
+            android:name="com.sootbas.sootbasappHizar.ui.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/CustomMaterialTheme">
             <intent-filter>
@@ -53,47 +53,46 @@
         </activity>
 
 
-        <activity android:name="com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity">
-            android:label="@string/app_name"
-            android:theme="@style/CustomMaterialTheme">
+        <activity android:name="com.sootbas.sootbasappHizar.ui.activity.TrendingNewsActivity">
+
         </activity>
 
 
         <activity
-            android:name="com.sootbas.sootbasapp.ui.activity.PodcastActivity"
-            android:parentActivityName="com.sootbas.sootbasapp.ui.activity.MainActivity"
+            android:name="com.sootbas.sootbasappHizar.ui.activity.PodcastActivity"
+            android:parentActivityName="com.sootbas.sootbasappHizar.ui.activity.MainActivity"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.sootbas.sootbasapp.ui.activity.MainActivity"/>
+                android:value="com.sootbas.sootbasappHizar.ui.activity.MainActivity"/>
         </activity>
 
         <activity
-            android:name="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"
+            android:name="com.sootbas.sootbasappHizar.ui.activity.EpisodesActivity"
             android:label="@string/title_activity_episode"
-            android:parentActivityName="com.sootbas.sootbasapp.ui.activity.PodcastActivity"
+            android:parentActivityName="com.sootbas.sootbasappHizar.ui.activity.PodcastActivity"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.sootbas.sootbasapp.ui.activity.PodcastActivity"/>
+                android:value="com.sootbas.sootbasappHizar.ui.activity.PodcastActivity"/>
         </activity>
 
         <activity
-            android:name="com.sootbas.sootbasapp.ui.activity.EpisodeActivity"
+            android:name="com.sootbas.sootbasappHizar.ui.activity.EpisodeActivity"
             android:label="@string/title_activity_episode"
-            android:parentActivityName="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"
+            android:parentActivityName="com.sootbas.sootbasappHizar.ui.activity.EpisodesActivity"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"/>
+                android:value="com.sootbas.sootbasappHizar.ui.activity.EpisodesActivity"/>
         </activity>
 
         <provider
-            android:name="com.sootbas.sootbasapp.custom.QuerySuggestionProvider"
-            android:authorities="com.sootbas.sootbasapp.custom.QuerySuggestionProvider"
+            android:name="com.sootbas.sootbasappHizar.custom.QuerySuggestionProvider"
+            android:authorities="com.sootbas.sootbasappHizar.custom.QuerySuggestionProvider"
             android:exported="false"/>
 
-        <service android:name="com.sootbas.sootbasapp.player.service.AudioService"
+        <service android:name="com.sootbas.sootbasappHizar.player.service.AudioService"
                  android:enabled="true"
                  android:exported="false"/>
 

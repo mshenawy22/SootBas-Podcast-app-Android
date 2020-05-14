@@ -8,7 +8,7 @@
              android:paddingTop="?attr/actionBarSize">
 
 
-    <com.sootbas.sootbasapp.custom.AutofitRecyclerView
+    <com.sootbas.sootbasappHizar.custom.AutofitRecyclerView
         android:id="@+id/recycler_view"
         android:paddingTop="@dimen/xsmall"
         android:layout_width="match_parent"

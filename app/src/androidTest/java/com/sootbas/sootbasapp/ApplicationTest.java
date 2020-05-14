@@ -1,4 +1,4 @@
-package com.sootbas.sootbasapp;
+package com.sootbas.sootbasappHizar;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

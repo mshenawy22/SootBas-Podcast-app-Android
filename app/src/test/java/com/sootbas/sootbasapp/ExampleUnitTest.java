@@ -1,4 +1,4 @@
-package com.sootbas.sootbasapp;
+package com.sootbas.sootbasappHizar;
 
 import org.junit.Test;
 

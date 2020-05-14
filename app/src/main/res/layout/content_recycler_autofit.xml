@@ -3,7 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <com.sootbas.sootbasapp.custom.AutofitRecyclerView
+    <com.sootbas.sootbasappHizar.custom.AutofitRecyclerView
         android:padding="@dimen/normal"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
