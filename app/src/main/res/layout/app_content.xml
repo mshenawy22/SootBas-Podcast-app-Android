@@ -39,7 +39,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingTop="8dp"
         android:text="@string/button_skip"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
     <ScrollView

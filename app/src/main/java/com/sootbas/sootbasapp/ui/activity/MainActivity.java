@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 if (genreTitle.equals("Islamic")) {
 
-                    list = podlist.getFilmReviews_Podcast_list();
+                    list = podlist.getReligion_Podcast_list();
                 }
                 else if (genreTitle.equals("Self Development"))
                 {
