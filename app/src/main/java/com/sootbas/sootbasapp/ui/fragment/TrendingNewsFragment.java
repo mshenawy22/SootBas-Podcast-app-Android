@@ -233,7 +233,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaleedMostafa_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
         }
-        else if (podcast_channel.equals("karimanMaher")) {
+        else if (podcast_channel.equals("KarimanMaher")) {
 
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.karimanMaher_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
