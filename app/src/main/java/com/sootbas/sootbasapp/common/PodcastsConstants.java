@@ -151,6 +151,8 @@ public class PodcastsConstants {
 
 
     static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
+=======
+    public static final  Podcast AhmedHassanwZeinab_podcast = new Podcast(
 
             /* artistName;*/"Ahmed jj Hassan Family",
             /* collectionName;*/ "AHmed jj Hassan Family vlogs",
@@ -159,6 +161,67 @@ public class PodcastsConstants {
             "https://anchor.fm/ahmed-hassan-w-zeinab"
 
     );
+
+
+    public static final Podcast MostafaElBanna_podcast = new Podcast(
+
+            /* artistName;*/"Mostafa ElBanna ",
+            /* collectionName;*/ "سعفان",
+            /* feedUrl; */ "https://anchor.fm/s/1f46570c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MostafaElBanna.jpg",
+            ""
+
+    );
+
+    public static final Podcast AhmedElBaz_podcast = new Podcast(
+            /* artistName;*/"Ahmed ElBaz ",
+            /* cmaollectionName;*/ "للفكاهة فقط",
+            /* feedUrl; */ "https://anchor.fm/s/1ffbaf44/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ahmedelbaz.jpg",
+            ""
+
+    );
+
+    public static final Podcast NedalReads_podcast = new Podcast(
+            /* artistName;*/"Nedal Reads ",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/202970f0/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/nedalreads.jpg",
+            ""
+
+    );
+
+    public static final Podcast AdhamAbdelRahman_podcast = new Podcast(
+            /* artistName;*/"Adham AbdelRahman",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/205a42fc/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AdhamAbdelRahman.jpg",
+            ""
+
+    );
+
+    public static final Podcast MohamedGoabas_podcast = new Podcast(
+            /* artistName;*/"Mohamed Goabas",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/214d10cc/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MohamedGoabaz.jpg",
+            ""
+
+    );
+
+    public static final Podcast FekraSohib_podcast = new Podcast(
+
+            /* artistName;*/"Fekra",
+            /* collectionName;*/ "قناة فكرة",
+            /* feedUrl; */ " https://anchor.fm/s/1f052214/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/sohaibfekra.jpg",
+
+            ""
+
+    );
+
+
+
 
 
 

@@ -50,11 +50,7 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         // Timber.i("LOG Service onDestroy called");
     }
 
-//    @Override
-//    protected void onServiceCreate() {
-//        super.onServiceCreate();
-//        Timber.i("LOG Service onServiceCreated called");
-//    }
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

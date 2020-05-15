@@ -116,18 +116,10 @@ public class Podcast implements Parcelable {
 
     public String getCollectionId()
     {
-//
 
-        //feedUrl ex https://anchor.fm/s/19661084/podcast/rss
-
-//
-//        String delims = "[/]+";
-//        String[] tokens = feedUrl.split(delims);
-//
-//        collectionId = tokens[3];
 
         return collectionId;
-//                collectionId;
+
     }
 
     public void setCollectionId(String collectionId) {
