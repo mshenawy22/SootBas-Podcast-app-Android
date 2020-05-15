@@ -53,7 +53,7 @@
         </activity>
 
 
-        <activity android:name="com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity">
+        <activity android:name="com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity"
             android:label="@string/app_name"
             android:theme="@style/CustomMaterialTheme">
         </activity>

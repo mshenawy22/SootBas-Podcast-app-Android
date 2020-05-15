@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
+import android.view.View;
 
 //import com.daimajia.androidanimations.library.Techniques;
 //import com.daimajia.androidanimations.library.YoYo;
@@ -27,6 +28,13 @@ public class TrendingNewsActivity extends FragmentActivity {
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, TrendingNewsActivity.class);
         activity.startActivity(intent);
+    }
+
+
+    public  void LaunchCategoriesScreen (View view)
+    {
+//                 start the categories screen
+        MainActivity.launch(TrendingNewsActivity.this);
     }
 
     @Override
