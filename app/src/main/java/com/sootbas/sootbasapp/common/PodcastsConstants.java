@@ -56,6 +56,10 @@ public class PodcastsConstants {
 
     );
 
+
+
+
+
     public static final Podcast AhmedHossamAbdeen_podcast = new Podcast(
 
             /* artistName;*/"Ahmed Hossam",
@@ -150,8 +154,6 @@ public class PodcastsConstants {
             "" );
 
 
-    static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
-=======
     public static final  Podcast AhmedHassanwZeinab_podcast = new Podcast(
 
             /* artistName;*/"Ahmed jj Hassan Family",
@@ -219,6 +221,15 @@ public class PodcastsConstants {
             ""
 
     );
+
+
+
+
+
+
+
+
+
 
 
 

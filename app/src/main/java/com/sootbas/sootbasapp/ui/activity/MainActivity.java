@@ -237,13 +237,6 @@ public class MainActivity extends AppCompatActivity implements
 
                 if (genreTitle.equals("Islamic")) {
 
-                   list = podlist.getFilmReviews_Podcast_list();
-                }
-                else if (genreTitle.equals("Self Development"))
-                {
-                   list =  podlist.getSelfDevelopment_Podcast_list();
-                if (genreTitle.equals("Islamic")) {
-
                     list = podlist.getReligion_Podcast_list();
                 }
                 else if (genreTitle.equals("Self Development"))
@@ -253,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements
                 }
                 else if (genreTitle.equals("Health & Fitness") )
                 {
-                  list =  podlist.getHealthandFitness_Podcast_list();
+                    list =  podlist.getHealthandFitness_Podcast_list();
                 }
                 else if (genreTitle.equals("Comedy"))
                 {
@@ -269,7 +262,7 @@ public class MainActivity extends AppCompatActivity implements
                     list =  podlist.getFilmReviews_Podcast_list();
                 }
                 else if (genreTitle.equals("Self Learning"))
-                 {
+                {
                     list =  podlist.getSelfLearning_Podcast_list();
                 }
                 else if (genreTitle.equals("Books Reviews"))
@@ -317,7 +310,6 @@ public class MainActivity extends AppCompatActivity implements
     private void setupTabIcons() {
 //        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
 //        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
-//        mTabLayout.getTabAt(2).setIcon(mTabIcons[2]);
 //        mTabLayout.getTabAt(2)p.setIcon(mTabIcons[2]);
         //mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);
     }

@@ -1,7 +1,5 @@
 package com.sootbas.sootbasapp.model.genre;
 
-import com.sootbas.sootbasapp.model.podcast.Podcast;
-import com.sootbas.sootbasapp.common.PodcastsConstants;
 import com.sootbas.sootbasapp.common.PodcastsConstants;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 
@@ -37,11 +35,6 @@ public class PodcastLists {
         Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.AymanMostafa_podcast);
 
-        Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
-        FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
-        SelfLearning_Podcast_list.add(PodcastsConstants.ElDa7ee7_podcast);
-        BooksReview_Podcast_list.add(PodcastsConstants.Zatoona_podcast);
-        BooksReview_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
 
 
         Travel_Podcast_list.add(PodcastsConstants.AdhamAbdelRahman_podcast);
@@ -61,7 +54,6 @@ public class PodcastLists {
         BooksReview_Podcast_list.add(PodcastsConstants.NedalReads_podcast);
         BooksReview_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
 
->>>>>>> trendingpage
         Women_Podcast_list.add(PodcastsConstants.MariamSakr_podcast);
     }
 
