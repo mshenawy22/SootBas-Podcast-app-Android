@@ -20,7 +20,14 @@ import android.widget.TextView;
 
 import com.sootbas.sootbasappHizar.common.Constants;
 import com.sootbas.sootbasappHizar.common.PodcastsConstants;
+import com.sootbas.sootbasappHizar.common.Utils;
+import com.sootbas.sootbasappHizar.model.episode.Channel;
+import com.sootbas.sootbasappHizar.model.episode.EpisodesDataCache;
+import com.sootbas.sootbasappHizar.model.episode.Feed;
 import com.sootbas.sootbasappHizar.model.genre.PodcastLists;
+import com.sootbas.sootbasappHizar.model.podcast.Podcast;
+import com.sootbas.sootbasappHizar.rest.RssClient;
+import com.sootbas.sootbasappHizar.rest.RssInterface;
 import com.sootbas.sootbasappHizar.ui.Adapters.MainNewsAdapter;
 import com.sootbas.sootbasappHizar.custom.NewsData;
 
@@ -28,16 +35,21 @@ import com.sootbas.sootbasappHizar.R;
 
 
 import com.sootbas.sootbasappHizar.custom.NewsLoader;
+import com.sootbas.sootbasappHizar.ui.activity.EpisodesActivity;
 import com.sootbas.sootbasappHizar.ui.activity.PodcastActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import timber.log.Timber;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TrendingNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>> {
-
     /** URL for News data from the Guardian dataset */
     private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
     private static final String apiKeyparameter = "api-key";
@@ -50,6 +62,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     private static final String showFieldsValue = "thumbnail";
     private static final String nameOfAuthor = "contributor";
     private static final String showMostViewed = "show-most-viewed";
+
 
     /** Adapter for the list of earthquakes */
     private MainNewsAdapter mAdapter;
@@ -65,6 +78,8 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
     private PodcastLists podlist ;
 
+    private View rootView;
+
     LoaderManager loaderManager;
     boolean isConnected;
     private View progressBar;
@@ -79,7 +94,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.news_list, container, false);
+        rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) rootView.findViewById(R.id.list);
@@ -126,86 +141,10 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 
+                switchToPodcast(newsData);
+
 //mshenawy
 //
-                podlist = new PodcastLists();
-               Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
-               String podcast_channel = newsData.getUrlOfStory();
-
-
-
-                if( podcast_channel.equals("elda7ee7")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ElDa7ee7_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-                }
-                else if (podcast_channel.equals("elzatoona")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Zatoona_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
-                }
-
-                else if (podcast_channel.equals("AhmedHossamAbdeen")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedHossamAbdeen_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
-                }
-
-                else if (podcast_channel.equals("AhmedRoshdy")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedRoshdy_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
-                }
-                else if (podcast_channel.equals("WaleedMostafa")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaleedMostafa_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
-                }
-                else if (podcast_channel.equals("karimanMaher")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.karimanMaher_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
-                }
-                else if (podcast_channel.equals("MariamSakr")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MariamSakr_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getWomen_Podcast_list());
-                }
-                else if (podcast_channel.equals("MohamedHady")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MohamedHady_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getTravel_Podcast_list());
-                }
-                else if (podcast_channel.equals("NourhanKandil")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.NourhanKandil_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getHealthandFitness_Podcast_list());
-                }
-                else if (podcast_channel.equals("OmarBahaa")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.OmarBahaa_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
-                }
-                else if (podcast_channel.equals("SeifEldeeb")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.SeifEldeeb_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
-                }
-
-                else if (podcast_channel.equals("WaelelBasel")) {
-
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
-                }
-                else {
-                    podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
-                    podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
-                }
-
-
-                podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING, true);
-                startActivity(podcast_intent);
-
             }
         });
 
@@ -227,7 +166,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         // Create a new loader for the given URL
 //        Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        Uri.Builder builder = Uri.parse("https://api.sootbas.com/Hizartrending.json").buildUpon();
+        Uri.Builder builder = Uri.parse("https://api.sootbas.com/trending.json").buildUpon();
 //        builder.appendQueryParameter(queryParameter, getString(R.string.trending_news))
 //                .appendQueryParameter(orderByParameter, getString(R.string.newest))
 //                .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
@@ -262,5 +201,177 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         mAdapter.clear();
     }
 
+    public void switchToPodcast( NewsData newsData )
 
-}
+    {
+
+        podlist = new PodcastLists();
+        Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
+        String podcast_channel = newsData.getUrlOfStory();
+        Podcast selected_podcast = PodcastsConstants.ElDa7ee7_podcast ;
+
+
+
+        if( podcast_channel.equals("elda7ee7")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ElDa7ee7_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.ElDa7ee7_podcast;
+        }
+        else if (podcast_channel.equals("elzatoona")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Zatoona_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
+            selected_podcast =  PodcastsConstants.Zatoona_podcast;
+        }
+
+        else if (podcast_channel.equals("AhmedHossamAbdeen")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedHossamAbdeen_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
+            selected_podcast = PodcastsConstants.AhmedHossamAbdeen_podcast;
+        }
+
+        else if (podcast_channel.equals("AhmedRoshdy")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedRoshdy_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
+            selected_podcast = PodcastsConstants.AhmedRoshdy_podcast;
+        }
+        else if (podcast_channel.equals("WaleedMostafa")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaleedMostafa_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+            selected_podcast = PodcastsConstants.WaleedMostafa_podcast;
+        }
+        else if (podcast_channel.equals("KarimanMaher")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.karimanMaher_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
+            selected_podcast = PodcastsConstants.karimanMaher_podcast;
+        }
+        else if (podcast_channel.equals("MariamSakr")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MariamSakr_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getWomen_Podcast_list());
+            selected_podcast = PodcastsConstants.MariamSakr_podcast;
+        }
+        else if (podcast_channel.equals("MohamedHady")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MohamedHady_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getTravel_Podcast_list());
+            selected_podcast = PodcastsConstants.MohamedHady_podcast;
+        }
+        else if (podcast_channel.equals("NourhanKandil")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.NourhanKandil_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getHealthandFitness_Podcast_list());
+            selected_podcast = PodcastsConstants.NourhanKandil_podcast;
+        }
+        else if (podcast_channel.equals("OmarBahaa")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.OmarBahaa_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
+            selected_podcast = PodcastsConstants.OmarBahaa_podcast;
+        }
+        else if (podcast_channel.equals("SeifEldeeb")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.SeifEldeeb_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
+            selected_podcast = PodcastsConstants.SeifEldeeb_podcast;
+        }
+
+        else if (podcast_channel.equals("WaelelBasel")) {
+
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+            selected_podcast = PodcastsConstants.WaelelBasel_podcast;
+        }
+
+        else if (podcast_channel.equals("Ahmedelbaz"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedElBaz_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+            selected_podcast = PodcastsConstants.AhmedElBaz_podcast;
+        }
+
+        else if (podcast_channel.equals("NedalReads"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.NedalReads_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
+            selected_podcast = PodcastsConstants.NedalReads_podcast;
+        }
+
+        else if (podcast_channel.equals("MohamedGoabas"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MohamedGoabas_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
+            selected_podcast = PodcastsConstants.MohamedGoabas_podcast;
+        }
+        else if (podcast_channel.equals("AdhamAbdelRahman"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AdhamAbdelRahman_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getTravel_Podcast_list());
+            selected_podcast = PodcastsConstants.AdhamAbdelRahman_podcast;
+        }
+
+        else if (podcast_channel.equals("FekraSohaib"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.FekraSohib_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.FekraSohib_podcast;
+        }
+
+
+
+        else {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+
+        }
+
+
+        podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING, true);
+        executeEpisodeQuery(selected_podcast);
+//        startActivity(podcast_intent);
+
+
+    }
+
+
+    // download the podcast episode list
+    private void executeEpisodeQuery(final Podcast item) {
+        Timber.i("%s execute episode list download", Constants.LOG_TAG);
+//        mProgressBar.setVisibility(View.VISIBLE);
+
+        RssInterface rssService = RssClient.getClient().create(RssInterface.class); // takes no time
+        Call<Feed> call = rssService.getItems(item.getFeedUrl());
+        call.enqueue(new Callback<Feed>() {
+            @Override
+            public void onResponse(Call<Feed> call, Response<Feed> response) {
+//                mProgressBar.setVisibility(View.GONE);
+                Channel channel = response.body().getChannel();
+                if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
+                    // save feed to an in-memory cache since it's too large to send via IPC/intent
+                    EpisodesDataCache.getInstance().setPodcast(item);
+                    EpisodesDataCache.getInstance().setChannel(channel);
+                    Intent podcast_intent = new Intent(getContext(), EpisodesActivity.class);
+                    startActivity(podcast_intent);
+
+//                    EpisodesActivity.launch(PodcastActivity.this);
+//                    finish();
+                } else {
+                    Utils.showSnackbar(rootView, getString(R.string.error_downloading_episode_list));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Feed> call, Throwable t) {
+//                mProgressBar.setVisibility(View.GONE);
+                Timber.e("%s failure, error: %s", Constants.LOG_TAG, t.getMessage());
+                Utils.showSnackbar(rootView, getString(R.string.feed_not_available));
+            }
+
+
+        });
+    }}
