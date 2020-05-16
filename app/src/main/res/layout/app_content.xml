@@ -35,7 +35,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#FFFFFF"
         android:onClick="LaunchCategoriesScreen"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingTop="8dp"

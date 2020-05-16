@@ -15,6 +15,16 @@
         android:layout_height="59dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <ImageView
+            android:id="@+id/toolbar_logo_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center|top"
+            android:src="@mipmap/sootbas_logo_round" />
+
+
 
 
         <!--        <android.support.v7.widget.Toolbar-->
@@ -31,19 +41,11 @@
             android:layout_width="match_parent"
             android:layout_height="8dp"
             app:tabGravity="fill"
-
             app:tabMode="fixed" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/toolbar_logo_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center|bottom"
-        android:src="@mipmap/sootbas_logo_round" />
+
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
@@ -53,11 +55,11 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:indeterminateDrawable="@drawable/progress_bar_circular"
+        android:layout_width="19dp"
+        android:layout_height="29dp"
         android:layout_gravity="top|center"
-    android:visibility= "gone"
-        android:layout_width="@dimen/progress_bar_size"
-        android:layout_height="@dimen/progress_bar_size"/>
+        android:indeterminateDrawable="@drawable/progress_bar_circular"
+        android:visibility="gone" />
 
 
 </android.support.design.widget.CoordinatorLayout>

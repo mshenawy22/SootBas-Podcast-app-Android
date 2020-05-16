@@ -104,7 +104,7 @@ public class PodcastsConstants {
             /* artistName;*/"El Zatoona",
             /* collectionName;*/ "الزتونة",
             /* feedUrl; */ " https://anchor.fm/s/1ebd8b20/podcast/rss",
-            /* artworkUrl600;*/"https://vloggerpics.sootbs.com/elzatoona.png",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/elzatoona.jpg",
 
             "" );
 
