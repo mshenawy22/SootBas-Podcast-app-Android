@@ -184,13 +184,13 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
         }
 
         // full size image
-        List<Image> images = channel.getImages();
-        if (images != null) {
-            for (Image image : images) {
-                mImageUrl = image.getUrl();
-                if (mImageUrl != null) break;
-            }
-        }
+//        List<Image> images = channel.getImages();
+//        if (images != null) {
+//            for (Image image : images) {
+//                mImageUrl = image.getUrl();
+//                if (mImageUrl != null) break;
+//            }
+//        }
 
         // instantiate and bind adapter
         List<Item> episodes = channel.getItemList();

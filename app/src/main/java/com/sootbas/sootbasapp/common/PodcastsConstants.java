@@ -9,7 +9,7 @@ public class PodcastsConstants {
             /* artistName;*/"El Da7ee7",
             /* collectionName;*/ "الدحيح",
             /* feedUrl; */ " https://anchor.fm/s/19f63614/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/da7ee7%20600.jpg",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/da7ee7.jpg",
 
             "" );
 
@@ -28,7 +28,7 @@ public class PodcastsConstants {
             /* artistName;*/"Dr Nourhan Kandil",
             /* collectionName;*/ "Dr Nourhan Kandil health tips",
             /* feedUrl; */ "https://anchor.fm/s/1958091c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/nourhan%20kandil%20600.jpg",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/nourhanKandil.jpg",
 
             ""
 
@@ -39,7 +39,7 @@ public class PodcastsConstants {
             /* artistName;*/"Omar Bahaa",
             /* collectionName;*/ "Omar Bahaa life coaching",
             /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/omarbahaa600.jpg",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaa.jpg",
 
             ""
 
@@ -50,7 +50,7 @@ public class PodcastsConstants {
             /* artistName;*/"Seif Eldeeb",
             /* collectionName;*/ "سيف الديب",
             /* feedUrl; */ "https://anchor.fm/s/1b342d4c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/SeifElDeeb600.jpg",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SeifElDeeb.jpg",
 
             ""
 
@@ -65,7 +65,7 @@ public class PodcastsConstants {
             /* artistName;*/"Ahmed Hossam",
             /* collectionName;*/ "احمد حسام عابدين",
             /* feedUrl; */ "https://anchor.fm/s/1b6d50a4/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmedhossamabdeen600.png",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ahmedhossamabdeen600.jpg",
 
             "" );
 
@@ -93,7 +93,7 @@ public class PodcastsConstants {
             /* artistName;*/"Waleed Mostafa",
             /* collectionName;*/ "وليد مصطفي",
             /* feedUrl; */ " https://anchor.fm/s/1e71c1f4/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/waleedmostafa600.jpg",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/waleedmostafa.jpg",
 
             "" );
 
@@ -104,7 +104,7 @@ public class PodcastsConstants {
             /* artistName;*/"El Zatoona",
             /* collectionName;*/ "الزتونة",
             /* feedUrl; */ " https://anchor.fm/s/1ebd8b20/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/elzatoona.png",
+            /* artworkUrl600;*/"https://vloggerpics.sootbs.com/elzatoona.png",
 
             "" );
 
@@ -122,7 +122,7 @@ public class PodcastsConstants {
             /* artistName;*/"Wael ElBasel",
             /* collectionName;*/ "وائل الباسل",
             /* feedUrl; */ "https://anchor.fm/s/1f820144/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/waelelbasel600.png",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/waelelbasel.jpg",
 
             "" );
 

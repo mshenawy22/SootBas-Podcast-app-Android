@@ -125,7 +125,6 @@ public class PodcastActivity extends BaseActivity implements
 
 
 
-
     }
 
 
@@ -145,6 +144,7 @@ public class PodcastActivity extends BaseActivity implements
                     EpisodesDataCache.getInstance().setPodcast(item);
                     EpisodesDataCache.getInstance().setChannel(channel);
                     EpisodesActivity.launch(PodcastActivity.this);
+                    finish();
                 } else {
                     Utils.showSnackbar(mLayout, getString(R.string.error_downloading_episode_list));
                 }
