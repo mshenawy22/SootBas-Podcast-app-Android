@@ -20,7 +20,9 @@ import android.app.Application
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.os.Build
 import android.support.annotation.IntRange
+import android.support.annotation.RequiresApi
 import android.util.Log
 import com.devbrackets.android.playlistcore.annotation.SupportedMediaType
 import com.devbrackets.android.playlistcore.api.VideoPlayerApi
@@ -411,6 +413,7 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
      * @param seekPosition The position to start the current items playback at (milliseconds)
      * @param startPaused True if the media item should not start playing when it has been prepared
      */
+
     fun play(@IntRange(from = 0) seekPosition: Long, startPaused: Boolean) {
         currentItem ?: return
 
@@ -420,6 +423,9 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
         intent.putExtra(RemoteActions.ACTION_EXTRA_SEEK_POSITION, seekPosition)
         intent.putExtra(RemoteActions.ACTION_EXTRA_START_PAUSED, startPaused)
         application.startService(intent)
+        //ContextCompat.startForegroundService(this, it);
+
+//        application.startForegroundService(intent)
     }
 
     /**
@@ -431,13 +437,15 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
      *
      * @param flags The flags depicting the allowed media types
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun setAllowedMediaType(@SupportedMediaType flags: Int) {
         this.allowedTypeFlag = flags
 
         //Tries to start the intent
         allowedTypeChangedIntent?.let {
             it.putExtra(RemoteActions.ACTION_EXTRA_ALLOWED_TYPE, flags)
-            application.startService(it)
+//            application.startService(it)
+            application.startForegroundService(it)
         }
     }
 
@@ -609,11 +617,13 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
      * [RemoteActions.ACTION_SEEK_ENDED] and have an intent extra with the
      * key [RemoteActions.ACTION_EXTRA_SEEK_POSITION] (long)
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun invokeSeekEnded(@IntRange(from = 0) seekPosition: Long) {
         //Tries to start the intent
         if (seekEndedIntent != null) {
             seekEndedIntent!!.putExtra(RemoteActions.ACTION_EXTRA_SEEK_POSITION, seekPosition)
-            application.startService(seekEndedIntent)
+//            application.startService(seekEndedIntent)
+            application.startForegroundService(seekEndedIntent)
         }
     }
 
