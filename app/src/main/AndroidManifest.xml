@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
+          tools:node="replace"
           package="com.sootbas.sootbasapp">
 
 
@@ -96,7 +97,7 @@
 
         <service android:name="com.sootbas.sootbasapp.player.service.AudioService"
                  android:enabled="true"
-                 android:exported="false"/>
+                 android:exported="true"/>
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -107,7 +108,13 @@
         </service>
 
 
+        <meta-data
+            tools:node="replace"
+            android:name="android.support.VERSION"
+            android:value="26.1.0"
+            xmlns:tools="http://schemas.android.com/tools"
 
+        />
 
     </application>
 

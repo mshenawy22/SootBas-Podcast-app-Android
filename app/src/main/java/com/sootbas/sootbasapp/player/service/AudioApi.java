@@ -7,14 +7,17 @@ import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 
-import com.devbrackets.android.exomedia.EMAudioPlayer;
+//import com.devbrackets.android.exomedia.EMAudioPlayer;
+import com.devbrackets.android.exomedia.AudioPlayer;
 import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
 
 public class AudioApi extends BaseMediaApi implements AudioPlayerApi{
 
-    private EMAudioPlayer mAudioPlayer;
+//    private EMAudioPlayer mAudioPlayer;
+    private AudioPlayer mAudioPlayer;
 
-    public AudioApi(EMAudioPlayer player) {
+//    public AudioApi(EMAudioPlayer player) {
+    public AudioApi(AudioPlayer player) {
         mAudioPlayer = player;
         mAudioPlayer.setOnPreparedListener(this);
         mAudioPlayer.setOnCompletionListener(this);
@@ -91,7 +94,8 @@ public class AudioApi extends BaseMediaApi implements AudioPlayerApi{
 
     @Override
     public void setDataSource(@NonNull Context context, @NonNull Uri uri) {
-        mAudioPlayer.setDataSource(context, uri);
+//        mAudioPlayer.setDataSource(context, uri);
+        mAudioPlayer.setDataSource(uri);
     }
 
     @Override
@@ -100,4 +104,8 @@ public class AudioApi extends BaseMediaApi implements AudioPlayerApi{
     }
 
 
+    @Override
+    public boolean onError(Exception e) {
+        return false;
+    }
 }
