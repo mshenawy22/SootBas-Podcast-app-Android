@@ -113,17 +113,19 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
     }
 
     private void initFab(View view) {
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mPodcastName != null) {
-                    // TODO save the podcast to the playlist
-                    // getContract().onItemClick(mPodcastName);
-                    Utils.showSnackbar(mLayout, mPodcastName);
-                }
-            }
-        });
+
+        //commenting out the favourites button
+//        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mPodcastName != null) {
+//                    // TODO save the podcast to the playlist
+//                    // getContract().onItemClick(mPodcastName);
+//                    Utils.showSnackbar(mLayout, mPodcastName);
+//                }
+//            }
+//        });
     }
 
     private void setupInfoView(View view) {
