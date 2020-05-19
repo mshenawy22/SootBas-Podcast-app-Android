@@ -25,11 +25,14 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.os.PowerManager
 import android.support.annotation.FloatRange
 import android.support.annotation.IntRange
+import android.support.annotation.RequiresApi
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import com.devbrackets.android.playlistcore.annotation.ServiceContinuationMethod
 import com.devbrackets.android.playlistcore.annotation.SupportedMediaType
@@ -391,6 +394,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
      * should be overridden instead of [.onCreate] due to a bug in some Samsung devices
      * where [.onStartCommand] will get called before [.onCreate].
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     protected open fun onServiceCreate() {
         mediaProgressPoll.progressListener = this
         audioFocusHelper = AudioFocusHelper(applicationContext)
@@ -408,7 +412,9 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
 
         //Another part of the workaround for some Samsung devices
         workaroundIntent?.let {
-            startService(it)
+//            startService(it)
+            startForegroundService(it)
+//            ContextCompat.startForegroundService(this, it);
             workaroundIntent = null
         }
     }

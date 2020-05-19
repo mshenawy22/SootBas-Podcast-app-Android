@@ -155,6 +155,7 @@ abstract class BasePlaylistService<I : IPlaylistItem, M : BasePlaylistManager<I>
         notificationPresenter = DefaultPlaylistNotificationProvider(applicationContext)
         mediaSessionProvider = DefaultMediaSessionProvider(applicationContext, javaClass)
         mediaControlsHelper = MediaControlsHelper(applicationContext)
+
     }
 
     /**
@@ -166,7 +167,8 @@ abstract class BasePlaylistService<I : IPlaylistItem, M : BasePlaylistManager<I>
         }
 
         foregroundSetup = true
-    //        startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
+            startForeground(notificationId, notificationPresenter.buildNotification(mediaInfo, mediaSessionProvider.get(), javaClass))
+  //mshenawy
     }
 
     /**
