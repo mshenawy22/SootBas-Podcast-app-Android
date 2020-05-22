@@ -394,7 +394,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
      * should be overridden instead of [.onCreate] due to a bug in some Samsung devices
      * where [.onStartCommand] will get called before [.onCreate].
      */
-    @RequiresApi(Build.VERSION_CODES.O)
+
     protected open fun onServiceCreate() {
         mediaProgressPoll.progressListener = this
         audioFocusHelper = AudioFocusHelper(applicationContext)
@@ -412,9 +412,16 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
 
         //Another part of the workaround for some Samsung devices
         workaroundIntent?.let {
-//            startService(it)
-            startForegroundService(it)
-//            ContextCompat.startForegroundService(this, it);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(it)
+                //            ContextCompat.startForegroundService(this, it);
+            }
+            else
+            {
+                startService(it)
+            }
+
             workaroundIntent = null
         }
     }

@@ -437,15 +437,21 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
      *
      * @param flags The flags depicting the allowed media types
      */
-    @RequiresApi(Build.VERSION_CODES.O)
+
     fun setAllowedMediaType(@SupportedMediaType flags: Int) {
         this.allowedTypeFlag = flags
 
         //Tries to start the intent
         allowedTypeChangedIntent?.let {
             it.putExtra(RemoteActions.ACTION_EXTRA_ALLOWED_TYPE, flags)
-//            application.startService(it)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            {
             application.startForegroundService(it)
+            }
+            else {
+                application.startService(it);
+            }
         }
     }
 
@@ -617,13 +623,21 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
      * [RemoteActions.ACTION_SEEK_ENDED] and have an intent extra with the
      * key [RemoteActions.ACTION_EXTRA_SEEK_POSITION] (long)
      */
-    @RequiresApi(Build.VERSION_CODES.O)
+
     fun invokeSeekEnded(@IntRange(from = 0) seekPosition: Long) {
         //Tries to start the intent
         if (seekEndedIntent != null) {
             seekEndedIntent!!.putExtra(RemoteActions.ACTION_EXTRA_SEEK_POSITION, seekPosition)
-//            application.startService(seekEndedIntent)
-            application.startForegroundService(seekEndedIntent)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            {
+                application.startForegroundService(seekEndedIntent)
+            }
+            else
+            {
+                application.startService(seekEndedIntent)
+            }
+
+
         }
     }
 
