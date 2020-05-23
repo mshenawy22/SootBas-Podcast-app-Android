@@ -166,7 +166,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         // Create a new loader for the given URL
 //        Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        Uri.Builder builder = Uri.parse("https://api.sootbas.com/trending.json").buildUpon();
+        Uri.Builder builder = Uri.parse("https://api.sootbas.com/hizartrending.json").buildUpon();
 //        builder.appendQueryParameter(queryParameter, getString(R.string.trending_news))
 //                .appendQueryParameter(orderByParameter, getString(R.string.newest))
 //                .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
