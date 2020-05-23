@@ -31,6 +31,7 @@ import com.sootbas.sootbasapp.rest.RssClient;
 import com.sootbas.sootbasapp.rest.RssInterface;
 import com.sootbas.sootbasapp.ui.Adapters.MainNewsAdapter;
 import com.sootbas.sootbasapp.custom.NewsData;
+import com.sootbas.sootbasapp.ui.activity.EpisodeActivity;
 import com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity;
 
 import com.sootbas.sootbasapp.R;
@@ -69,6 +70,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     private static final String author = "show-tags";
     private static final String showFieldsParameter = "show-fields";
     private static final String showFieldsValue = "thumbnail";
+    private static final String showFieldsEpisodeNumber = "EpisodeNumber";
     private static final String nameOfAuthor = "contributor";
     private static final String showMostViewed = "show-most-viewed";
 
@@ -217,6 +219,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         podlist = new PodcastLists();
         Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
         String podcast_channel = newsData.getUrlOfStory();
+       int episode_number = newsData.getEpisodenumber();
         Podcast selected_podcast = PodcastsConstants.ElDa7ee7_podcast ;
 
 
@@ -239,6 +242,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedHossamAbdeen_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
             selected_podcast = PodcastsConstants.AhmedHossamAbdeen_podcast;
+
         }
 
         else if (podcast_channel.equals("AhmedRoshdy")) {
@@ -329,6 +333,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.FekraSohib_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
             selected_podcast = PodcastsConstants.FekraSohib_podcast;
+
         }
 
 
@@ -341,7 +346,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
 
         podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING, true);
-        executeEpisodeQuery(selected_podcast);
+        executeEpisodeQuery(selected_podcast , episode_number);
 //        startActivity(podcast_intent);
 
 
@@ -349,9 +354,14 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
 
     // download the podcast episode list
-    private void executeEpisodeQuery(final Podcast item) {
+    private void executeEpisodeQuery(final Podcast item , int episodenumber ) {
         Timber.i("%s execute episode list download", Constants.LOG_TAG);
 //        mProgressBar.setVisibility(View.VISIBLE);
+    if (episodenumber <1) episodenumber =1;
+        else episodenumber -=1;
+        final int episodeNumber = episodenumber;
+
+
 
         RssInterface rssService = RssClient.getClient().create(RssInterface.class); // takes no time
         Call<Feed> call = rssService.getItems(item.getFeedUrl());
@@ -364,8 +374,10 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
                     // save feed to an in-memory cache since it's too large to send via IPC/intent
                     EpisodesDataCache.getInstance().setPodcast(item);
                     EpisodesDataCache.getInstance().setChannel(channel);
-                    Intent podcast_intent = new Intent(getContext(), EpisodesActivity.class);
-                    startActivity(podcast_intent);
+//                    Intent podcast_intent = new Intent(getContext(), EpisodesActivity.class);
+                    Intent player_intent = new Intent(getContext(), EpisodeActivity.class);
+                    player_intent.putExtra(Constants.EPISODE_SELECTED, episodeNumber);
+                    startActivity(player_intent);
 
 //                    EpisodesActivity.launch(PodcastActivity.this);
 //                    finish();

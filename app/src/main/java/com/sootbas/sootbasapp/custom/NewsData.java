@@ -16,6 +16,8 @@ public class NewsData implements Parcelable {
     private String sectionOfStory; // Stores the section of the news
     private List<String> reporterName; // Stores the author of the news
     private String bodyOfStory; // Stores the body of the news
+    private int EpisodeNumber; // Stores the body of the news
+
 
     /**
      * Creates a constructor of the Tour Places Data Class
@@ -26,7 +28,7 @@ public class NewsData implements Parcelable {
      * @param InputDateTimeOfStory is the date and time of the news
      * @param InputSectionOfStory is the section of the news
      */
-    public NewsData(String inputTitleOfStory, String inputImageOfStoryResourceID, String InputUrlOfStory, String InputDateTimeOfStory, String InputSectionOfStory, List<String> InputReporterName, String InputBodyOfStory) {
+    public NewsData(String inputTitleOfStory, String inputImageOfStoryResourceID, String InputUrlOfStory, String InputDateTimeOfStory, String InputSectionOfStory, List<String> InputReporterName, String InputBodyOfStory,int EpiNumber) {
         titleOfStory = inputTitleOfStory;
         imageOfStoryResource = inputImageOfStoryResourceID;
         urlOfStory = InputUrlOfStory;
@@ -34,6 +36,7 @@ public class NewsData implements Parcelable {
         sectionOfStory = InputSectionOfStory;
         reporterName = InputReporterName;
         bodyOfStory = InputBodyOfStory;
+        EpisodeNumber = EpiNumber;
     }
 
     /**
@@ -48,6 +51,7 @@ public class NewsData implements Parcelable {
         dateTimeOfStory = source.readString();
         reporterName = new ArrayList<>();
         bodyOfStory = source.readString();
+        EpisodeNumber = source.readInt();
 
     }
 
@@ -67,6 +71,10 @@ public class NewsData implements Parcelable {
      */
     public String getImageOfStoryResource() {
         return imageOfStoryResource;
+    }
+
+    public int getEpisodenumber() {
+        return EpisodeNumber;
     }
 
     /**
