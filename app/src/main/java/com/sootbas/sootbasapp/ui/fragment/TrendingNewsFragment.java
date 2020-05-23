@@ -66,7 +66,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     private static final String apiKey = "78e94902-d37d-4c1e-9f5c-35b58b767f09";
     public static final String orderByParameter = "order-by";
     private static final String queryParameter = "q";
-    private static String pageSize = "10";
+    private static String pageSize = "15";
     private static final String author = "show-tags";
     private static final String showFieldsParameter = "show-fields";
     private static final String showFieldsValue = "thumbnail";
@@ -119,7 +119,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             activeNetwork = cm.getActiveNetworkInfo();
         }
         isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
+                activeNetwork.isConnected();
 
         mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);

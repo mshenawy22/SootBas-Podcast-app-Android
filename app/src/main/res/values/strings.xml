@@ -20,7 +20,8 @@
     <string name="publication_date_unknown"></string>
     <string name="trending">Trending</string>
     <string name="button_skip">skip ></string>
-    <string name="served_as_it_s_hot">Served as it\'s hot</string>
+<!--    <string name="served_as_it_s_hot">Served as it\'s hot</string>-->
+    <string name="served_as_it_s_hot">  Eid Mubarak🌙</string>
     <string name="news_headline">Headline for the news for \nusers to see and know</string>
     <string name="author">Author</string>
     <string name="no_news">No news found.</string>
