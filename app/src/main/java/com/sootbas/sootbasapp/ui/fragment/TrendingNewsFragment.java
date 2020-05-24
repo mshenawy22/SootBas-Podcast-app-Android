@@ -73,6 +73,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     private static final String showFieldsEpisodeNumber = "EpisodeNumber";
     private static final String nameOfAuthor = "contributor";
     private static final String showMostViewed = "show-most-viewed";
+    private boolean firsttime = true ; // firsttime to load the stories
 
 
     /** Adapter for the list of earthquakes */
@@ -191,18 +192,21 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public void onLoadFinished(@NonNull Loader<List<NewsData>> loader, List<NewsData> data) {
-        progressBar.setVisibility(View.GONE);
+        if( firsttime == true) {
+            progressBar.setVisibility(View.GONE);
 
-        // Set empty state text to display "No news found."
-        mEmptyStateTextView.setText(R.string.no_news);
+            // Set empty state text to display "No news found."
+            mEmptyStateTextView.setText(R.string.no_news);
 
-        // Clear the adapter of previous earthquake data
-        mAdapter.clear();
+            // Clear the adapter of previous earthquake data
+            mAdapter.clear();
 
-        // If there is a valid list of {@link NewsData}s, then add them to the adapter's
-        // data set. This will trigger the ListView to update.
-        if (data != null && !data.isEmpty()) {
-            mAdapter.addAll(data);
+            // If there is a valid list of {@link NewsData}s, then add them to the adapter's
+            // data set. This will trigger the ListView to update.
+            if (data != null && !data.isEmpty()) {
+                mAdapter.addAll(data);
+            }
+            firsttime = false;
         }
     }
 
