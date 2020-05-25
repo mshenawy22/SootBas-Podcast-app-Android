@@ -70,10 +70,10 @@ public abstract class BaseMediaApi implements
         if (mMediaCompletionListener != null) mMediaCompletionListener.onCompletion(this);
     }
 
-//    @Override
-//    public boolean onError() {
-//        return mMediaErrorListener != null && mMediaErrorListener.onError(this);
-//    }
+    @Override
+    public boolean onError() {
+        return mMediaErrorListener != null && mMediaErrorListener.onError(this);
+    }
 
     @Override
     public void onSeekComplete() {

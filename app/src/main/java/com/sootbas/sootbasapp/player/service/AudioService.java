@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.devbrackets.android.exomedia.AudioPlayer;
+import com.devbrackets.android.exomedia.EMAudioPlayer;
 import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
 import com.devbrackets.android.playlistcore.service.BasePlaylistService;
 import com.sootbas.sootbasapp.PodcastPlayerApplication;
@@ -41,7 +41,6 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
 
         super.onServiceCreate();
         mPicasso = Picasso.with(getApplicationContext());
-
         // Timber.i("LOG Service onCreate called");
     }
 
@@ -143,8 +142,7 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     @NonNull
     @Override
     protected AudioPlayerApi getNewAudioPlayer() {
-//        return new AudioApi(new EMAudioPlayer(getApplicationContext()));
-        return new AudioApi(new AudioPlayer(getApplicationContext()));
+        return new AudioApi(new EMAudioPlayer(getApplicationContext()));
     }
 
     @Override
