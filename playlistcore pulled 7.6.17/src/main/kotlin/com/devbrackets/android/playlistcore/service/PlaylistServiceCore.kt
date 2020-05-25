@@ -413,14 +413,14 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
         //Another part of the workaround for some Samsung devices
         workaroundIntent?.let {
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(it)
-                //            ContextCompat.startForegroundService(this, it);
-            }
-            else
-            {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                startForegroundService(it)
+//
+//            }
+//            else
+//            {
                 startService(it)
-            }
+//            }
 
             workaroundIntent = null
         }

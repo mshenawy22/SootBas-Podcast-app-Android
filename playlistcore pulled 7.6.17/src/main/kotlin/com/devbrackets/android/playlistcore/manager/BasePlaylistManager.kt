@@ -445,13 +445,13 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
         allowedTypeChangedIntent?.let {
             it.putExtra(RemoteActions.ACTION_EXTRA_ALLOWED_TYPE, flags)
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            {
-            application.startForegroundService(it)
-            }
-            else {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+//            {
+//            application.startForegroundService(it)
+//            }
+//            else {
                 application.startService(it);
-            }
+//            }
         }
     }
 
@@ -628,14 +628,14 @@ abstract class BasePlaylistManager<I : IPlaylistItem> : PlaylistListener<I>, Pro
         //Tries to start the intent
         if (seekEndedIntent != null) {
             seekEndedIntent!!.putExtra(RemoteActions.ACTION_EXTRA_SEEK_POSITION, seekPosition)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            {
-                application.startForegroundService(seekEndedIntent)
-            }
-            else
-            {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+//            {
+//                application.startForegroundService(seekEndedIntent)
+//            }
+//            else
+//            {
                 application.startService(seekEndedIntent)
-            }
+//            }
 
 
         }
