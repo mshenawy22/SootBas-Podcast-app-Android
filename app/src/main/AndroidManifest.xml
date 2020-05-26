@@ -44,6 +44,7 @@
         <activity
             android:name="com.sootbas.sootbasapp.ui.activity.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
@@ -56,6 +57,7 @@
 
         <activity android:name="com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
 
         </activity>
@@ -64,6 +66,7 @@
         <activity
             android:name="com.sootbas.sootbasapp.ui.activity.PodcastActivity"
             android:parentActivityName="com.sootbas.sootbasapp.ui.activity.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -74,6 +77,7 @@
             android:name="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"
             android:label="@string/title_activity_episode"
             android:parentActivityName="com.sootbas.sootbasapp.ui.activity.PodcastActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -84,7 +88,9 @@
             android:name="com.sootbas.sootbasapp.ui.activity.EpisodeActivity"
             android:label="@string/title_activity_episode"
             android:parentActivityName="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"/>
