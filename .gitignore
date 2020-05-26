@@ -42,3 +42,6 @@ SootBas-Android.zip
 *.aab
 app/release/app-release.aab
 *.aab
+*.aab
+app/release/app-release.aab
+app/release/app-release.aab
