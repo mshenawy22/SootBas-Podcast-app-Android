@@ -7,7 +7,7 @@ public class ItunesGenreDataCache {
     public static ItunesGenre[] list = {
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_ARTS, "Arts", R.drawable.arts),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_BUSINESS, "Business", R.drawable.business),
-            new ItunesGenre(ItunesGenreIdConstants.PODCAST_COMEDY, " #Laugh", R.drawable.laugh),
+            new ItunesGenre(ItunesGenreIdConstants.PODCAST_COMEDY, "#Laugh", R.drawable.laugh),
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_EDUCATION, "#Learn", R.drawable.learn),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_GAMES_AND_HOBBIES, "Games and Hobbies", R.drawable.games),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_GOVERNMENT_AND_ORGANISATIONS, "Government", R.drawable.government),

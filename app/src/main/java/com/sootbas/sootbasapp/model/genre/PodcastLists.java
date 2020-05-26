@@ -23,13 +23,16 @@ public class PodcastLists {
         SelfDevelopment_Podcast_list.add(PodcastsConstants.OmarBahaa_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.karimanMaher_podcast);
+        SelfDevelopment_Podcast_list.add(PodcastsConstants.MickelBeshay_podcast);
 
 
         Religion_Podcast_list.add(PodcastsConstants.SeifEldeeb_podcast);
-        Religion_Podcast_list.add(PodcastsConstants.AhmedHossamAbdeen_podcast);
         Religion_Podcast_list.add(PodcastsConstants.MohamedGoabas_podcast);
+        Religion_Podcast_list.add(PodcastsConstants.AhmedHossamAbdeen_podcast);
 
+        HealthandFitness_Podcast_list.add(PodcastsConstants.RihamIraky_podcast);
         HealthandFitness_Podcast_list.add(PodcastsConstants.NourhanKandil_podcast);
+
         Comedy_Podcast_list.add(PodcastsConstants.AhmedElBaz_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaleedMostafa_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
@@ -37,9 +40,11 @@ public class PodcastLists {
 
 
 
-        Travel_Podcast_list.add(PodcastsConstants.AdhamAbdelRahman_podcast);
-        Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
 
+        Travel_Podcast_list.add(PodcastsConstants.ExploreWithKhatib_podcast);
+        Travel_Podcast_list.add(PodcastsConstants.AymanKashef_podcast);
+        Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
+        Travel_Podcast_list.add(PodcastsConstants.AdhamAbdelRahman_podcast);
 
         FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
 
@@ -54,6 +59,7 @@ public class PodcastLists {
         BooksReview_Podcast_list.add(PodcastsConstants.NedalReads_podcast);
         BooksReview_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
 
+        Women_Podcast_list.add(PodcastsConstants.RowaydaAdel_podcast);
         Women_Podcast_list.add(PodcastsConstants.MariamSakr_podcast);
     }
 

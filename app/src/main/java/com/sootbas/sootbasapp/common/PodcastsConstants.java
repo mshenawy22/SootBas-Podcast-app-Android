@@ -26,7 +26,7 @@ public class PodcastsConstants {
     public static final  Podcast NourhanKandil_podcast = new Podcast(
 
             /* artistName;*/"Dr Nourhan Kandil",
-            /* collectionName;*/ "Dr Nourhan Kandil health tips",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1958091c/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/nourhanKandil.jpg",
 
@@ -37,7 +37,7 @@ public class PodcastsConstants {
     public static final Podcast OmarBahaa_podcast = new Podcast(
 
             /* artistName;*/"Omar Bahaa",
-            /* collectionName;*/ "Omar Bahaa life coaching",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaa.jpg",
 
@@ -48,7 +48,7 @@ public class PodcastsConstants {
     public static final Podcast SeifEldeeb_podcast = new Podcast(
 
             /* artistName;*/"Seif Eldeeb",
-            /* collectionName;*/ "سيف الديب",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1b342d4c/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SeifElDeeb.jpg",
 
@@ -63,7 +63,7 @@ public class PodcastsConstants {
     public static final Podcast AhmedHossamAbdeen_podcast = new Podcast(
 
             /* artistName;*/"Ahmed Hossam",
-            /* collectionName;*/ "احمد حسام عابدين",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1b6d50a4/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ahmedhossamabdeen600.jpg",
 
@@ -72,7 +72,7 @@ public class PodcastsConstants {
     public static final Podcast MohamedHady_podcast = new Podcast(
 
             /* artistName;*/"Mohamed Hady",
-            /* collectionName;*/ "محمد هادي",
+            /* collectionName;*/ "",
             /* feedUrl; */ " https://anchor.fm/s/1eab2e58/podcast/rss",
             /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/MohamedHady600.jpg",
 
@@ -82,7 +82,7 @@ public class PodcastsConstants {
     public static final Podcast FilmGamed_podcast = new Podcast(
 
             /* artistName;*/"Film Gamed",
-            /* collectionName;*/ "فيلم جامد",
+            /* collectionName;*/ "",
             /* feedUrl; */ " https://anchor.fm/s/1ebe224c/podcast/rss",
             /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/filmgamed600.jpg",
 
@@ -91,7 +91,7 @@ public class PodcastsConstants {
     public static final Podcast WaleedMostafa_podcast = new Podcast(
 
             /* artistName;*/"Waleed Mostafa",
-            /* collectionName;*/ "وليد مصطفي",
+            /* collectionName;*/ "",
             /* feedUrl; */ " https://anchor.fm/s/1e71c1f4/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/waleedmostafa.jpg",
 
@@ -102,7 +102,7 @@ public class PodcastsConstants {
     public static final  Podcast Zatoona_podcast = new Podcast(
 
             /* artistName;*/"El Zatoona",
-            /* collectionName;*/ "الزتونة",
+            /* collectionName;*/ "",
             /* feedUrl; */ " https://anchor.fm/s/1ebd8b20/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/elzatoona.jpg",
 
@@ -111,7 +111,7 @@ public class PodcastsConstants {
     public static final Podcast MariamSakr_podcast = new Podcast(
 
             /* artistName;*/"Mariam Sakr",
-            /* collectionName;*/ "مريم صقر",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1956f3c4/podcast/rss",
             /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/mariamm%20sakr%20600.jpg",
 
@@ -120,7 +120,7 @@ public class PodcastsConstants {
     public static final Podcast WaelelBasel_podcast = new Podcast(
 
             /* artistName;*/"Wael ElBasel",
-            /* collectionName;*/ "وائل الباسل",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1f820144/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/waelelbasel.jpg",
 
@@ -129,7 +129,7 @@ public class PodcastsConstants {
     public static final Podcast AymanMostafa_podcast = new Podcast(
 
             /* artistName;*/"Ayman Mostafa",
-            /* collectionName;*/ "أيمن مصطفي",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1f96a608/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AymanMostafa600.jpg",
 
@@ -138,7 +138,7 @@ public class PodcastsConstants {
     public static final Podcast AhmedRoshdy_podcast = new Podcast(
 
             /* artistName;*/"Ahmed Roshdy",
-            /* collectionName;*/ "أحمد رشدي",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1fa83a6c/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AhmedRoshdy.jpg",
 
@@ -147,7 +147,7 @@ public class PodcastsConstants {
     public static final Podcast karimanMaher_podcast = new Podcast(
 
             /* artistName;*/"Kariman Maher",
-            /* collectionName;*/ "كريمان ماهر",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1f979db0/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/KarimanMaher.jpg",
 
@@ -168,7 +168,7 @@ public class PodcastsConstants {
     public static final Podcast MostafaElBanna_podcast = new Podcast(
 
             /* artistName;*/"Mostafa ElBanna ",
-            /* collectionName;*/ "سعفان",
+            /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1f46570c/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MostafaElBanna.jpg",
             ""
@@ -177,7 +177,7 @@ public class PodcastsConstants {
 
     public static final Podcast AhmedElBaz_podcast = new Podcast(
             /* artistName;*/"Ahmed ElBaz ",
-            /* cmaollectionName;*/ "للفكاهة فقط",
+            /* cmaollectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1ffbaf44/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ahmedelbaz.jpg",
             ""
@@ -221,6 +221,84 @@ public class PodcastsConstants {
             ""
 
     );
+
+
+
+    public static final Podcast RowaydaAdel_podcast = new Podcast(
+
+            /* artistName;*/"Rowayda Adel",
+            /* collectionName;*/ "انــتي#",
+            /* feedUrl; */ "https://anchor.fm/s/22fb39e4/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/rowayda600.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast MickelBeshay_podcast = new Podcast(
+
+            /* artistName;*/"Mickel Beshay",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/22780344/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MichaelBeshay600.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast RihamIraky_podcast = new Podcast(
+
+            /* artistName;*/"Riham Iraky",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2275d704/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/RihamElIraky600.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast ExploreWithKhatib_podcast = new Podcast(
+
+            /* artistName;*/"Explore with Khatib",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/22730718/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/exlorewithkhateeb600.jpg",
+
+            ""
+
+    );
+
+
+    public static final Podcast AymanKashef_podcast = new Podcast(
+
+            /* artistName;*/"Ayman Kashef",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/1fc62180/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AymanKashef600.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast Mix_podcast = new Podcast(
+
+            /* artistName;*/"Mix",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/20fe3e48/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/mix.jpg",
+
+            ""
+
+    );
+
+
+
+
+
+
+
+
+
 
 
 

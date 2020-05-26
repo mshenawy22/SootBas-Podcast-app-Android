@@ -341,6 +341,52 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         }
 
 
+        else if (podcast_channel.equals("AymanKashef"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AymanKashef_podcast);
+//            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.AymanKashef_podcast;
+
+        }
+
+        else if (podcast_channel.equals("ExploreWithKhatib"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ExploreWithKhatib_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.ExploreWithKhatib_podcast;
+
+        }
+
+        else if (podcast_channel.equals("RihamIraky"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.RihamIraky_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.RihamIraky_podcast;
+
+        }
+
+        else if (podcast_channel.equals("MickelBeshay"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MickelBeshay_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.MickelBeshay_podcast;
+        }
+
+        else if (podcast_channel.equals("RowaydaAdel"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.RowaydaAdel_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.RowaydaAdel_podcast;
+        }
+
+        else if (podcast_channel.equals("Mix"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Mix_podcast);
+//            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+
+
 
         else {
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
