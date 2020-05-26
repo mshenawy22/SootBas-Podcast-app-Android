@@ -98,6 +98,24 @@ public class Podcast implements Parcelable {
 
     }
 
+    public Podcast( String artistName,String collectionName,String feedUrl,
+                    String    artworkUrl600  ,String collectionViewUrl , String collectionid )
+    {
+        this.wrapperType = "track";
+        this.kind        = "podcast";
+        this.artistName = artistName;
+        this.collectionName = collectionName;
+        this.feedUrl = feedUrl ;
+        this.artworkUrl600 = artworkUrl600;
+        this.collectionViewUrl = collectionViewUrl;
+
+
+        this.collectionId  = collectionid;
+
+
+
+    }
+
     public String getWrapperType() {
         return wrapperType;
     }

@@ -235,42 +235,42 @@ public class MainActivity extends AppCompatActivity implements
 //                ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
                 ArrayList<Podcast> list;
 
-                if (genreTitle.equals("Islamic")) {
+                if (genreTitle.equals("#Pray")) {
 
                     list = podlist.getReligion_Podcast_list();
                 }
-                else if (genreTitle.equals("Self Development"))
+                else if (genreTitle.equals("#Develop"))
                 {
                     list =  podlist.getSelfDevelopment_Podcast_list();
 
                 }
-                else if (genreTitle.equals("Health & Fitness") )
+                else if (genreTitle.equals("#Healthy") )
                 {
                     list =  podlist.getHealthandFitness_Podcast_list();
                 }
-                else if (genreTitle.equals("Comedy"))
+                else if (genreTitle.equals("#Laugh"))
                 {
                     list =  podlist.getComedy_Podcast_list();
                 }
-                else if (genreTitle.equals("Travel Stories"))
+                else if (genreTitle.equals("#Travel"))
                 {
                     list =  podlist.getTravel_Podcast_list();
                 }
 
-                else if (genreTitle.equals("TV and Film Reviews"))
+                else if (genreTitle.equals("#Critic"))
                 {
                     list =  podlist.getFilmReviews_Podcast_list();
                 }
-                else if (genreTitle.equals("Self Learning"))
+                else if (genreTitle.equals("#Learn"))
                 {
                     list =  podlist.getSelfLearning_Podcast_list();
                 }
-                else if (genreTitle.equals("Books Reviews"))
+                else if (genreTitle.equals("#Read"))
                 {
 
                     list =  podlist.getBooksReview_Podcast_list() ;
                 }
-                else if (genreTitle.equals("Women"))
+                else if (genreTitle.equals("#She"))
                 {
                     list =  podlist.getWomen_Podcast_list() ;
                 }
