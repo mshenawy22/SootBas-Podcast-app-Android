@@ -162,6 +162,7 @@ public class QueryUtils {
 
                 // Extract out the thumbnail of the news and the story of the news values
                 String thumbnail = fields.getString("thumbnail");
+                int EpisodeNumber = fields.getInt("EpisodeNumber");
                 String body = fields.getString("bodyText");
                 List<String> contributor = new ArrayList<>();
                 JSONArray contributor_array = currentNews.getJSONArray("tags");
@@ -174,7 +175,7 @@ public class QueryUtils {
                     contributor.add(contributor_name);
                 }
 
-                NewsData news = new NewsData(title, thumbnail, url, date, nameOfSection, contributor,body);
+                NewsData news = new NewsData(title, thumbnail, url, date, nameOfSection, contributor,body,EpisodeNumber);
                 newsArrayList.add(news);
 
             }
