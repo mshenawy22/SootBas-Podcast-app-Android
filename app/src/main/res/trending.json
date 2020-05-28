@@ -1,0 +1,252 @@
+{
+  "response": {
+    "status": "ok",
+    "userTier": "developer",
+  
+    "pageSize": 5,
+    "currentPage": 1,
+    "orderBy": "relevance",
+    "results": [
+      {
+
+        "type": "article",
+        "sectionName": "ElDa7ee7",
+        "webPublicationDate": "2020-05-16",
+        "webTitle":" الهبد - و محاولة لفهم واتس طنط سعاد ",
+        "webUrl": "elda7ee7",
+        "fields": {
+          "thumbnail":"https://api.sootbas.com/pics/da7ee7.16.5.jpg",
+          "bodyText": "Nothing needed to be here"
+        },
+        "tags": [
+          {
+            "id": "profile/samjones",
+            "type": "contributor",
+            "webTitle": "Mohamed Elsheikh",
+
+            "references": [
+              
+            ],
+           
+            "firstName": "",
+            "lastName": "",
+            "twitterHandle": " "
+          }
+        ],
+        "isHosted": false,
+        "pillarId": "pillar/news",
+        "pillarName": "News"
+      },     
+
+
+
+
+
+
+
+
+	 {
+
+        "type": "article",
+        "sectionName": "Relegion",
+        "webPublicationDate": "2020-05-12",
+        "webTitle":"   تدبر وردك-الجزء ال١٥ (ومايعدهم الشيطان إلا غرورا) ",
+        "webUrl": "SeifEldeeb",
+        "fields": {
+          "thumbnail":            "https://api.sootbas.com/pics/Seif15.5.jpeg",
+          "bodyText": "Nothing needed to be here"
+        },
+        "tags": [
+          {
+            "id": "profile/samjones",
+            "type": "contributor",
+            "webTitle": "Rana ElKhayat",
+
+            "references": [
+              
+            ],
+           
+            "firstName": "",
+            "lastName": "",
+            "twitterHandle": " "
+          }
+        ],
+        "isHosted": false,
+        "pillarId": "pillar/news",
+        "pillarName": "News"
+      },
+     
+
+
+
+
+
+
+	 {
+        "type": "article",
+        "sectionName": "Comedy",
+        "webPublicationDate": "2020-05-13",
+        "webTitle": " تعليق احمد الباز علي برنامج رامز مجنون رسمي|(رامز مش مجنون)",
+        "webUrl": "Ahmedelbaz",
+        "fields": {
+          "thumbnail": "https://api.sootbas.com/pics/basel15.5.jpg",
+          "bodyText": "Nothing needed to be here"
+        },
+		
+        "tags": [
+          {
+            "id": "profile/helenpidd",
+            "type": "contributor",
+            "webTitle": "Mostafa Elkhayat",
+
+            "references": [
+          
+            ],
+            "firstName": "",
+            "lastName": "",
+            "emailAddress": " "
+          }
+        ],
+        "isHosted": false,
+        "pillarId": "pillar/news",
+        "pillarName": "News"
+      },
+	  
+	  
+	  
+	  
+	  	 {
+        "type": "article",
+        "sectionName": "Books review",
+        "webPublicationDate": "2020-05-07",
+        "webTitle": " خطوات كتابة البحث العلمي للجامعات",
+        "webUrl": "AhmedRoshdy",
+        "fields": {
+          "thumbnail": "https://api.sootbas.com/pics/AR15.5.jpeg",
+          "bodyText": "Nothing needed to be here"
+        },
+		
+        "tags": [
+          {
+            "id": "profile/helenpidd",
+            "type": "contributor",
+            "webTitle": "Rana ElKhayat",
+
+            "references": [
+          
+            ],
+            "firstName": "",
+            "lastName": "",
+            "emailAddress": " "
+          }
+        ],
+        "isHosted": false,
+        "pillarId": "pillar/news",
+        "pillarName": "News"
+      },
+	  
+	  
+	  
+	  
+	  
+	  
+	  	 {
+        "type": "article",
+        "sectionName": "Self improvement",
+        "webPublicationDate": "2020-05-07",
+        "webTitle": " القلق من الكورونا والخوف انك تاخد خطوة تجاه هدفك",
+        "webUrl": "KarimanMaher",
+        "fields": {
+          "thumbnail": "https://api.sootbas.com/pics/KM15.5.jpg",
+          "bodyText": "Nothing needed to be here"
+        },
+		
+        "tags": [
+          {
+            "id": "profile/helenpidd",
+            "type": "contributor",
+            "webTitle": "Mostafa ElKhayat",
+
+            "references": [
+          
+            ],
+            "firstName": "",
+            "lastName": "",
+            "emailAddress": " "
+          }
+        ],
+        "isHosted": false,
+        "pillarId": "pillar/news",
+        "pillarName": "News"
+      }
+	  
+	  
+	  
+	  
+	  
+	  
+
+
+	
+	  
+    ]
+  } 
+}
+           "emailAddress": " "
+          }
+        ],
+        "isHosted": false,
+        "pillarId": "pillar/news",
+        "pillarName": "News"
+      }
+	  
+	  
+	  
+	  
+	  
+	  
+
+
+	
+	  
+    ]
+  } 
+}
+} 
+}
+	  
+	  
+	  
+	  
+	  
+	  
+
+
+	
+	  
+    ]
+  } 
+}
+	
+	  
+    ]
+  } 
+}
+} 
+}
+	  
+	  
+	  
+	  
+	  
+	  
+
+
+	
+	  
+    ]
+  } 
+}
+]
+  } 
+}

@@ -16,10 +16,11 @@
     <dimen name="grid_item_height">160dp</dimen>
     <dimen name="grid_item_width">120dp</dimen>
     <dimen name="grid_item_image_size">120dp</dimen>
+    <dimen name="playlist_item_image_size">180dp</dimen>
     <dimen name="grid_item_title_height">40dp</dimen>
     <dimen name="grid_item_margin">6px</dimen>
     <dimen name="list_item_width">320dp</dimen>
-    <dimen name="list_item_height">120dp</dimen>
+    <dimen name="list_item_height">150dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
@@ -31,5 +32,22 @@
     <dimen name="audio_player_thumb_size">16dp</dimen>
     <dimen name="corner_radius">0dp</dimen>
     <dimen name="item_elevation">3dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. from -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="minimal_text_size">12sp</dimen>
+
+    <!--card view-->
+    <dimen name="card_view">200dp</dimen>
+    <dimen name="card_view_marginLeft">24dp</dimen>
+    <dimen name="card_view_text_view_marginBottom">10dp</dimen>
+    <dimen name="news_cardView_cornerRadius">16dp</dimen>
+
+    <!--News List -->
+    <dimen name="elevation">4dp</dimen>
+    <dimen name="cardView_cornerRadius">8dp</dimen>
+
 
 </resources>

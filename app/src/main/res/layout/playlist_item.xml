@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardUseCompatPadding="false"
+    android:elevation="0dp"
+    app:cardCornerRadius="@dimen/corner_radius">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="143dp"-->
+<!--        android:background="@drawable/touch_selector"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal">-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/playlist_thumbnail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/playlist_item_image_size"-->
+<!--            tools:ignore="ContentDescription" />-->
+
+
+<!--    </LinearLayout>-->
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/touch_selector"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+
+
+                <ImageView
+                    android:id="@+id/playlist_thumbnail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/playlist_item_image_size"
+                    tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/podcast_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </FrameLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/podcast_artist_name"-->
+<!--        android:background="@id/playlist_thumbnail"-->
+<!--        tools:text="Simon Jones"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:textSize="20sp"-->
+<!--        style="@style/TextStyle.ListItem.Heading"/>-->
+
+</android.support.v7.widget.CardView>

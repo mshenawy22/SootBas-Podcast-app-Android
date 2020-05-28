@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
+          tools:node="replace"
           package="com.sootbas.sootbasapp">
+
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
+
     <application
         android:name="com.sootbas.sootbasapp.PodcastPlayerApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/sootbas_logo_round"
+        android:icon="@mipmap/notification"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/notification" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+
 
         <!-- Splash Screen -->
         <activity
@@ -27,9 +39,12 @@
             </intent-filter>
         </activity>
 
+
+
         <activity
             android:name="com.sootbas.sootbasapp.ui.activity.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
@@ -39,9 +54,19 @@
                 android:resource="@xml/searchable"/>
         </activity>
 
+
+        <activity android:name="com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomMaterialTheme">
+
+        </activity>
+
+
         <activity
             android:name="com.sootbas.sootbasapp.ui.activity.PodcastActivity"
             android:parentActivityName="com.sootbas.sootbasapp.ui.activity.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -52,6 +77,7 @@
             android:name="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"
             android:label="@string/title_activity_episode"
             android:parentActivityName="com.sootbas.sootbasapp.ui.activity.PodcastActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -62,7 +88,9 @@
             android:name="com.sootbas.sootbasapp.ui.activity.EpisodeActivity"
             android:label="@string/title_activity_episode"
             android:parentActivityName="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomMaterialTheme">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sootbas.sootbasapp.ui.activity.EpisodesActivity"/>
@@ -76,6 +104,23 @@
         <service android:name="com.sootbas.sootbasapp.player.service.AudioService"
                  android:enabled="true"
                  android:exported="false"/>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+        <meta-data
+            tools:node="replace"
+            android:name="android.support.VERSION"
+            android:value="26.1.0"
+            xmlns:tools="http://schemas.android.com/tools"
+
+        />
 
     </application>
 

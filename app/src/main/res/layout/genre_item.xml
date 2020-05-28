@@ -22,7 +22,10 @@
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_item_image_size"
+android:background="@xml/genre_item_border"
             tools:ignore="ContentDescription"/>
+
+
 
         <LinearLayout
             android:gravity="center_vertical"
@@ -34,6 +37,8 @@
                 style="@style/TextStyle.GridItem"/>
 
         </LinearLayout>
+
+
 
     </LinearLayout>
 

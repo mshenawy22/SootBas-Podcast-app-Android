@@ -73,6 +73,7 @@ public class Podcast implements Parcelable {
     private String trackViewUrl;
     private String artworkUrl100;
     private String artworkUrl600;
+    private String artworkUrl400_900;
     private String releaseDate;
     private int trackCount;
     private String country;
@@ -98,6 +99,26 @@ public class Podcast implements Parcelable {
 
     }
 
+
+
+    public Podcast( String artistName,String collectionName,String feedUrl,
+                    String    artworkUrl600  ,String collectionViewUrl , String collectionid )
+    {
+        this.wrapperType = "track";
+        this.kind        = "podcast";
+        this.artistName = artistName;
+        this.collectionName = collectionName;
+        this.feedUrl = feedUrl ;
+        this.artworkUrl600 = artworkUrl600;
+        this.collectionViewUrl = collectionViewUrl;
+
+
+        this.collectionId  = collectionid;
+
+
+
+    }
+
     public String getWrapperType() {
         return wrapperType;
     }
@@ -116,18 +137,10 @@ public class Podcast implements Parcelable {
 
     public String getCollectionId()
     {
-//
 
-        //feedUrl ex https://anchor.fm/s/19661084/podcast/rss
-
-//
-//        String delims = "[/]+";
-//        String[] tokens = feedUrl.split(delims);
-//
-//        collectionId = tokens[3];
 
         return collectionId;
-//                collectionId;
+
     }
 
     public void setCollectionId(String collectionId) {

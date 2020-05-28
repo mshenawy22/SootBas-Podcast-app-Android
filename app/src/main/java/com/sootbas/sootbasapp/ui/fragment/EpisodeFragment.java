@@ -376,7 +376,8 @@ public class EpisodeFragment extends ContractFragment<EpisodeFragment.Contract> 
     private void retrieveValues() {
 
        //replaced valueof with decode as the collectionid may contain ascii characters when using anhcor
-        mPlaylistId = Long.parseLong(EpisodesDataCache.getInstance().getPodcast().getCollectionId() , 36 );
+if (EpisodesDataCache.getInstance().getPodcast().getCollectionId() != null)
+        mPlaylistId = Long.parseLong( EpisodesDataCache.getInstance().getPodcast().getCollectionId() , 36 );
 
     }
 

@@ -21,5 +21,7 @@
     <color name="colorGradientStart">@color/gradient_start</color>
     <color name="colorGradientEnd">@color/gradient_end</color>
     <color name="colorDivider">@color/divider</color>
+    <color name="colorBlack">#333</color>
+    <color name="colorRed">#e53935</color>
 
 </resources>

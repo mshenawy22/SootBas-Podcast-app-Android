@@ -113,17 +113,19 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
     }
 
     private void initFab(View view) {
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mPodcastName != null) {
-                    // TODO save the podcast to the playlist
-                    // getContract().onItemClick(mPodcastName);
-                    Utils.showSnackbar(mLayout, mPodcastName);
-                }
-            }
-        });
+
+        //commenting out the favourites button
+//        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mPodcastName != null) {
+//                    // TODO save the podcast to the playlist
+//                    // getContract().onItemClick(mPodcastName);
+//                    Utils.showSnackbar(mLayout, mPodcastName);
+//                }
+//            }
+//        });
     }
 
     private void setupInfoView(View view) {
@@ -184,13 +186,13 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
         }
 
         // full size image
-        List<Image> images = channel.getImages();
-        if (images != null) {
-            for (Image image : images) {
-                mImageUrl = image.getUrl();
-                if (mImageUrl != null) break;
-            }
-        }
+//        List<Image> images = channel.getImages();
+//        if (images != null) {
+//            for (Image image : images) {
+//                mImageUrl = image.getUrl();
+//                if (mImageUrl != null) break;
+//            }
+//        }
 
         // instantiate and bind adapter
         List<Item> episodes = channel.getItemList();
@@ -322,6 +324,7 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
                     if (episode.getDuration() != null && !episode.getDuration().isEmpty()) {
 //                        public static Long valueOf(long l)
                       long Lduration = Long.parseLong(episode.getDuration(), 10) /60 ; // converting second to minutes
+                       if (Lduration < 1) Lduration =1;
                         String Sduration = Long.toString(Lduration, 10 );
                         mEpisodeDuration.setText(String.format(Locale.ENGLISH, "%s mins", Sduration));
                     }

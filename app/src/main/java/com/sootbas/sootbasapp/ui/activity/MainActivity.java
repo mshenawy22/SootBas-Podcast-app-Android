@@ -29,13 +29,21 @@ import com.sootbas.sootbasapp.R;
 import com.sootbas.sootbasapp.common.Constants;
 import com.sootbas.sootbasapp.common.Utils;
 import com.sootbas.sootbasapp.custom.QuerySuggestionProvider;
+import com.sootbas.sootbasapp.model.episode.Channel;
+import com.sootbas.sootbasapp.model.episode.EpisodesDataCache;
+import com.sootbas.sootbasapp.model.episode.Feed;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 import com.sootbas.sootbasapp.model.podcast.Results;
 import com.sootbas.sootbasapp.rest.ApiClient;
 import com.sootbas.sootbasapp.rest.ApiInterface;
+import com.sootbas.sootbasapp.rest.RssClient;
+import com.sootbas.sootbasapp.rest.RssInterface;
 import com.sootbas.sootbasapp.ui.fragment.GenreItemFragment;
 import com.sootbas.sootbasapp.ui.fragment.ListItemFragment;
-
+import com.sootbas.sootbasapp.model.genre.PodcastLists;
+import com.sootbas.sootbasapp.ui.fragment.PlaylistFragment;
+import com.sootbas.sootbasapp.ui.fragment.PodcastFragment;
+import com.sootbas.sootbasapp.ui.fragment.SubscriptionFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +56,11 @@ import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity implements
         GenreItemFragment.Contract,
+        PlaylistFragment.Contract,
         ListItemFragment.Contract {
 
 
+    private PodcastLists podlist ;
     // implementation of interface methods
     @Override
     public void listItemClick(int position) {
@@ -70,6 +80,51 @@ public class MainActivity extends AppCompatActivity implements
     }
     // END
 
+    public void onPlaylistClick(Podcast podcast){
+
+        if (Utils.isClientConnected(this)) {
+            // PodcastActivity.launch(this, genreId, genreTitle);
+            executePlaylistQuery(podcast);
+        } else {
+            Utils.showSnackbar(mLayout, getString(R.string.no_network_connection));
+        }
+    }
+
+    private void executePlaylistQuery(final Podcast item  ) {
+        Timber.i("%s execute episode list download", Constants.LOG_TAG);
+
+
+        RssInterface rssService = RssClient.getClient().create(RssInterface.class); // takes no time
+        Call<Feed> call = rssService.getItems(item.getFeedUrl());
+        call.enqueue(new Callback<Feed>() {
+            @Override
+            public void onResponse(Call<Feed> call, Response<Feed> response) {
+//                mProgressBar.setVisibility(View.GONE);
+                Channel channel = response.body().getChannel();
+                if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
+                    // save feed to an in-memory cache since it's too large to send via IPC/intent
+                    EpisodesDataCache.getInstance().setPodcast(item);
+                    EpisodesDataCache.getInstance().setChannel(channel);
+//start with the very first episode (which should contain a trailer on sprekaer
+                  EpisodeActivity.launch(MainActivity.this,0);
+
+
+//                    EpisodesActivity.launch(PodcastActivity.this);
+//                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Feed> call, Throwable t) {
+//                mProgressBar.setVisibility(View.GONE);
+                Timber.e("%s failure, error: %s", Constants.LOG_TAG, t.getMessage());
+                Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
+            }
+
+
+        });
+    }
+
 
     private SearchRecentSuggestions mRecentSuggestions;
     private MenuItem mSearchItem;
@@ -80,8 +135,9 @@ public class MainActivity extends AppCompatActivity implements
     private int[] mTabIcons = {
 
             R.drawable.ic_explore,
+            R.drawable.ic_playlist,
             R.drawable.ic_subscription,
-            R.drawable.ic_playlist
+
     };
 
     public static void launch(Activity activity) {
@@ -102,11 +158,13 @@ public class MainActivity extends AppCompatActivity implements
         // instantiate the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+//creating  instance of podcast list that will we displayed when opening the categories
+        podlist = new PodcastLists();
         // instantiate the ViewPager, fragments & icons
         setupViewPager(viewPager);
         mTabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
 
         // ensures there is a ref to suggestions on startup/device rotation
         mRecentSuggestions = new SearchRecentSuggestions(
@@ -114,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements
                 QuerySuggestionProvider.AUTHORITY,
                 QuerySuggestionProvider.MODE
         );
+
 
     }
 
@@ -182,74 +241,6 @@ public class MainActivity extends AppCompatActivity implements
         }
     };
 
-//
-//    static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
-//
-//            /* artistName;*/"Ahmed jj Hassan Family",
-//            /* collectionName;*/ "AHmed jj Hassan Family vlogs",
-//            /* feedUrl; */ "https://anchor.fm/s/19653114/podcast/rss",
-//            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmed%20w%20zenab%20600.jpg",
-//            "https://anchor.fm/ahmed-hassan-w-zeinab"
-//
-//    );
-//
-//    static  Podcast ObamaElMasry_podcast = new Podcast(
-//
-//            /* artistName;*/"Obama El Masry",
-//            /* collectionName;*/ "Obama El Masry comedy",
-//            /* feedUrl; */ "https://anchor.fm/s/19661084/podcast/rss",
-//            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/obama%20el%20masry%20600.jpg",
-//            "https://anchor.fm/obama-el-masry"
-//
-//    );
-//
-    static  Podcast NourhanKandil_podcast = new Podcast(
-
-            /* artistName;*/"Dr Nourhan Kandil",
-            /* collectionName;*/ "Dr Nourhan Kandil health tips",
-            /* feedUrl; */ "https://anchor.fm/s/1958091c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/nourhan%20kandil%20600.jpg",
-
-            ""
-
-    );
-
-        static  Podcast OmarBahaa_podcast = new Podcast(
-
-            /* artistName;*/"Omar Bahaa",
-            /* collectionName;*/ "Omar Bahaa life coaching",
-            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/omarbahaa600.jpg",
-
-            ""
-
-    );
-
-    static  Podcast SeifEldeeb_podcast = new Podcast(
-
-            /* artistName;*/"Seif Eldeeb",
-            /* collectionName;*/ "سيف الديب",
-            /* feedUrl; */ "https://anchor.fm/s/1b342d4c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/SeifElDeeb600.jpg",
-
-            ""
-
-    );
-
-    static  Podcast AhmedHossamAbdeen_podcast = new Podcast(
-
-            /* artistName;*/"Ahmed Hossam",
-            /* collectionName;*/ "احمد حسام عابدين",
-            /* feedUrl; */ "https://anchor.fm/s/1b6d50a4/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmedhossamabdeen600.png",
-
-            ""
-
-    );
-
-
-
-
 
 
 
@@ -298,28 +289,53 @@ public class MainActivity extends AppCompatActivity implements
                 mProgressBar.setVisibility(View.GONE);
 //                ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
                 ArrayList<Podcast> list;
-                ArrayList <Podcast>  LifeStyle_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Religion_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
-                ArrayList <Podcast>  Health_Podcast_list = new ArrayList<Podcast>() ;
-                LifeStyle_Podcast_list.add(OmarBahaa_podcast);
-                LifeStyle_Podcast_list.add(SeifEldeeb_podcast);
-                Religion_Podcast_list.add(AhmedHossamAbdeen_podcast);
-//                Comedy_Podcast_list.add(ObamaElMasry_podcast);
-//                Health_Podcast_list.add(NourhanKandil_podcast);
+
+                if (genreTitle.equals("#Pray")) {
+
+                    list = podlist.getReligion_Podcast_list();
+                }
+                else if (genreTitle.equals("#Develop"))
+                {
+                    list =  podlist.getSelfDevelopment_Podcast_list();
+
+                }
+                else if (genreTitle.equals("#Healthy") )
+                {
+                    list =  podlist.getHealthandFitness_Podcast_list();
+                }
+                else if (genreTitle.equals("#Laugh"))
+                {
+                    list =  podlist.getComedy_Podcast_list();
+                }
+                else if (genreTitle.equals("#Travel"))
+                {
+                    list =  podlist.getTravel_Podcast_list();
+                }
+
+                else if (genreTitle.equals("#Critic"))
+                {
+                    list =  podlist.getFilmReviews_Podcast_list();
+                }
+                else if (genreTitle.equals("#Learn"))
+                {
+                    list =  podlist.getSelfLearning_Podcast_list();
+                }
+                else if (genreTitle.equals("#Read"))
+                {
+
+                    list =  podlist.getBooksReview_Podcast_list() ;
+                }
+                else if (genreTitle.equals("#She"))
+                {
+                    list =  podlist.getWomen_Podcast_list() ;
+                }
+
+                else {
+                    list =  podlist.getSelfLearning_Podcast_list() ;
+                }
 
 
-                if (genreTitle == "Religion and Spirituality") {
-                   list = Religion_Podcast_list ;
-                }
-                else if (genreTitle == "Life Coaching")
-                {
-                   list = LifeStyle_Podcast_list;
-                }
-                else
-                {
-                  list = LifeStyle_Podcast_list;
-                }
+
 
                 if (list != null && list.size() > 0) {
                     PodcastActivity.launch(MainActivity.this, list, genreTitle, false);
@@ -347,8 +363,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @SuppressWarnings("ConstantConditions")
     private void setupTabIcons() {
-//        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
-//        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
+        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
+        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
 //        mTabLayout.getTabAt(2).setIcon(mTabIcons[2]);
         //mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);
     }
@@ -356,10 +372,10 @@ public class MainActivity extends AppCompatActivity implements
     private void setupViewPager(ViewPager viewPager) {
         CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(GenreItemFragment.newInstance(), "Explore");
-//        adapter.addFragment(ListItemFragment.newInstance(), "Subscription");
-//        adapter.addFragment(ListItemFragment.newInstance(), "Playlist");
-        // adapter.addFragment(SubscriptionFragment.newInstance(), "Subscription");
-        // adapter.addFragment(PlaylistFragment.newInstance(), "Playlist");
+
+         adapter.addFragment(PlaylistFragment.newInstance( podlist.getplaylist_Podcast_list()), "Playlist");
+
+
         viewPager.setAdapter(adapter);
     }
 

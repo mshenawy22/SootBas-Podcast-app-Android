@@ -85,7 +85,7 @@
     <style name="TextStyle.GridItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:textFontWeight">"700"</item>
+<!--        <item name="android:fontWeight">"700"</item>-->
         <item name="android:fontFamily">"@font/lobster"</item>
         <item name="android:gravity">center_horizontal</item>
     </style>

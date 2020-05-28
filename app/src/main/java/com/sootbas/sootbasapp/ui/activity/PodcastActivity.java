@@ -38,11 +38,11 @@ public class PodcastActivity extends BaseActivity implements
         // launch EpisodesActivity and display Podcast Info and episode list
         if (Utils.isClientConnected(this)) {
             if (item.getFeedUrl() != null && !item.getFeedUrl().isEmpty()) {
-//                if (item.getFeedUrl().contains(Constants.FEED_BURNER_BASE_URL)) { // FIXME
-//                    Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
-//                } else {
+                if (item.getFeedUrl().contains(Constants.FEED_BURNER_BASE_URL)) { // FIXME
+                    Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
+                } else {
                     executeEpisodeQuery(item);
-                //}
+                }
             } else {
                 Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
             }
@@ -53,73 +53,30 @@ public class PodcastActivity extends BaseActivity implements
     // END
 
 
-  static  Podcast AhmedHassanwZeinab_podcast = new Podcast(
-
-            /* artistName;*/"Ahmed jj Hassan Family",
-            /* collectionName;*/ "AHmed jj Hassan Family vlogs",
-            /* feedUrl; */ "https://anchor.fm/s/19653114/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/ahmed%20w%20zenab%20600.jpg",
-          "https://anchor.fm/ahmed-hassan-w-zeinab"
-
-    );
-
-    static  Podcast ObamaElMasry_podcast = new Podcast(
-
-            /* artistName;*/"Obama El Masry",
-            /* collectionName;*/ "Obama El Masry comedy",
-            /* feedUrl; */ "https://anchor.fm/s/19661084/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/obama%20el%20masry%20600.jpg",
-            "https://anchor.fm/obama-el-masry"
-
-    );
-
-    static  Podcast NourhanKandil_podcast = new Podcast(
-
-            /* artistName;*/"Dr Nourhan Kandil",
-            /* collectionName;*/ "Dr Nourhan Kandil health tips",
-            /* feedUrl; */ "https://anchor.fm/s/1958091c/podcast/rss",
-            /* artworkUrl600;*/"https://newmido22.000webhostapp.com/arab%20podcasts%20pics/nourhan%20kandil%20600.jpg",
-
-            "https://anchor.fm/nurhan-kandil"
-
-    );
-
-
 
 
 
 
     public static void launch(Activity activity, ArrayList<Podcast> list, String title, boolean isSearch) {
         Intent intent = new Intent(activity, PodcastActivity.class);
-        ArrayList <Podcast>  LifeStyle_Podcast_list = new ArrayList<Podcast>() ;
-        ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
-        ArrayList <Podcast>  Health_Podcast_list = new ArrayList<Podcast>() ;
-//        LifeStyle_Podcast_list.add(AhmedHassanwZeinab_podcast);
-//        Comedy_Podcast_list.add(ObamaElMasry_podcast);
-//        Health_Podcast_list.add(NourhanKandil_podcast);
-//
-//
-//
-//
-//
-//
-//
-//if (title == "Comedy") {
-//    intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, Comedy_Podcast_list);
-//}
-//else if (title == "Kids_and_Family")
-//{
-//    intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, LifeStyle_Podcast_list);
-//}
-//else
-//{
-//    intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, Health_Podcast_list);
-//}
+
+
         intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, list);
 
         intent.putExtra(Constants.PODCAST_TITLE, title);
         intent.putExtra(Constants.PODCAST_SEARCH, isSearch);
+
         activity.startActivity(intent);
+    }
+
+    public static void launch(Activity activity, Podcast item) {
+        Intent intent = new Intent(activity, PodcastActivity.class);
+
+
+         intent.putExtra(Constants.PODCAST_ITEM, item);
+
+//        intent.putExtra(Constants.PODCAST_TITLE, "Self Learning");
+//        intent.putExtra(Constants.PODCAST_SEARCH, false);
     }
 
     private CoordinatorLayout mLayout;
@@ -148,11 +105,25 @@ public class PodcastActivity extends BaseActivity implements
             }
         }
 
+
+
         // retrieve the genreId and load the genre fragment
         if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) == null) {
             ArrayList<Podcast> list = getIntent().getParcelableArrayListExtra(Constants.PODCAST_LIST);
             initFragment(PodcastFragment.newInstance(list));
         }
+
+        boolean isOpenDirectly = getIntent().getBooleanExtra(Constants.DIRECTLY_OPEN_TRENDING, false);
+        Podcast podcast_open_directly = getIntent().getParcelableExtra(Constants.PODCAST_ITEM);
+
+        if (isOpenDirectly == true)
+        {
+            if (podcast_open_directly != null) {
+                executeEpisodeQuery(podcast_open_directly);
+            }
+        }
+
+
 
     }
 
@@ -173,6 +144,7 @@ public class PodcastActivity extends BaseActivity implements
                     EpisodesDataCache.getInstance().setPodcast(item);
                     EpisodesDataCache.getInstance().setChannel(channel);
                     EpisodesActivity.launch(PodcastActivity.this);
+                    finish();
                 } else {
                     Utils.showSnackbar(mLayout, getString(R.string.error_downloading_episode_list));
                 }

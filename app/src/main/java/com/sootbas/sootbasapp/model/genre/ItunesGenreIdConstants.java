@@ -10,7 +10,7 @@ public class ItunesGenreIdConstants {
     public static final int PODCAST_GAMES_AND_HOBBIES = 1323;
     public static final int PODCAST_GOVERNMENT_AND_ORGANISATIONS = 1325;
     public static final int PODCAST_HEALTH = 1307;
-    public static final int LIFE_COACHING = 1305;
+    public static final int PODCAST_SELFDEVELOPMENT = 1305;
     public static final int PODCAST_MUSIC = 1310;
     public static final int PODCAST_NEWS_AND_POLITICS = 1311;
     public static final int PODCAST_RELIGION_AND_SPIRITUALITY = 1314;
@@ -32,5 +32,8 @@ public class ItunesGenreIdConstants {
     public static final int PODCAST_SELF_HELP = 1420;
     public static final int PODCAST_VISUAL_ARTS = 1406;
     public static final int PODCAST_INVESTING = 1412;
+    public static final int PODCAST_Books_Reviews = 1413;
+    public static final int PODCAST_Women = 1413;
+
 
 }

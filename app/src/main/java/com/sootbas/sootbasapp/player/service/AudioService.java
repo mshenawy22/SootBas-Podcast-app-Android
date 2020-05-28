@@ -35,13 +35,20 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     private Bitmap mLargeNotificationImage;
     private Bitmap mLockScreenArtwork;
     private Picasso mPicasso;
+    private boolean shuffleOn = false;
 
     @Override
     protected void onServiceCreate() {
 
         super.onServiceCreate();
         mPicasso = Picasso.with(getApplicationContext());
+        performShuffle();
         // Timber.i("LOG Service onCreate called");
+    }
+
+    public void setshuffleOn()
+    {
+        shuffleOn = true;
     }
 
     @Override
@@ -50,11 +57,7 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         // Timber.i("LOG Service onDestroy called");
     }
 
-//    @Override
-//    protected void onServiceCreate() {
-//        super.onServiceCreate();
-//        Timber.i("LOG Service onServiceCreated called");
-//    }
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -162,8 +165,17 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
 
     @Override
     protected void performOnMediaCompletion() {
-        performNext();
-//        startPaused = false;
+
+//Auto play next once finished playing current episode
+        if (getPlaylistManager().isNextAvailable()) {
+
+//          performShuffle();
+            performNext();
+            performPause();
+            performPlay();
+
+        }
+
     }
 
 

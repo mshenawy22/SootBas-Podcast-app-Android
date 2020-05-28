@@ -20,27 +20,30 @@ public class Channel implements Parcelable {
     @Path("title")
     @Text(required = false)
     private String title;
-    @Element(name = "pubDate", required = false)
-    private String pubDate;
-    @Element(name = "lastBuildDate", required = false)
-    private String lastBuildDate;
-    @Element(name = "language", required = false)
-    private String language;
+//    @Element(name = "pubDate", required = false)
+//    private String pubDate;
+//    @Element(name = "lastBuildDate", required = false)
+//    private String lastBuildDate;
+//    @Element(name = "language", required = false)
+//    private String language;
     // @Element(name = "description", required = false)
     @Path("description")
     @Text(required = false)
     private String description;
-    @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
-    // @Element(name = "author", required = false)
+//    @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
+    @Namespace(reference = "http:anchor.fm")
+     @Element(name = "author", required = false)
     @Path("author")
     @Text(required = false)
     private String author;
-    @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
-    @ElementList(name = "image", required = false, inline = true)
-    private List<Image> images;
-    @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
-    @ElementList(name = "category", required = false, inline = true)
-    private List<Category> category;
+//    @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
+//    @Namespace(reference = "http:anchor.fm")
+//    @ElementList(name = "image", required = false, inline = true)
+//    private List<Image> images;
+//    @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
+//    @Namespace(reference = "http:anchor.fm")
+//    @ElementList(name = "category", required = false, inline = true)
+//    private List<Category> category;
     @ElementList(name = "item", required = false, inline = true)
     private List<Item> list;
 
@@ -54,29 +57,29 @@ public class Channel implements Parcelable {
         this.title = title;
     }
 
-    public String getPubDate() {
-        return pubDate;
-    }
+//    public String getPubDate() {
+//        return pubDate;
+//    }
 
-    public void setPubDate(String pubDate) {
-        this.pubDate = pubDate;
-    }
+//    public void setPubDate(String pubDate) {
+//        this.pubDate = pubDate;
+//    }
 
-    public String getLanguage() {
-        return language;
-    }
+//    public String getLanguage() {
+//        return language;
+//    }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
+//    public void setLanguage(String language) {
+//        this.language = language;
+//    }
 
-    public List<Category> getCategory() {
-        return category;
-    }
+//    public List<Category> getCategory() {
+//        return category;
+//    }
 
-    public void setCategory(List<Category> category) {
-        this.category = category;
-    }
+//    public void setCategory(List<Category> category) {
+//        this.category = category;
+//    }
 
     public String getDescription() {
         return description;
@@ -94,13 +97,13 @@ public class Channel implements Parcelable {
         this.list = list;
     }
 
-    public List<Image> getImages() {
-        return images;
-    }
+//    public List<Image> getImages() {
+//        return images;
+//    }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
+//    public void setImages(List<Image> images) {
+//        this.images = images;
+//    }
 
     public String getAuthor() {
         return author;
@@ -110,13 +113,13 @@ public class Channel implements Parcelable {
         this.author = author;
     }
 
-    public String getLastBuildDate() {
-        return lastBuildDate;
-    }
+//    public String getLastBuildDate() {
+//        return lastBuildDate;
+//    }
 
-    public void setLastBuildDate(String lastBuildDate) {
-        this.lastBuildDate = lastBuildDate;
-    }
+//    public void setLastBuildDate(String lastBuildDate) {
+//        this.lastBuildDate = lastBuildDate;
+//    }
 
 
     @Override
@@ -127,25 +130,25 @@ public class Channel implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.title);
-        dest.writeString(this.pubDate);
-        dest.writeString(this.lastBuildDate);
-        dest.writeString(this.language);
+//        dest.writeString(this.pubDate);
+//        dest.writeString(this.lastBuildDate);
+//        dest.writeString(this.language);
         dest.writeString(this.description);
         dest.writeString(this.author);
-        dest.writeTypedList(this.images);
-        dest.writeTypedList(this.category);
+//        dest.writeTypedList(this.images);
+//        dest.writeTypedList(this.category);
         dest.writeTypedList(this.list);
     }
 
     protected Channel(Parcel in) {
         this.title = in.readString();
-        this.pubDate = in.readString();
-        this.lastBuildDate = in.readString();
-        this.language = in.readString();
+//        this.pubDate = in.readString();
+//        this.lastBuildDate = in.readString();
+//        this.language = in.readString();
         this.description = in.readString();
         this.author = in.readString();
-        this.images = in.createTypedArrayList(Image.CREATOR);
-        this.category = in.createTypedArrayList(Category.CREATOR);
+//        this.images = in.createTypedArrayList(Image.CREATOR);
+//        this.category = in.createTypedArrayList(Category.CREATOR);
         this.list = in.createTypedArrayList(Item.CREATOR);
     }
 

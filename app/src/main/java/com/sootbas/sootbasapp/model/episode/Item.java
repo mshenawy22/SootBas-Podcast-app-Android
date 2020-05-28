@@ -36,7 +36,9 @@ public class Item implements Parcelable {
     @Text(required = false)
     private String subtitle;
     @Namespace(reference = "http://www.itunes.com/dtds/podcast-1.0.dtd")
-    @Element(name = "image", required = false)
+//    @Element(name = "image",inline = true ,required = false)
+    @Path("episode/item")
+    @Text(required=false)
     private Image image;
     // @Path("enclosure")
     // @Text(required = false)
