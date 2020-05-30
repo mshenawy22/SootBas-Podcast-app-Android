@@ -357,7 +357,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         }
 
-        else if (podcast_channel.equals("RihamIraky"))
+        else if (podcast_channel.equals("RihamEliraky"))
         {
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.RihamIraky_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
@@ -379,10 +379,17 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             selected_podcast = PodcastsConstants.RowaydaAdel_podcast;
         }
 
+        else if (podcast_channel.equals("FilmGamed"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.FilmGamed_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getFilmReviews_Podcast_list());
+            selected_podcast = PodcastsConstants.FilmGamed_podcast;
+        }
+
         else if (podcast_channel.equals("Mix"))
         {
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Mix_podcast);
-//            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
             selected_podcast = PodcastsConstants.Mix_podcast;
         }
 

@@ -248,7 +248,7 @@ public class PodcastsConstants {
 
     public static final Podcast RihamIraky_podcast = new Podcast(
 
-            /* artistName;*/"Riham Iraky",
+            /* artistName;*/"Riham Eliraky",
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/2275d704/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/RihamElIraky600.jpg",
