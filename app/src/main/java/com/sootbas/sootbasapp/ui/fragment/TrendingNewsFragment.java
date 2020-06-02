@@ -1,6 +1,5 @@
 package com.sootbas.sootbasapp.ui.fragment;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -32,20 +31,12 @@ import com.sootbas.sootbasapp.rest.RssInterface;
 import com.sootbas.sootbasapp.ui.Adapters.MainNewsAdapter;
 import com.sootbas.sootbasapp.custom.NewsData;
 import com.sootbas.sootbasapp.ui.activity.EpisodeActivity;
-import com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity;
 
 import com.sootbas.sootbasapp.R;
 
-import android.support.v4.app.FragmentActivity;
-
-
 
 import com.sootbas.sootbasapp.custom.NewsLoader;
-import com.sootbas.sootbasapp.ui.Adapters.MainNewsAdapter;
-import com.sootbas.sootbasapp.ui.activity.EpisodesActivity;
-import com.sootbas.sootbasapp.ui.activity.MainActivity;
 import com.sootbas.sootbasapp.ui.activity.PodcastActivity;
-import com.sootbas.sootbasapp.ui.activity.TrendingNewsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -365,11 +356,11 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         }
 
-        else if (podcast_channel.equals("MickelBeshay"))
+        else if (podcast_channel.equals("MickaelBeshay"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MickelBeshay_podcast);
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MickaelBeshay_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.MickelBeshay_podcast;
+            selected_podcast = PodcastsConstants.MickaelBeshay_podcast;
         }
 
         else if (podcast_channel.equals("RowaydaAdel"))
@@ -389,6 +380,42 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         else if (podcast_channel.equals("Mix"))
         {
             podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Mix_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+        else if (podcast_channel.equals("DeanaChaaban"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Deana_chaaban_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+        else if (podcast_channel.equals("RehmAiaad"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Reham_Aiaad_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+        else if (podcast_channel.equals("EngySafei"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Engy_Safei_Eldin_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+        else if (podcast_channel.equals("EmanGamal"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Eman_Gamal_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+        else if (podcast_channel.equals("HeshamAhmed"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Hesham_Ahmed_podcast);
+            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+            selected_podcast = PodcastsConstants.Mix_podcast;
+        }
+        else if (podcast_channel.equals("MohammedSherif"))
+        {
+            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Mohammed_Sherif_podcast);
             podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
             selected_podcast = PodcastsConstants.Mix_podcast;
         }

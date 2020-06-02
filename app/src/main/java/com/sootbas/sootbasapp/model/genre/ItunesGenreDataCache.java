@@ -15,7 +15,7 @@ public class ItunesGenreDataCache {
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_SELFDEVELOPMENT, "#Develop", R.drawable.selfdevelopment),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_MUSIC, "Music", R.drawable.music),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_NEWS_AND_POLITICS, "News and Politics", R.drawable.news_and_politics),
-            new ItunesGenre(ItunesGenreIdConstants.PODCAST_RELIGION_AND_SPIRITUALITY, "#Pray", R.drawable.religion),
+
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_SCIENCE_AND_MEDICINE, "Science and Medicine", R.drawable.science),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_SOCIETY_AND_CULTURE, "Society and Culture", R.drawable.culture),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_SPORTS_AND_RECREATION, "Sports and Recreation", R.drawable.sports),
@@ -28,6 +28,7 @@ public class ItunesGenreDataCache {
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_PLACES_AND_TRAVEL, "#Travel", R.drawable.travel),
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_Books_Reviews, "#Read", R.drawable.books),
             new ItunesGenre(ItunesGenreIdConstants.PODCAST_Women, "#She", R.drawable.women),
+            new ItunesGenre(ItunesGenreIdConstants.PODCAST_RELIGION_AND_SPIRITUALITY, "#Pray", R.drawable.religion),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_LITERATURE, "Literature", R.drawable.literature),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_PHILOSOPHY, "Philosophy", R.drawable.philosophy),
 //            new ItunesGenre(ItunesGenreIdConstants.PODCAST_CAREERS, "Careers", R.drawable.careers),

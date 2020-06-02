@@ -235,9 +235,9 @@ public class PodcastsConstants {
 
     );
 
-    public static final Podcast MickelBeshay_podcast = new Podcast(
+    public static final Podcast MickaelBeshay_podcast = new Podcast(
 
-            /* artistName;*/"Mickel Beshay",
+            /* artistName;*/"Mickael Beshay",
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/22780344/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MichaelBeshay600.jpg",
@@ -290,6 +290,76 @@ public class PodcastsConstants {
             ""
 
     );
+
+    public static final Podcast Mohammed_Sherif_podcast = new Podcast(
+
+            /* artistName;*/"Mohammed Sherif",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2429e5e0/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MuhammadSherif.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast Reham_Aiaad_podcast = new Podcast(
+
+            /* artistName;*/"Reham Aiaad",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/24354660/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/RehamAiaad.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast Engy_Safei_Eldin_podcast = new Podcast(
+
+            /* artistName;*/"Engy Safei Eldin",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/243a9d2c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/EngySafei.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast Deana_chaaban_podcast = new Podcast(
+
+            /* artistName;*/"Deana chaaban",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/243b9150/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/DeanaChaaban.jpg",
+
+            ""
+
+    );
+
+
+    public static final Podcast    Eman_Gamal_podcast = new Podcast(
+
+            /* artistName;*/"Eman Gamal",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/245f2d54/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/EmanGamal.jpg",
+
+            ""
+
+    );
+
+    public static final Podcast    Hesham_Ahmed_podcast = new Podcast(
+
+            /* artistName;*/"Hesham Ahmed",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2056519c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/HeshamAhmed.jpg",
+
+            ""
+
+    );
+
+
+
 
 
 

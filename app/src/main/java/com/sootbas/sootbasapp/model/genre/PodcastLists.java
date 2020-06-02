@@ -23,7 +23,8 @@ public class PodcastLists {
         SelfDevelopment_Podcast_list.add(PodcastsConstants.OmarBahaa_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.karimanMaher_podcast);
-        SelfDevelopment_Podcast_list.add(PodcastsConstants.MickelBeshay_podcast);
+        SelfDevelopment_Podcast_list.add(PodcastsConstants.MickaelBeshay_podcast);
+        SelfDevelopment_Podcast_list.add(PodcastsConstants.Engy_Safei_Eldin_podcast);
 
 
         Religion_Podcast_list.add(PodcastsConstants.SeifEldeeb_podcast);
@@ -31,11 +32,14 @@ public class PodcastLists {
         Religion_Podcast_list.add(PodcastsConstants.AhmedHossamAbdeen_podcast);
 
         HealthandFitness_Podcast_list.add(PodcastsConstants.RihamIraky_podcast);
-        HealthandFitness_Podcast_list.add(PodcastsConstants.NourhanKandil_podcast);
+        HealthandFitness_Podcast_list.add(PodcastsConstants.Eman_Gamal_podcast);
+        HealthandFitness_Podcast_list.add(PodcastsConstants.Deana_chaaban_podcast);
+
 
         Comedy_Podcast_list.add(PodcastsConstants.AhmedElBaz_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaleedMostafa_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
+        Comedy_Podcast_list.add(PodcastsConstants.Hesham_Ahmed_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.AymanMostafa_podcast);
 
 
@@ -51,6 +55,9 @@ public class PodcastLists {
 
         SelfLearning_Podcast_list.add(PodcastsConstants.ElDa7ee7_podcast);
         SelfLearning_Podcast_list.add(PodcastsConstants.FekraSohib_podcast);
+        SelfLearning_Podcast_list.add(PodcastsConstants.Reham_Aiaad_podcast);
+        SelfLearning_Podcast_list.add(PodcastsConstants.Mohammed_Sherif_podcast);
+
 
 
 
