@@ -8,8 +8,9 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     app:cardUseCompatPadding="true"
-    android:elevation="@dimen/item_elevation"
-    app:cardCornerRadius="@dimen/corner_radius">
+    style="@style/NewsCardView"
+    app:cardCornerRadius="@dimen/news_cardView_cornerRadius"
+    android:elevation="@dimen/item_elevation">
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,7 +23,6 @@
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_item_image_size"
-android:background="@xml/genre_item_border"
             tools:ignore="ContentDescription"/>
 
 
@@ -31,6 +31,7 @@ android:background="@xml/genre_item_border"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_item_title_height">
+
 
             <TextView
                 android:id="@+id/item_title"

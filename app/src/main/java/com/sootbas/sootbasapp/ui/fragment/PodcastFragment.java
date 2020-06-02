@@ -108,16 +108,16 @@ public class PodcastFragment extends ContractFragment<PodcastFragment.Contract>{
                 itemView.setOnClickListener(this);
                 mThumbnail = (ImageView) itemView.findViewById(R.id.podcast_thumbnail);
                 mArtistName = (TextView) itemView.findViewById(R.id.podcast_artist_name);
-                mCollectionName = (TextView) itemView.findViewById(R.id.podcast_collection_name);
-                mNumberOfEpisodes = (TextView) itemView.findViewById(R.id.podcast_episode_number);
-                mLatestPublicationDate = (TextView) itemView.findViewById(R.id.podcast_latest_pubdate);
+//                mCollectionName = (TextView) itemView.findViewById(R.id.podcast_collection_name);
+//                mNumberOfEpisodes = (TextView) itemView.findViewById(R.id.podcast_episode_number);
+//                mLatestPublicationDate = (TextView) itemView.findViewById(R.id.podcast_latest_pubdate);
             }
 
             public void bindModelItem(Podcast item) {
                 podcast = item;
                 mFeedUrl = item.getFeedUrl();
                 mArtistName.setText(item.getArtistName());
-                mCollectionName.setText(item.getCollectionName());
+//                mCollectionName.setText(item.getCollectionName());
 //                mNumberOfEpisodes.setText(String.format(Locale.ENGLISH, "Available episodes: %d", item.getTrackCount()));
 
                 // format the dateTime string
@@ -129,10 +129,10 @@ public class PodcastFragment extends ContractFragment<PodcastFragment.Contract>{
                         String year = date.substring(date.length() - 4, date.length());
 //                        mLatestPublicationDate.setText(String.format(Locale.ENGLISH, "Last published: %s %s %s", day, month, year));
                     } else {
-                        mLatestPublicationDate.setText(R.string.publication_date_unknown);
+//                        mLatestPublicationDate.setText(R.string.publication_date_unknown);
                     }
                 } else {
-                    mLatestPublicationDate.setText(R.string.publication_date_unknown);
+//                    mLatestPublicationDate.setText(R.string.publication_date_unknown);
                 }
                 // use glide to download and display image
                 if (item.getArtworkUrl600() != null && !item.getArtworkUrl600().isEmpty()) {
