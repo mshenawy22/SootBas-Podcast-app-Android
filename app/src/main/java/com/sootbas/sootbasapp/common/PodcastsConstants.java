@@ -235,9 +235,9 @@ public class PodcastsConstants {
 
     );
 
-    public static final Podcast MickaelBeshay_podcast = new Podcast(
+    public static final Podcast MichaelBeshay_podcast = new Podcast(
 
-            /* artistName;*/"Mickael Beshay",
+            /* artistName;*/"Michael Becthay",
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/22780344/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MichaelBeshay600.jpg",
