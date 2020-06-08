@@ -3,12 +3,15 @@
 
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <corners android:radius="8dp"/>
+            <corners android:radius="10dp"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
+                />
 
             <gradient
                 android:angle="270"
-                android:endColor="@color/colorPrimaryBackground"
-                android:startColor="@color/colorPrimaryBackground"/>
+                android:endColor="@color/md_white_1000"
+                android:startColor="@color/md_white_1000"/>
 
         </shape>
     </item>
@@ -29,12 +32,15 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape android:shape="rectangle">
-                <corners android:radius="8dp"/>
-
-                <gradient
-                    android:angle="270"
-                    android:endColor="@color/colorGradientEnd"
-                    android:startColor="@color/colorGradientStart"/>
+                <corners android:radius="10dp"
+                    android:layout_width="@dimen/progress_bar_size"
+                    android:layout_height="@dimen/progress_bar_size"
+                    />
+<!--                <gradient-->
+<!--                    android:angle="270"-->
+<!--                    android:endColor="@color/sootbas_grad_start"-->
+<!--                    android:startColor="@color/sootbas_grad_end"/>-->
+                <solid android:color="@color/sootbas_grad_end"/>
             </shape>
         </clip>
     </item>

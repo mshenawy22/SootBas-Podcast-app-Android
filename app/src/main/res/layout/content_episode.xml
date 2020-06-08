@@ -74,8 +74,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/large"
-        android:layout_marginStart="@dimen/large"
-        android:layout_marginEnd="@dimen/large"
+        android:layout_marginStart="@dimen/small"
+        android:layout_marginEnd="@dimen/small"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -94,12 +94,17 @@
             android:id="@+id/episode_progress_bar"
             android:indeterminate="false"
             android:progressDrawable="@drawable/progress_bar_horizontal"
-            android:thumb="@drawable/progress_bar_thumb"
+
             android:layout_marginStart="@dimen/audio_player_margin"
             android:layout_marginEnd="@dimen/audio_player_margin"
-            android:layout_width="0dp"
+            android:maxHeight = "3dp"
+            android:layout_width="match_parent"
             android:layout_weight="1"
-            android:layout_height="10dp"/>
+            android:layout_height="wrap_content"
+            android:thumb="@drawable/progress_bar_thumb"
+            android:thumbOffset="0dp"/>
+
+
 
 
         <TextView

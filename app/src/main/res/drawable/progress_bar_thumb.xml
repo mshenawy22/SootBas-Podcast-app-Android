@@ -3,10 +3,14 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
        android:shape="oval">
 
-    <gradient
-        android:angle="270"
-        android:endColor="@color/colorGradientEnd"
-        android:startColor="@color/colorGradientStart"/>
+<!--    <gradient-->
+<!--        android:angle="270"-->
+<!--        android:endColor="@color/sootbas_grad_end"-->
+<!--        android:startColor="@color/sootbas_grad_start"/>-->
+
+    <solid android:color="@color/sootbas_grad_end"/>
+
+
 
     <!--<solid android:color="@color/colorAccent"/>-->
 
@@ -15,7 +19,8 @@
         <!--android:height="@dimen/audio_player_thumb_size"/>-->
 
     <size
-        android:width="10dp"
-        android:height="10dp"/>
+        android:width="15dp"
+        android:height="15dp"/>
 
 </shape>
+
