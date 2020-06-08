@@ -23,7 +23,7 @@ public class PodcastLists {
         SelfDevelopment_Podcast_list.add(PodcastsConstants.OmarBahaa_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.karimanMaher_podcast);
-        SelfDevelopment_Podcast_list.add(PodcastsConstants.MickaelBeshay_podcast);
+        SelfDevelopment_Podcast_list.add(PodcastsConstants.MichaelBeshay_podcast);
         SelfDevelopment_Podcast_list.add(PodcastsConstants.Engy_Safei_Eldin_podcast);
 
 
@@ -39,8 +39,9 @@ public class PodcastLists {
         Comedy_Podcast_list.add(PodcastsConstants.AhmedElBaz_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaleedMostafa_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
+        Comedy_Podcast_list.add(PodcastsConstants.AdhamAbdelRahman_podcast);
         Comedy_Podcast_list.add(PodcastsConstants.Hesham_Ahmed_podcast);
-        Comedy_Podcast_list.add(PodcastsConstants.AymanMostafa_podcast);
+
 
 
 
@@ -48,7 +49,7 @@ public class PodcastLists {
         Travel_Podcast_list.add(PodcastsConstants.ExploreWithKhatib_podcast);
         Travel_Podcast_list.add(PodcastsConstants.AymanKashef_podcast);
         Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
-        Travel_Podcast_list.add(PodcastsConstants.AdhamAbdelRahman_podcast);
+
 
         FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
 

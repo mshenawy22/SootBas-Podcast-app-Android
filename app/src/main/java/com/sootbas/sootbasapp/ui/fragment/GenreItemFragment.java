@@ -38,6 +38,7 @@ public class GenreItemFragment extends ContractFragment<GenreItemFragment.Contra
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_recycler_autofit, container, false);
         AutofitRecyclerView recyclerView = (AutofitRecyclerView) view.findViewById(R.id.recycler_view);
+
         recyclerView.addItemDecoration(new ItemSpacerDecoration(
                 getResources().getDimensionPixelOffset(R.dimen.grid_item_margin),
                 getResources().getDimensionPixelOffset(R.dimen.grid_item_margin)

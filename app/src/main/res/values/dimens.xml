@@ -8,6 +8,8 @@
     <dimen name="large">32dp</dimen>
     <dimen name="xlarge">48dp</dimen>
     <dimen name="xxlarge">56dp</dimen>
+    <dimen name="xxxlarge">82dp</dimen>
+    <dimen name="xxxxlarge">140dp</dimen>
 
     <dimen name="tab_max_width">264dp</dimen>
     <dimen name="tab_layout_height">72dp</dimen>
@@ -18,8 +20,8 @@
     <dimen name="grid_item_image_size">200dp</dimen>
     <dimen name="podcast_item_height">400px</dimen>
     <dimen name="podcast_item_width">600px</dimen>
-    <dimen name="grid_item_title_height">40dp</dimen>
-    <dimen name="grid_item_margin">6px</dimen>
+    <dimen name="grid_item_title_height">20dp</dimen>
+    <dimen name="grid_item_margin">1px</dimen>
     <dimen name="list_item_width">320dp</dimen>
     <dimen name="list_item_height">120dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
