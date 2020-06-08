@@ -221,112 +221,93 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         if( podcast_channel.equals("elda7ee7")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ElDa7ee7_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.ElDa7ee7_podcast;
         }
         else if (podcast_channel.equals("elzatoona")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Zatoona_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
+
             selected_podcast =  PodcastsConstants.Zatoona_podcast;
         }
 
         else if (podcast_channel.equals("AhmedHossamAbdeen")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedHossamAbdeen_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
             selected_podcast = PodcastsConstants.AhmedHossamAbdeen_podcast;
 
         }
 
         else if (podcast_channel.equals("AhmedRoshdy")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedRoshdy_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
+
             selected_podcast = PodcastsConstants.AhmedRoshdy_podcast;
         }
         else if (podcast_channel.equals("WaleedMostafa")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaleedMostafa_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+
             selected_podcast = PodcastsConstants.WaleedMostafa_podcast;
         }
         else if (podcast_channel.equals("KarimanMaher")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.karimanMaher_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
+
             selected_podcast = PodcastsConstants.karimanMaher_podcast;
         }
         else if (podcast_channel.equals("MariamSakr")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MariamSakr_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getWomen_Podcast_list());
+
             selected_podcast = PodcastsConstants.MariamSakr_podcast;
         }
         else if (podcast_channel.equals("MohamedHady")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MohamedHady_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getTravel_Podcast_list());
+
             selected_podcast = PodcastsConstants.MohamedHady_podcast;
         }
         else if (podcast_channel.equals("NourhanKandil")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.NourhanKandil_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getHealthandFitness_Podcast_list());
+
             selected_podcast = PodcastsConstants.NourhanKandil_podcast;
         }
         else if (podcast_channel.equals("OmarBahaa")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.OmarBahaa_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfDevelopment_Podcast_list());
+
             selected_podcast = PodcastsConstants.OmarBahaa_podcast;
         }
         else if (podcast_channel.equals("SeifEldeeb")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.SeifEldeeb_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
+
             selected_podcast = PodcastsConstants.SeifEldeeb_podcast;
         }
 
         else if (podcast_channel.equals("WaelelBasel")) {
 
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
             selected_podcast = PodcastsConstants.WaelelBasel_podcast;
         }
 
         else if (podcast_channel.equals("Ahmedelbaz"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AhmedElBaz_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+
             selected_podcast = PodcastsConstants.AhmedElBaz_podcast;
         }
 
         else if (podcast_channel.equals("NedalReads"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.NedalReads_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getBooksReview_Podcast_list());
+
             selected_podcast = PodcastsConstants.NedalReads_podcast;
         }
 
         else if (podcast_channel.equals("MohamedGoabas"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MohamedGoabas_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getReligion_Podcast_list());
+
             selected_podcast = PodcastsConstants.MohamedGoabas_podcast;
         }
         else if (podcast_channel.equals("AdhamAbdelRahman"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AdhamAbdelRahman_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getTravel_Podcast_list());
+
             selected_podcast = PodcastsConstants.AdhamAbdelRahman_podcast;
         }
 
         else if (podcast_channel.equals("FekraSohaib"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.FekraSohib_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.FekraSohib_podcast;
 
         }
@@ -334,90 +315,77 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         else if (podcast_channel.equals("AymanKashef"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.AymanKashef_podcast);
-//            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.AymanKashef_podcast;
 
         }
 
         else if (podcast_channel.equals("ExploreWithKhatib"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.ExploreWithKhatib_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.ExploreWithKhatib_podcast;
 
         }
 
         else if (podcast_channel.equals("RihamEliraky"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.RihamIraky_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.RihamIraky_podcast;
 
         }
 
-        else if (podcast_channel.equals("MickaelBeshay"))
+        else if (podcast_channel.equals("MichaelBeshay"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.MickaelBeshay_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.MickaelBeshay_podcast;
+
+            selected_podcast = PodcastsConstants.MichaelBeshay_podcast;
         }
 
         else if (podcast_channel.equals("RowaydaAdel"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.RowaydaAdel_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.RowaydaAdel_podcast;
         }
 
         else if (podcast_channel.equals("FilmGamed"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.FilmGamed_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getFilmReviews_Podcast_list());
+
             selected_podcast = PodcastsConstants.FilmGamed_podcast;
         }
 
         else if (podcast_channel.equals("Mix"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Mix_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
+
             selected_podcast = PodcastsConstants.Mix_podcast;
         }
         else if (podcast_channel.equals("DeanaChaaban"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Deana_chaaban_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.Mix_podcast;
+
+            selected_podcast = PodcastsConstants.Deana_chaaban_podcast;
         }
         else if (podcast_channel.equals("RehmAiaad"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Reham_Aiaad_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.Mix_podcast;
+
+            selected_podcast = PodcastsConstants.Reham_Aiaad_podcast;
         }
         else if (podcast_channel.equals("EngySafei"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Engy_Safei_Eldin_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.Mix_podcast;
+
+            selected_podcast = PodcastsConstants.Engy_Safei_Eldin_podcast;
         }
         else if (podcast_channel.equals("EmanGamal"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Eman_Gamal_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.Mix_podcast;
+
+            selected_podcast = PodcastsConstants.Eman_Gamal_podcast;
         }
         else if (podcast_channel.equals("HeshamAhmed"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Hesham_Ahmed_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.Mix_podcast;
+
+            selected_podcast = PodcastsConstants.Hesham_Ahmed_podcast;
         }
         else if (podcast_channel.equals("MohammedSherif"))
         {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.Mohammed_Sherif_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getSelfLearning_Podcast_list());
-            selected_podcast = PodcastsConstants.Mix_podcast;
+
+            selected_podcast = PodcastsConstants.Mohammed_Sherif_podcast;
         }
 
 
