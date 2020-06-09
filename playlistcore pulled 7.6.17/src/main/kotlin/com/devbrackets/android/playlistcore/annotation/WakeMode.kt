@@ -20,10 +20,9 @@ import android.os.PowerManager
 import android.support.annotation.IntDef
 
 @IntDef(
-        PowerManager.PARTIAL_WAKE_LOCK.toLong(),
-        PowerManager.SCREEN_BRIGHT_WAKE_LOCK.toLong(), //Deprecated in API 13
-        PowerManager.SCREEN_BRIGHT_WAKE_LOCK.toLong(), //Deprecated in API 17
-        PowerManager.FULL_WAKE_LOCK.toLong() //Deprecated in API 17
+        PowerManager.PARTIAL_WAKE_LOCK,
+        PowerManager.SCREEN_BRIGHT_WAKE_LOCK, //Deprecated in API 17
+        PowerManager.FULL_WAKE_LOCK //Deprecated in API 17
 )
 @Retention(AnnotationRetention.SOURCE)
 annotation class WakeMode

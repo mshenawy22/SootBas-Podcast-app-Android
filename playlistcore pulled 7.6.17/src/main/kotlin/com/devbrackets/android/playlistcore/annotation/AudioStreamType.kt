@@ -20,13 +20,13 @@ import android.media.AudioManager
 import android.support.annotation.IntDef
 
 @IntDef(
-        AudioManager.STREAM_VOICE_CALL.toLong(),
-        AudioManager.STREAM_SYSTEM.toLong(),
-        AudioManager.STREAM_RING.toLong(),
-        AudioManager.STREAM_MUSIC.toLong(),
-        AudioManager.STREAM_ALARM.toLong(),
-        AudioManager.STREAM_NOTIFICATION.toLong(),
-        AudioManager.STREAM_DTMF.toLong()
+        AudioManager.STREAM_VOICE_CALL,
+        AudioManager.STREAM_SYSTEM,
+        AudioManager.STREAM_RING,
+        AudioManager.STREAM_MUSIC,
+        AudioManager.STREAM_ALARM,
+        AudioManager.STREAM_NOTIFICATION,
+        AudioManager.STREAM_DTMF
 )
 @Retention(AnnotationRetention.SOURCE)
 annotation class AudioStreamType
