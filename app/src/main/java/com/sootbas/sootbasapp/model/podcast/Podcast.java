@@ -80,7 +80,7 @@ public class Podcast implements Parcelable {
 
 
     public Podcast( String artistName,String collectionName,String feedUrl,
-                   String    artworkUrl600  ,String collectionViewUrl )
+                   String    artworkUrl600   )
     {
         this.wrapperType = "track";
         this.kind        = "podcast";
@@ -88,7 +88,7 @@ public class Podcast implements Parcelable {
         this.collectionName = collectionName;
         this.feedUrl = feedUrl ;
         this.artworkUrl600 = artworkUrl600;
-        this.collectionViewUrl = collectionViewUrl;
+        this.collectionViewUrl = "";
 
         String delims = "[/]+";
         String[] tokens = feedUrl.split(delims);
@@ -99,7 +99,7 @@ public class Podcast implements Parcelable {
     }
 
     public Podcast( String artistName,String collectionName,String feedUrl,
-                    String    artworkUrl600  ,String collectionViewUrl , String collectionid )
+                    String    artworkUrl600  , String collectionid )
     {
         this.wrapperType = "track";
         this.kind        = "podcast";
@@ -107,7 +107,7 @@ public class Podcast implements Parcelable {
         this.collectionName = collectionName;
         this.feedUrl = feedUrl ;
         this.artworkUrl600 = artworkUrl600;
-        this.collectionViewUrl = collectionViewUrl;
+        this.collectionViewUrl = "";
 
 
         this.collectionId  = collectionid;

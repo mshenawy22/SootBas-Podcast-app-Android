@@ -54,21 +54,16 @@ public class PodcastLists {
         FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
 
 
-        SelfLearning_Podcast_list.add(PodcastsConstants.ElDa7ee7_podcast);
+
         SelfLearning_Podcast_list.add(PodcastsConstants.FekraSohib_podcast);
         SelfLearning_Podcast_list.add(PodcastsConstants.Reham_Aiaad_podcast);
         SelfLearning_Podcast_list.add(PodcastsConstants.Mohammed_Sherif_podcast);
 
-
-
-
-
-        BooksReview_Podcast_list.add(PodcastsConstants.Zatoona_podcast);
         BooksReview_Podcast_list.add(PodcastsConstants.NedalReads_podcast);
         BooksReview_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
 
         Women_Podcast_list.add(PodcastsConstants.RowaydaAdel_podcast);
-        Women_Podcast_list.add(PodcastsConstants.MariamSakr_podcast);
+
     }
 
 
