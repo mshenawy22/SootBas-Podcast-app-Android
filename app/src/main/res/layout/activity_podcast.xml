@@ -45,12 +45,13 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:indeterminateDrawable="@drawable/progress_bar_circular"
-        android:layout_centerInParent="true"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="@dimen/progress_bar_width"
+        android:layout_height="@dimen/progress_bar_height"
         android:layout_gravity="center"
-        android:visibility="gone"
-        android:layout_width="@dimen/progress_bar_size"
-        android:layout_height="@dimen/progress_bar_size"/>
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/sootbas_progress_bar"
+        android:layout_centerInParent="true"/>
 
 
 

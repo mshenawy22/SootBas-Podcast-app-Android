@@ -50,16 +50,19 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="694dp"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:layout_width="19dp"
-        android:layout_height="29dp"
-        android:layout_gravity="top|center"
-        android:indeterminateDrawable="@drawable/progress_bar_circular"
-        android:visibility="gone" />
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="@dimen/progress_bar_width"
+        android:layout_height="@dimen/progress_bar_height"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:indeterminate="false"
+        android:indeterminateDrawable="@drawable/sootbas_progress_bar"
+        android:layout_centerInParent="true"/>
 
 
 </android.support.design.widget.CoordinatorLayout>

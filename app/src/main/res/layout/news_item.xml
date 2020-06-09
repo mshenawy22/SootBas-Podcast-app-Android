@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
@@ -60,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/news_headline"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/md_white_1000"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:maxLines="4"
             android:textAppearance="?android:textAppearanceMedium"/>
@@ -78,6 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginRight="3dp"
+                android:textColor="@color/md_white_1000"
                 android:textSize="@dimen/minimal_text_size"
                 tools:text="Mar 6, 2010" />
 

@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements
         mLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setY(112f); // center progressbar, move down due to TabLayout
+        mProgressBar.setVisibility(View.GONE);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 

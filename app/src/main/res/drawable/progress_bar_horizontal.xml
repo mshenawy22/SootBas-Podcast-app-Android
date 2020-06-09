@@ -4,9 +4,7 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
             <corners android:radius="10dp"
-                android:layout_width="@dimen/progress_bar_size"
-                android:layout_height="@dimen/progress_bar_size"
-                />
+               />
 
             <gradient
                 android:angle="270"
@@ -33,8 +31,7 @@
         <clip>
             <shape android:shape="rectangle">
                 <corners android:radius="10dp"
-                    android:layout_width="@dimen/progress_bar_size"
-                    android:layout_height="@dimen/progress_bar_size"
+
                     />
 <!--                <gradient-->
 <!--                    android:angle="270"-->

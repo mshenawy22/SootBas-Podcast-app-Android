@@ -91,6 +91,7 @@ public class PodcastActivity extends BaseActivity implements
         mLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setY(72f); // 66f
+        mProgressBar.setVisibility(View.GONE);
 
         // instantiate the toolbar with up nav arrow and set page title
         initToolbar();

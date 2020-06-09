@@ -186,6 +186,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         if( firsttime == true) {
             progressBar.setVisibility(View.GONE);
 
+
             // Set empty state text to display "No news found."
             mEmptyStateTextView.setText(R.string.no_news);
 
@@ -408,7 +409,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     // download the podcast episode list
     private void executeEpisodeQuery(final Podcast item , int episodenumber ) {
         Timber.i("%s execute episode list download", Constants.LOG_TAG);
-//        mProgressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
     if (episodenumber <1) episodenumber =1;
         else episodenumber -=1;
         final int episodeNumber = episodenumber;
@@ -420,7 +421,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         call.enqueue(new Callback<Feed>() {
             @Override
             public void onResponse(Call<Feed> call, Response<Feed> response) {
-//                mProgressBar.setVisibility(View.GONE);
+
                 Channel channel = response.body().getChannel();
                 if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
                     // save feed to an in-memory cache since it's too large to send via IPC/intent
@@ -440,7 +441,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
             @Override
             public void onFailure(Call<Feed> call, Throwable t) {
-//                mProgressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 Timber.e("%s failure, error: %s", Constants.LOG_TAG, t.getMessage());
                 Utils.showSnackbar(rootView, getString(R.string.feed_not_available));
             }
