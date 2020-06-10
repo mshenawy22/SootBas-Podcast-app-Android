@@ -3,10 +3,8 @@ package com.sootbas.sootbasapp.player.service;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
 
 import com.devbrackets.android.exomedia.EMAudioPlayer;
 import com.devbrackets.android.playlistcore.api.AudioPlayerApi;
@@ -18,8 +16,6 @@ import com.sootbas.sootbasapp.player.model.AudioItem;
 import com.sootbas.sootbasapp.ui.activity.EpisodesActivity;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-
-import timber.log.Timber;
 
 
 public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager>{

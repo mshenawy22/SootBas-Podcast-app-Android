@@ -17,7 +17,7 @@
 package com.devbrackets.android.playlistcore.manager
 
 import android.app.Application
-import android.support.annotation.IntRange
+import androidx.annotation.IntRange
 
 /**
  * An implementation of the [BasePlaylistManager] that supports Lists

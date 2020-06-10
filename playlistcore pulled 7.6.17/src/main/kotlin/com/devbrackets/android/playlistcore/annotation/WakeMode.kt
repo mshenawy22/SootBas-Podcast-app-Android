@@ -17,7 +17,7 @@
 package com.devbrackets.android.playlistcore.annotation
 
 import android.os.PowerManager
-import android.support.annotation.IntDef
+import androidx.annotation.IntDef
 
 @IntDef(
         PowerManager.PARTIAL_WAKE_LOCK,

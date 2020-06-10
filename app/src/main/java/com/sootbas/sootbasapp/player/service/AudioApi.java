@@ -3,9 +3,9 @@ package com.sootbas.sootbasapp.player.service;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 
 import com.devbrackets.android.exomedia.EMAudioPlayer;
 import com.devbrackets.android.playlistcore.api.AudioPlayerApi;

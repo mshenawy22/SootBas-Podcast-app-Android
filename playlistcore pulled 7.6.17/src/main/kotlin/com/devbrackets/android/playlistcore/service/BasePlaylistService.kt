@@ -20,7 +20,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.graphics.Bitmap
-import android.support.annotation.DrawableRes
+import androidx.annotation.DrawableRes
 import com.devbrackets.android.playlistcore.R
 import com.devbrackets.android.playlistcore.helper.MediaControlsHelper
 import com.devbrackets.android.playlistcore.helper.mediasession.DefaultMediaSessionProvider

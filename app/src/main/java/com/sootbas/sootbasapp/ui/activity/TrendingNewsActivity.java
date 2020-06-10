@@ -3,12 +3,11 @@ package com.sootbas.sootbasapp.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 //import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.view.MenuItem;
+import androidx.fragment.app.FragmentActivity;
+
 import android.view.View;
 
 //import com.daimajia.androidanimations.library.Techniques;
@@ -18,9 +17,6 @@ import com.sootbas.sootbasapp.ui.fragment.TrendingNewsFragment;
 
 //import com.example.android.newsfeedapp.Helpers.BottomNavigationViewHelper;
 import com.sootbas.sootbasapp.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class TrendingNewsActivity extends FragmentActivity {
 //    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu; //Bottom Navigation View Menu

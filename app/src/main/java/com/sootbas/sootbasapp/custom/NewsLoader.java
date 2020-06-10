@@ -1,11 +1,8 @@
 package com.sootbas.sootbasapp.custom;
 
 import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
+import androidx.loader.content.AsyncTaskLoader;
 import android.util.Log;
-
-import com.sootbas.sootbasapp.custom.NewsData;
-import com.sootbas.sootbasapp.custom.QueryUtils;
 
 import java.util.List;
 

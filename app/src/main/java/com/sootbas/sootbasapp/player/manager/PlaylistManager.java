@@ -2,7 +2,7 @@ package com.sootbas.sootbasapp.player.manager;
 
 import android.app.Application;
 import android.app.Service;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.devbrackets.android.playlistcore.manager.ListPlaylistManager;
 import com.sootbas.sootbasapp.PodcastPlayerApplication;

@@ -29,10 +29,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.os.PowerManager
-import android.support.annotation.FloatRange
-import android.support.annotation.IntRange
-import android.support.annotation.RequiresApi
-import android.support.v4.content.ContextCompat
+import androidx.annotation.FloatRange
+import androidx.annotation.IntRange
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import android.util.Log
 import com.devbrackets.android.playlistcore.annotation.ServiceContinuationMethod
 import com.devbrackets.android.playlistcore.annotation.SupportedMediaType
@@ -308,6 +308,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
         }
 
         return serviceContinuationMethod
+
     }
 
     override fun onTaskRemoved(rootIntent: Intent) {
@@ -1094,6 +1095,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
 
         audioPlayer = newAudioPlayer.apply {
             setWakeMode(applicationContext, PowerManager.PARTIAL_WAKE_LOCK)
+
             setStreamType(AudioManager.STREAM_MUSIC)
 
             // Sets the listeners

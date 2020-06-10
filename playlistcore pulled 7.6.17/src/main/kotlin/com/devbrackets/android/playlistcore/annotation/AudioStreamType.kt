@@ -17,7 +17,7 @@
 package com.devbrackets.android.playlistcore.annotation
 
 import android.media.AudioManager
-import android.support.annotation.IntDef
+import androidx.annotation.IntDef
 
 @IntDef(
         AudioManager.STREAM_VOICE_CALL,

@@ -1,7 +1,7 @@
 package com.sootbas.sootbasapp.player.service;
 
 
-import android.support.annotation.IntRange;
+import androidx.annotation.IntRange;
 
 import com.devbrackets.android.exomedia.listener.OnBufferUpdateListener;
 import com.devbrackets.android.exomedia.listener.OnCompletionListener;

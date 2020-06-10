@@ -21,8 +21,8 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.os.Build
-import android.support.annotation.IntRange
-import android.support.annotation.RequiresApi
+import androidx.annotation.IntRange
+import androidx.annotation.RequiresApi
 import android.util.Log
 import com.devbrackets.android.playlistcore.annotation.SupportedMediaType
 import com.devbrackets.android.playlistcore.api.VideoPlayerApi

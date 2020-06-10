@@ -18,7 +18,7 @@ package com.devbrackets.android.playlistcore.helper.notification
 
 import android.app.PendingIntent
 import android.graphics.Bitmap
-import android.support.annotation.DrawableRes
+import androidx.annotation.DrawableRes
 import com.devbrackets.android.playlistcore.manager.IPlaylistItem
 
 /**

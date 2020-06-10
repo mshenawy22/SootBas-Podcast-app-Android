@@ -5,4 +5,6 @@
     <drawable name="playlistcore_notification_next">@drawable/playlistcore_ic_skip_next_white</drawable>
     <drawable name="playlistcore_notification_play">@drawable/playlistcore_ic_play_arrow_white</drawable>
     <drawable name="playlistcore_notification_pause">@drawable/playlistcore_ic_pause_white</drawable>
+    <drawable name="playlistcore_sootbas_logo">@drawable/playlistcore_ic_sootbas3</drawable>
+
 </resources>
