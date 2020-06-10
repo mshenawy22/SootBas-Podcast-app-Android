@@ -22,10 +22,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.support.v4.media.session.MediaSessionCompat
-
-import android.support.v4.app.NotificationCompat
+import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
 import com.devbrackets.android.playlistcore.R
 import com.devbrackets.android.playlistcore.service.RemoteActions
+
 
 open class DefaultPlaylistNotificationProvider(protected val context: Context) : PlaylistNotificationProvider {
     companion object {
@@ -54,13 +55,14 @@ open class DefaultPlaylistNotificationProvider(protected val context: Context) :
             //Set the notification category on lollipop
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 setCategory(Notification.CATEGORY_TRANSPORT)
-                setVisibility(Notification.VISIBILITY_PUBLIC)
+                setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             }
 
             //TODO: handle loading state
 
             setActions(this, info, serviceClass)
-            setStyle(buildMediaStyle(mediaSession, serviceClass))
+//            setStyle(buildMediaStyle(mediaSession, serviceClass)) //merged into set actions
+
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 buildNotificationChannel()
@@ -69,6 +71,7 @@ open class DefaultPlaylistNotificationProvider(protected val context: Context) :
         }.build()
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     protected open fun setActions(builder: NotificationCompat.Builder, info: MediaInfo, serviceClass: Class<out Service>) {
         val playing = info.mediaState.isPlaying
         val playPauseIconRes = if (!playing) R.drawable.playlistcore_notification_play else R.drawable.playlistcore_notification_pause
@@ -78,16 +81,25 @@ open class DefaultPlaylistNotificationProvider(protected val context: Context) :
         builder.addAction(R.drawable.playlistcore_notification_previous, "", createPendingIntent(serviceClass, RemoteActions.ACTION_PREVIOUS))
         builder.addAction(playPauseIconRes, "", createPendingIntent(serviceClass, RemoteActions.ACTION_PLAY_PAUSE))
         builder.addAction(R.drawable.playlistcore_notification_next, "", createPendingIntent(serviceClass, RemoteActions.ACTION_NEXT))
-    }
+        builder.setSmallIcon(R.drawable.playlistcore_sootbas_logo)
+//        builder.setStyle(androidx.media.app.NotificationCompat.MediaStyle().setShowCancelButton(true))
+        builder.setStyle(androidx.media.app.NotificationCompat.MediaStyle().setShowActionsInCompactView(0,1,2))
 
-    protected open fun buildMediaStyle(mediaSession: MediaSessionCompat, serviceClass: Class<out Service>) : NotificationCompat.MediaStyle {
-        return NotificationCompat.MediaStyle().apply {
-            setMediaSession(mediaSession.sessionToken)
-            setShowActionsInCompactView(0, 1, 2) // previous, play/pause, next
-            setShowCancelButton(true)
-            setCancelButtonIntent(createPendingIntent(serviceClass, RemoteActions.ACTION_STOP))
+
         }
-    }
+
+//
+//    protected open fun buildMediaStyle(mediaSession: MediaSessionCompat, serviceClass: Class<out Service>) : NotificationCompat.MediaStyle {
+
+
+
+//        return NotificationCompatNotification.Builder.MediaStyle().apply {
+//            setMediaSession(mediaSession.sessionToken)
+//            setShowActionsInCompactView(0, 1, 2) // previous, play/pause, next
+//            setShowCancelButton(true)
+//            setCancelButtonIntent(createPendingIntent(serviceClass, RemoteActions.ACTION_STOP))
+//        }
+//    }
 
     /**
      * Builds the notification channel using the default name and description (English Only)
