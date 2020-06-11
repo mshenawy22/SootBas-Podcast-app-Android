@@ -59,6 +59,8 @@ package com.sootbas.sootbasapp.model.podcast;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.sootbas.sootbasapp.common.PodcastsConstants;
+
 public class Podcast implements Parcelable {
 
     private String wrapperType;
@@ -77,10 +79,11 @@ public class Podcast implements Parcelable {
     private int trackCount;
     private String country;
     private String primaryGenreName;
+    private PodcastsConstants.eCategoryofPodcast categoryofPodcast;
 
 
     public Podcast( String artistName,String collectionName,String feedUrl,
-                   String    artworkUrl600   )
+                   String    artworkUrl600 , PodcastsConstants.eCategoryofPodcast categoryofPodcast )
     {
         this.wrapperType = "track";
         this.kind        = "podcast";
@@ -89,32 +92,33 @@ public class Podcast implements Parcelable {
         this.feedUrl = feedUrl ;
         this.artworkUrl600 = artworkUrl600;
         this.collectionViewUrl = "";
+        this.categoryofPodcast = categoryofPodcast;
 
-        String delims = "[/]+";
+        String delims = "[/]+"; // only works for anchor style rss url
         String[] tokens = feedUrl.split(delims);
         this.collectionId  = tokens[3];
 
 
 
-    }
-
-    public Podcast( String artistName,String collectionName,String feedUrl,
-                    String    artworkUrl600  , String collectionid )
-    {
-        this.wrapperType = "track";
-        this.kind        = "podcast";
-        this.artistName = artistName;
-        this.collectionName = collectionName;
-        this.feedUrl = feedUrl ;
-        this.artworkUrl600 = artworkUrl600;
-        this.collectionViewUrl = "";
-
-
-        this.collectionId  = collectionid;
-
-
 
     }
+//
+//    public Podcast( String artistName,String collectionName,String feedUrl,
+//                    String    artworkUrl600  , String collectionid )
+//    {
+//        this.wrapperType = "track";
+//        this.kind        = "podcast";
+//        this.artistName = artistName;
+//        this.collectionName = collectionName;
+//        this.feedUrl = feedUrl ;
+//        this.artworkUrl600 = artworkUrl600;
+//        this.collectionViewUrl = "";
+//
+//        this.collectionId  = collectionid;
+//
+//
+//
+//    }
 
     public String getWrapperType() {
         return wrapperType;
@@ -165,6 +169,7 @@ public class Podcast implements Parcelable {
 
         return   collectionName;
     }
+
 
     public void setCollectionName(String collectionName) {
         this.collectionName = collectionName;
@@ -310,4 +315,12 @@ public class Podcast implements Parcelable {
             return new Podcast[size];
         }
     };
+
+    public PodcastsConstants.eCategoryofPodcast getCategoryofPodcast() {
+        return categoryofPodcast;
+    }
+
+    public void setCategoryofPodcast(PodcastsConstants.eCategoryofPodcast categoryofPodcast) {
+        this.categoryofPodcast = categoryofPodcast;
+    }
 }

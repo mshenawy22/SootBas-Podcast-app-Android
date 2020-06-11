@@ -225,11 +225,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
             selected_podcast = PodcastsConstants.ElDa7ee7_podcast;
         }
-        else if (podcast_channel.equals("elzatoona")) {
 
-
-            selected_podcast =  PodcastsConstants.Zatoona_podcast;
-        }
 
         else if (podcast_channel.equals("AhmedHossamAbdeen")) {
 
@@ -252,21 +248,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
             selected_podcast = PodcastsConstants.karimanMaher_podcast;
         }
-        else if (podcast_channel.equals("MariamSakr")) {
 
-
-            selected_podcast = PodcastsConstants.MariamSakr_podcast;
-        }
-        else if (podcast_channel.equals("MohamedHady")) {
-
-
-            selected_podcast = PodcastsConstants.MohamedHady_podcast;
-        }
-        else if (podcast_channel.equals("NourhanKandil")) {
-
-
-            selected_podcast = PodcastsConstants.NourhanKandil_podcast;
-        }
         else if (podcast_channel.equals("OmarBahaa")) {
 
 
@@ -347,11 +329,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             selected_podcast = PodcastsConstants.RowaydaAdel_podcast;
         }
 
-        else if (podcast_channel.equals("FilmGamed"))
-        {
 
-            selected_podcast = PodcastsConstants.FilmGamed_podcast;
-        }
 
         else if (podcast_channel.equals("Mix"))
         {
