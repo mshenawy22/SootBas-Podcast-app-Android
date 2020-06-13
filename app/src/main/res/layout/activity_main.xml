@@ -59,8 +59,8 @@
         android:layout_width="@dimen/progress_bar_width"
         android:layout_height="@dimen/progress_bar_height"
         android:layout_gravity="center"
-        android:layout_alignParentBottom="true"
-        android:indeterminate="false"
+        android:background="@drawable/sootbas_logo_round"
+        android:indeterminate="true"
         android:indeterminateDrawable="@drawable/sootbas_progress_bar"
         android:layout_centerInParent="true"/>
 
