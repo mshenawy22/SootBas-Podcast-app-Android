@@ -49,6 +49,13 @@
     <dimen name="card_view_text_view_marginBottom">10dp</dimen>
     <dimen name="news_cardView_cornerRadius">16dp</dimen>
 
+    <!--card podcast view-->
+    <dimen name="pcard_view">250dp</dimen>
+    <dimen name="pcard_view_marginLeft">24dp</dimen>
+    <dimen name="pcard_view_text_view_marginBottom">10dp</dimen>
+    <dimen name="pactivity_vertical_margin">1dp</dimen>
+    <dimen name="pnews_cardView_cornerRadius">16dp</dimen>
+
     <!--News List -->
     <dimen name="elevation">4dp</dimen>
     <dimen name="cardView_cornerRadius">8dp</dimen>
