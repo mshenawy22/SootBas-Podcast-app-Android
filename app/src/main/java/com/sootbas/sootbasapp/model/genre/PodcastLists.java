@@ -46,7 +46,7 @@ public class PodcastLists {
              case Learn:
                  SelfLearning_Podcast_list.add (p);
                  break;
-             case She:
+             case Beauty:
                  Women_Podcast_list.add(p);
                  break;
              case Healthy:

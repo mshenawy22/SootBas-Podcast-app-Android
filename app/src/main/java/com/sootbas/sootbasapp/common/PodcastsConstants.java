@@ -19,7 +19,7 @@ public class PodcastsConstants {
         Develop(4),
         Travel(5),
         Read(6),
-        She(7),
+        Beauty(7),
         Pray(8),
         Life(9),
         NoCategory(10);
@@ -155,6 +155,16 @@ public class PodcastsConstants {
 
     );
 
+    public static final  Podcast Zatoona_podcast = new Podcast(
+
+            /* artistName;*/"El Zatoona",
+            /* collectionName;*/ "",
+            /* feedUrl; */ " https://anchor.fm/s/1ebd8b20/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/elzatoona.jpg",
+            eCategoryofPodcast.Read
+
+    );
+
     public static final Podcast NedalReads_podcast = new Podcast(
             /* artistName;*/"Nedal Reads ",
             /* collectionName;*/ "",
@@ -203,7 +213,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "انــتي#",
             /* feedUrl; */ "https://anchor.fm/s/22fb39e4/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/rowayda600.jpg",
-            eCategoryofPodcast.She
+            eCategoryofPodcast.Beauty
 
 
     );
@@ -315,7 +325,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/245f2d54/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/EmanGamal.jpg",
-            eCategoryofPodcast.Healthy
+            eCategoryofPodcast.Beauty
 
 
 
@@ -336,7 +346,7 @@ public class PodcastsConstants {
             /* artistName;*/"Nilly Shams",
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/252e0ea8/podcast/rss",
-            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/HeshamAhmed.jpg",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NillyShams.jpg",
             eCategoryofPodcast.Healthy
 
     );

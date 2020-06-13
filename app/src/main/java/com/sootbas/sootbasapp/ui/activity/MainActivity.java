@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements
                     list =  podlist.getSelfDevelopment_Podcast_list();
 
                 }
-                else if (genreTitle.equals("#Healthy") )
+                else if (genreTitle.equals("#Nutrition") )
                 {
                     list =  podlist.getHealthandFitness_Podcast_list();
                 }
@@ -271,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements
 
                     list =  podlist.getBooksReview_Podcast_list() ;
                 }
-                else if (genreTitle.equals("#She"))
+                else if (genreTitle.equals("#Beauty"))
                 {
                     list =  podlist.getWomen_Podcast_list() ;
                 }
