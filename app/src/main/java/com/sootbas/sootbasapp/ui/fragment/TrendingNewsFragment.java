@@ -168,7 +168,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
 
         // Create a new loader for the given URL
-//        Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
+//        Uri.Builder builder = Uri.parse(GUARDIAN_RitEQUEST_URL).buildUpon();
         Uri.Builder builder = Uri.parse("https://api.sootbas.com/trending.json").buildUpon();
 //        builder.appendQueryParameter(queryParameter, getString(R.string.trending_news))
 //                .appendQueryParameter(orderByParameter, getString(R.string.newest))
@@ -224,12 +224,14 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
 
             selected_podcast = PodcastsConstants.ElDa7ee7_podcast;
+            System.out.println("Doing nothing");
         }
 
 
         else if (podcast_channel.equals("AhmedHossamAbdeen")) {
 
             selected_podcast = PodcastsConstants.AhmedHossamAbdeen_podcast;
+            System.out.println("Doing nothing");
 
         }
 
@@ -242,17 +244,20 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
 
             selected_podcast = PodcastsConstants.WaleedMostafa_podcast;
+            System.out.println("Doing nothing");
         }
         else if (podcast_channel.equals("KarimanMaher")) {
 
 
             selected_podcast = PodcastsConstants.karimanMaher_podcast;
+            System.out.println("Doing nothing");
         }
 
         else if (podcast_channel.equals("OmarBahaa")) {
 
 
             selected_podcast = PodcastsConstants.OmarBahaa_podcast;
+            System.out.println("Doing nothing");
         }
         else if (podcast_channel.equals("SeifEldeeb")) {
 
@@ -387,7 +392,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     // download the podcast episode list
     private void executeEpisodeQuery(final Podcast item , int episodenumber ) {
         Timber.i("%s execute episode list download", Constants.LOG_TAG);
-        progressBar.setVisibility(View.GONE);
+
     if (episodenumber <1) episodenumber =1;
         else episodenumber -=1;
         final int episodeNumber = episodenumber;
@@ -396,11 +401,13 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         RssInterface rssService = RssClient.getClient().create(RssInterface.class); // takes no time
         Call<Feed> call = rssService.getItems(item.getFeedUrl());
+        progressBar.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<Feed>() {
             @Override
             public void onResponse(Call<Feed> call, Response<Feed> response) {
 
                 Channel channel = response.body().getChannel();
+                progressBar.setVisibility(View.GONE);
                 if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
                     // save feed to an in-memory cache since it's too large to send via IPC/intent
                     EpisodesDataCache.getInstance().setPodcast(item);

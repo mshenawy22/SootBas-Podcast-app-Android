@@ -79,7 +79,7 @@ public class Podcast implements Parcelable {
     private int trackCount;
     private String country;
     private String primaryGenreName;
-    private PodcastsConstants.eCategoryofPodcast categoryofPodcast;
+    private int categoryofPodcast;
 
 
     public Podcast( String artistName,String collectionName,String feedUrl,
@@ -92,7 +92,7 @@ public class Podcast implements Parcelable {
         this.feedUrl = feedUrl ;
         this.artworkUrl600 = artworkUrl600;
         this.collectionViewUrl = "";
-        this.categoryofPodcast = categoryofPodcast;
+        this.categoryofPodcast = categoryofPodcast.getValue();
 
         String delims = "[/]+"; // only works for anchor style rss url
         String[] tokens = feedUrl.split(delims);
@@ -316,11 +316,11 @@ public class Podcast implements Parcelable {
         }
     };
 
-    public PodcastsConstants.eCategoryofPodcast getCategoryofPodcast() {
+    public int getCategoryofPodcast() {
         return categoryofPodcast;
     }
 
-    public void setCategoryofPodcast(PodcastsConstants.eCategoryofPodcast categoryofPodcast) {
+    public void setCategoryofPodcast(int categoryofPodcast) {
         this.categoryofPodcast = categoryofPodcast;
     }
 }

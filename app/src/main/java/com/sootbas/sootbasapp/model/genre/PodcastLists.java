@@ -27,17 +27,20 @@ public class PodcastLists {
 
         for(Podcast p : PodcastsConstants.All_podcasts)
         {
+             int x   = p.getCategoryofPodcast();
+            PodcastsConstants.eCategoryofPodcast m = PodcastsConstants.eCategoryofPodcast.valueOf(x);
 
-         switch (p.getCategoryofPodcast())
+
+         switch (m)
          {
-             case Pray :
+             case Pray:
                  Religion_Podcast_list.add(p);
                  break;
 
              case Comedy:
                  Comedy_Podcast_list.add(p);
                  break;
-            case Develop:
+             case Develop:
                 SelfDevelopment_Podcast_list.add(p);
                 break;
              case Learn:

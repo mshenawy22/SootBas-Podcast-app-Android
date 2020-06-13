@@ -4,24 +4,51 @@ import com.sootbas.sootbasapp.model.podcast.Podcast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class PodcastsConstants {
 
     public enum eCategoryofPodcast
     {
-        Comedy,
-        Learn,
-        Healthy,
-        Develop,
-        Travel,
-        Read,
-        She,
-        Pray,
-        Life,
-        NoCategory
-    }
+        Comedy(1),
+        Learn(2),
+        Healthy(3),
+        Develop(4),
+        Travel(5),
+        Read(6),
+        She(7),
+        Pray(8),
+        Life(9),
+        NoCategory(10);
+
+            private  int value;
+
+        private static Map<Integer, eCategoryofPodcast> map = new HashMap<Integer, eCategoryofPodcast>();
+        static {
+            for (eCategoryofPodcast legEnum : eCategoryofPodcast.values()) {
+                map.put(legEnum.getValue(), legEnum);
+            }
+        }
+
+        public static eCategoryofPodcast valueOf(int legNo) {
+            return map.get(legNo);
+        }
+
+        eCategoryofPodcast(int value){
+                this.value = value;
+            }
+
+
+
+
+            public int getValue() {
+                return value;
+            }
+        }
+
 
     public static final Podcast ElDa7ee7_podcast = new Podcast(
 
