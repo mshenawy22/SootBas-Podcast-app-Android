@@ -4,7 +4,6 @@ import com.sootbas.sootbasapp.common.PodcastsConstants;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class PodcastLists {
@@ -13,7 +12,7 @@ public class PodcastLists {
     private ArrayList <Podcast>  Religion_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast>  Comedy_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast>  HealthandFitness_Podcast_list = new ArrayList<Podcast>() ;
-    private ArrayList <Podcast>  Travel_Podcast_list = new ArrayList<Podcast>() ;
+    private ArrayList <Podcast> LifeStyle_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast>  FilmReviews_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast>  SelfLearning_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast> BooksReview_Podcast_list = new ArrayList<Podcast>() ;
@@ -55,8 +54,8 @@ public class PodcastLists {
              case Read:
                  BooksReview_Podcast_list.add(p);
                  break;
-             case Travel:
-                 Travel_Podcast_list.add(p);
+             case Life:
+                 LifeStyle_Podcast_list.add(p);
                  break;
              default:
 
@@ -131,8 +130,8 @@ public class PodcastLists {
         return HealthandFitness_Podcast_list;
     }
 
-    public ArrayList<Podcast> getTravel_Podcast_list() {
-        return Travel_Podcast_list;
+    public ArrayList<Podcast> getLifeStyle_Podcast_list() {
+        return LifeStyle_Podcast_list;
     }
 
     public ArrayList<Podcast> getFilmReviews_Podcast_list() {

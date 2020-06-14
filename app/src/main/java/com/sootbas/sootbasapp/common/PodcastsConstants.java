@@ -180,7 +180,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/205a42fc/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AdhamAbdelRahman.jpg",
-            eCategoryofPodcast.Travel
+            eCategoryofPodcast.Comedy
 
     );
 
@@ -308,15 +308,15 @@ public class PodcastsConstants {
 
     public static final Podcast Deana_chaaban_podcast = new Podcast(
 
-            /* artistName;*/"Deana chaaban",
+            /* artistName;*/"Deana Chaaban",
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/243b9150/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/DeanaChaaban.jpg",
             eCategoryofPodcast.Healthy
 
-
-
     );
+
+
 
 
     public static final Podcast    Eman_Gamal_podcast = new Podcast(
@@ -367,25 +367,28 @@ public class PodcastsConstants {
 
             AhmedRoshdy_podcast,
             karimanMaher_podcast,
-
+                    Zatoona_podcast,
             AhmedElBaz_podcast,
             NedalReads_podcast,
             AdhamAbdelRahman_podcast,
             MohamedGoabas_podcast,
-            FekraSohib_podcast,
+
+             Eman_Gamal_podcast,
             RowaydaAdel_podcast,
             MichaelBeshay_podcast,
             RihamIraky_podcast,
             ExploreWithKhatib_podcast,
             AymanKashef_podcast,
             Mix_podcast,
+             Reham_Aiaad_podcast,
             Mohammed_Sherif_podcast,
-            Reham_Aiaad_podcast,
+             FekraSohib_podcast,
             Engy_Safei_Eldin_podcast,
+             Nilly_Shams_podcast,
             Deana_chaaban_podcast,
-            Eman_Gamal_podcast,
-            Hesham_Ahmed_podcast,
-            Nilly_Shams_podcast
+
+            Hesham_Ahmed_podcast
+
             ));
 
 }

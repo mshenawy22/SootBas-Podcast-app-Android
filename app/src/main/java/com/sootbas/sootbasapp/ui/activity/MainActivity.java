@@ -255,7 +255,10 @@ public class MainActivity extends AppCompatActivity implements
                 }
                 else if (genreTitle.equals("#Travel"))
                 {
-                    list =  podlist.getTravel_Podcast_list();
+                    list =  podlist.getLifeStyle_Podcast_list();
+                }
+                else if (genreTitle.equals("#LifeStyle")) {
+                    list = podlist.getLifeStyle_Podcast_list();
                 }
 
                 else if (genreTitle.equals("#Critic"))
