@@ -246,7 +246,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/22730718/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/exlorewithkhateeb600.jpg",
-            eCategoryofPodcast.Travel
+            eCategoryofPodcast.Life
     );
 
 
@@ -367,7 +367,7 @@ public class PodcastsConstants {
 
             AhmedRoshdy_podcast,
             karimanMaher_podcast,
-                    Zatoona_podcast,
+             Zatoona_podcast,
             AhmedElBaz_podcast,
             NedalReads_podcast,
             AdhamAbdelRahman_podcast,
