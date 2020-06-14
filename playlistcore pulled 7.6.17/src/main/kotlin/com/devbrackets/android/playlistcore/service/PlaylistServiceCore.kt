@@ -167,7 +167,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
      */
     val serviceContinuationMethod: Int
         @ServiceContinuationMethod
-        get() = Service.START_NOT_STICKY
+        get() = Service.START_STICKY
 
     /**
      * Used to determine if the device is connected to a network that has
@@ -693,9 +693,9 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
 
         mediaProgressPoll.stop()
         setPlaybackState(PlaybackState.PAUSED)
-        stopForeground()
-
-        abandonAudioFocus()
+//commented out those two so the foreground notifiation stays in forground and user can return to what they were playing later
+//        stopForeground()
+//        abandonAudioFocus()
         updateMediaControls()
     }
 
