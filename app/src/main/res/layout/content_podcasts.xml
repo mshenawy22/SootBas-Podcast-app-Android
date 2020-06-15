@@ -8,6 +8,7 @@
              android:paddingTop="?attr/actionBarSize">
 
 
+
     <com.sootbas.sootbasapp.custom.AutofitRecyclerView
         android:id="@+id/recycler_view"
         android:paddingTop="@dimen/xsmall"
@@ -15,5 +16,7 @@
         android:layout_height="match_parent"
         android:columnWidth="@dimen/list_item_width"
         android:clipToPadding="false"/>
+
+
 
 </RelativeLayout>

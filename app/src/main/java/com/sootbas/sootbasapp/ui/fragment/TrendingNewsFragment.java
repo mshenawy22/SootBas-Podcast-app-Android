@@ -412,13 +412,9 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
                     // save feed to an in-memory cache since it's too large to send via IPC/intent
                     EpisodesDataCache.getInstance().setPodcast(item);
                     EpisodesDataCache.getInstance().setChannel(channel);
-//                    Intent podcast_intent = new Intent(getContext(), EpisodesActivity.class);
                     Intent player_intent = new Intent(getContext(), EpisodeActivity.class);
                     player_intent.putExtra(Constants.EPISODE_SELECTED, episodeNumber);
                     startActivity(player_intent);
-
-//                    EpisodesActivity.launch(PodcastActivity.this);
-//                    finish();
                 } else {
                     Utils.showSnackbar(rootView, getString(R.string.error_downloading_episode_list));
                 }

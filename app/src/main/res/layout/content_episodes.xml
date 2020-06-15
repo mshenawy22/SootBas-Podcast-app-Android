@@ -9,12 +9,11 @@
     android:fitsSystemWindows="true"
     tools:context="com.sootbas.sootbasapp.ui.activity.EpisodesActivity">
 
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/appbar_layout_size"
+
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 

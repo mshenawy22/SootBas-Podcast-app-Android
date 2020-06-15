@@ -23,7 +23,7 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     private static final int NOTIFICATION_ID = 101;
     private static final int FOREGROUND_REQUEST_CODE = 102;
     private static final float AUDIO_DUCK_VOLUME = 0.1f;
-
+    private static Boolean nextinvoked = false;
     private NotificationTarget mNotificationTarget = new NotificationTarget();
     private LockScreenTarget mLockScreenTarget = new LockScreenTarget();
 
@@ -153,16 +153,30 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
     }
 
     @Override
+    protected void mediaItemChanged()
+    {
+        super.mediaItemChanged();
+
+    }
+    @Override
     protected void performOnMediaCompletion() {
 
 //Auto play next once finished playing current episode
+
         if (getPlaylistManager().isNextAvailable()) {
 //            performShuffle();
-            performNext();
-            performPause();
-            performPlay();
+                performNext();
+            performPrevious();
 
-        }
+            }
+
+            getPlaylistManager().invokePausePlay();
+
+//            performPause();
+//            performPlay();
+
+
+
 
     }
 

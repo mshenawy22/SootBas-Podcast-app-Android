@@ -17,6 +17,7 @@ public class PodcastLists {
     private ArrayList <Podcast>  SelfLearning_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast> BooksReview_Podcast_list = new ArrayList<Podcast>() ;
     private ArrayList <Podcast> Women_Podcast_list = new ArrayList<Podcast>() ;
+    private ArrayList <Podcast> Originals_Podcast_list = new ArrayList<Podcast>() ;
 
 
     //default constructor
@@ -60,56 +61,8 @@ public class PodcastLists {
              default:
 
          }
-
-
-
-
      }
-
-
-//        SelfDevelopment_Podcast_list.add(PodcastsConstants.OmarBahaa_podcast);
-//        SelfDevelopment_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
-//        SelfDevelopment_Podcast_list.add(PodcastsConstants.karimanMaher_podcast);
-//        SelfDevelopment_Podcast_list.add(PodcastsConstants.MichaelBeshay_podcast);
-//        SelfDevelopment_Podcast_list.add(PodcastsConstants.Engy_Safei_Eldin_podcast);
-//
-//
-//        Religion_Podcast_list.add(PodcastsConstants.SeifEldeeb_podcast);
-//        Religion_Podcast_list.add(PodcastsConstants.MohamedGoabas_podcast);
-//        Religion_Podcast_list.add(PodcastsConstants.AhmedHossamAbdeen_podcast);
-//
-//        HealthandFitness_Podcast_list.add(PodcastsConstants.RihamIraky_podcast);
-//        HealthandFitness_Podcast_list.add(PodcastsConstants.Eman_Gamal_podcast);
-//        HealthandFitness_Podcast_list.add(PodcastsConstants.Deana_chaaban_podcast);
-//
-//
-//        Comedy_Podcast_list.add(PodcastsConstants.AhmedElBaz_podcast);
-//        Comedy_Podcast_list.add(PodcastsConstants.WaleedMostafa_podcast);
-//        Comedy_Podcast_list.add(PodcastsConstants.WaelelBasel_podcast);
-//        Comedy_Podcast_list.add(PodcastsConstants.AdhamAbdelRahman_podcast);
-//        Comedy_Podcast_list.add(PodcastsConstants.Hesham_Ahmed_podcast);
-//
-//
-//
-//
-//
-//        Travel_Podcast_list.add(PodcastsConstants.ExploreWithKhatib_podcast);
-//        Travel_Podcast_list.add(PodcastsConstants.AymanKashef_podcast);
-//        Travel_Podcast_list.add(PodcastsConstants.MohamedHady_podcast);
-//
-//
-//        FilmReviews_Podcast_list.add(PodcastsConstants.FilmGamed_podcast);
-//
-//
-//
-//        SelfLearning_Podcast_list.add(PodcastsConstants.FekraSohib_podcast);
-//        SelfLearning_Podcast_list.add(PodcastsConstants.Reham_Aiaad_podcast);
-//        SelfLearning_Podcast_list.add(PodcastsConstants.Mohammed_Sherif_podcast);
-//
-//        BooksReview_Podcast_list.add(PodcastsConstants.NedalReads_podcast);
-//        BooksReview_Podcast_list.add(PodcastsConstants.AhmedRoshdy_podcast);
-//
-//        Women_Podcast_list.add(PodcastsConstants.RowaydaAdel_podcast);
+        Originals_Podcast_list.add(PodcastsConstants.NutritionExplained_podcast);
 
     }
 
@@ -149,6 +102,12 @@ public class PodcastLists {
     public ArrayList<Podcast> getWomen_Podcast_list() {
         return Women_Podcast_list;
     }
+
+    public ArrayList<Podcast> getOriginals_Podcast_list() {
+        return Originals_Podcast_list;
+    }
+
+
 
 
 

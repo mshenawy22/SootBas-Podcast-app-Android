@@ -351,6 +351,16 @@ public class PodcastsConstants {
 
     );
 
+    public static final Podcast    NutritionExplained_podcast = new Podcast(
+
+            /* artistName;*/"Nutrition Explained",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/252e0ea8/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NutritionExplained.jpg",
+            eCategoryofPodcast.NoCategory
+
+    );
+
 
     public static final ArrayList <Podcast> All_podcasts = new ArrayList<>(
             Arrays.asList(

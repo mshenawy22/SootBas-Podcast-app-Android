@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/gap"
         android:columnWidth="@dimen/grid_item_width"
-        android:layout_marginBottom="@dimen/normal"
+        android:layout_marginBottom="@dimen/xxlarge"
 
-        android:paddingBottom="@dimen/normal"
+        android:paddingBottom="@dimen/xxlarge"
 
 
             android:clipToPadding="false"/>

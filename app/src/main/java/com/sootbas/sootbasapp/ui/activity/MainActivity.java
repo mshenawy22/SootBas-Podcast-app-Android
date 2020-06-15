@@ -29,13 +29,19 @@ import com.sootbas.sootbasapp.R;
 import com.sootbas.sootbasapp.common.Constants;
 import com.sootbas.sootbasapp.common.Utils;
 import com.sootbas.sootbasapp.custom.QuerySuggestionProvider;
+import com.sootbas.sootbasapp.model.episode.Channel;
+import com.sootbas.sootbasapp.model.episode.EpisodesDataCache;
+import com.sootbas.sootbasapp.model.episode.Feed;
 import com.sootbas.sootbasapp.model.podcast.Podcast;
 import com.sootbas.sootbasapp.model.podcast.Results;
 import com.sootbas.sootbasapp.rest.ApiClient;
 import com.sootbas.sootbasapp.rest.ApiInterface;
+import com.sootbas.sootbasapp.rest.RssClient;
+import com.sootbas.sootbasapp.rest.RssInterface;
 import com.sootbas.sootbasapp.ui.fragment.GenreItemFragment;
 import com.sootbas.sootbasapp.ui.fragment.ListItemFragment;
 import com.sootbas.sootbasapp.model.genre.PodcastLists;
+import com.sootbas.sootbasapp.ui.fragment.OriginalsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements
     private int[] mTabIcons = {
 
             R.drawable.ic_explore,
-            R.drawable.ic_subscription,
+            R.drawable.originalsbigger,
             R.drawable.ic_playlist
     };
 
@@ -100,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements
         mProgressBar.setVisibility(View.GONE);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-
+        podlist = new PodcastLists();
         // instantiate the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements
         mTabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
 //creating  instance of podcast list that will we displayed when opening the categories
-        podlist = new PodcastLists();
+
 
         // ensures there is a ref to suggestions on startup/device rotation
         mRecentSuggestions = new SearchRecentSuggestions(
@@ -312,19 +318,19 @@ public class MainActivity extends AppCompatActivity implements
 
     @SuppressWarnings("ConstantConditions")
     private void setupTabIcons() {
-//        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
-//        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
-//        mTabLayout.getTabAt(2)p.setIcon(mTabIcons[2]);
-        //mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);
+        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
+        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
+
+        TabLayout.Tab tab = mTabLayout.getTabAt(1);
+        if (tab != null) tab.setCustomView(R.layout.customtab);
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
         CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(GenreItemFragment.newInstance(), "Explore");
-//        adapter.addFragment(ListItemFragment.newInstance(), "Subscription");
-//        adapter.addFragment(ListItemFragment.newInstance(), "Playlist");
-        // adapter.addFragment(SubscriptionFragment.newInstance(), "Subscription");
-        // adapter.addFragment(PlaylistFragment.newInstance(), "Playlist");
+        adapter.addFragment(OriginalsFragment.newInstance( podlist.getOriginals_Podcast_list()), "Originals");
+
         viewPager.setAdapter(adapter);
     }
 
@@ -390,6 +396,55 @@ public class MainActivity extends AppCompatActivity implements
         }
 
     }
+
+
+
+    public void onPlaylistClick(Podcast podcast){
+
+        if (Utils.isClientConnected(this)) {
+            // PodcastActivity.launch(this, genreId, genreTitle);
+            executePlaylistQuery(podcast);
+        } else {
+            Utils.showSnackbar(mLayout, getString(R.string.no_network_connection));
+        }
+    }
+
+    private void executePlaylistQuery(final Podcast item  ) {
+        Timber.i("%s execute episode list download", Constants.LOG_TAG);
+
+
+        RssInterface rssService = RssClient.getClient().create(RssInterface.class); // takes no time
+        Call<Feed> call = rssService.getItems(item.getFeedUrl());
+        call.enqueue(new Callback<Feed>() {
+            @Override
+            public void onResponse(Call<Feed> call, Response<Feed> response) {
+//                mProgressBar.setVisibility(View.GONE);
+                Channel channel = response.body().getChannel();
+                if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
+                    // save feed to an in-memory cache since it's too large to send via IPC/intent
+                    EpisodesDataCache.getInstance().setPodcast(item);
+                    EpisodesDataCache.getInstance().setChannel(channel);
+//start with the very first episode (which should contain a trailer on sprekaer
+                    EpisodesActivity.launch(MainActivity.this);
+
+
+//                    EpisodesActivity.launch(PodcastActivity.this);
+//                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Feed> call, Throwable t) {
+//                mProgressBar.setVisibility(View.GONE);
+                Timber.e("%s failure, error: %s", Constants.LOG_TAG, t.getMessage());
+                Utils.showSnackbar(mLayout, getString(R.string.feed_not_available));
+            }
+
+
+        });
+    }
+
+
 
 
 }

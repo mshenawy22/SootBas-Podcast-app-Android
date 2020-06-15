@@ -34,7 +34,7 @@
                 android:layout_alignParentBottom="true"
 
                 android:layout_width="match_parent"
-                android:background="@color/sootbaslogocolor"
+                android:background="@color/colorDivider"
 
                 android:layout_height="wrap_content">
 
@@ -43,10 +43,9 @@
                     android:id="@+id/podcast_artist_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_marginBottom="@dimen/pactivity_vertical_margin"
                     android:text="#Artist"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:paddingTop="1dp"
                     android:paddingBottom="1dp"
