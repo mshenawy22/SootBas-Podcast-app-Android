@@ -64,6 +64,7 @@ public class PodcastLists {
      }
         Originals_Podcast_list.add(PodcastsConstants.NutritionExplained_podcast);
 
+        Originals_Podcast_list.add(PodcastsConstants.OmarBahaa_Originals_podcast);
     }
 
 

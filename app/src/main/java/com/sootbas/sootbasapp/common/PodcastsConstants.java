@@ -319,7 +319,7 @@ public class PodcastsConstants {
 
 
 
-    public static final Podcast    Eman_Gamal_podcast = new Podcast(
+    public static final Podcast  Eman_Gamal_podcast = new Podcast(
 
             /* artistName;*/"Eman Gamal",
             /* collectionName;*/ "",
@@ -331,7 +331,7 @@ public class PodcastsConstants {
 
     );
 
-    public static final Podcast    Hesham_Ahmed_podcast = new Podcast(
+    public static final Podcast  Hesham_Ahmed_podcast = new Podcast(
 
             /* artistName;*/"Hesham Ahmed",
             /* collectionName;*/ "",
@@ -341,7 +341,7 @@ public class PodcastsConstants {
 
     );
 
-    public static final Podcast    Nilly_Shams_podcast = new Podcast(
+    public static final Podcast Nilly_Shams_podcast = new Podcast(
 
             /* artistName;*/"Nilly Shams",
             /* collectionName;*/ "",
@@ -351,7 +351,7 @@ public class PodcastsConstants {
 
     );
 
-    public static final Podcast    NutritionExplained_podcast = new Podcast(
+    public static final Podcast  NutritionExplained_podcast = new Podcast(
 
             /* artistName;*/"Nutrition Explained",
             /* collectionName;*/ "",
@@ -360,6 +360,53 @@ public class PodcastsConstants {
             eCategoryofPodcast.NoCategory
 
     );
+
+    public static final Podcast    OmarBahaa_Originals_podcast = new Podcast(
+    /* artistName;*/"معرفة النفس ",
+            /* collectionName;*/ "Omar Bahaa",
+            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaaoriginals.jpg",
+    eCategoryofPodcast.NoCategory
+
+    );
+
+    public static final Podcast   AhmedGalal_podcast = new Podcast(
+            /* artistName;*/"Ahmed Galal",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/256af930/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AhmedGalal.jpg",
+            eCategoryofPodcast.Comedy
+
+    );
+
+    public static final Podcast   SaharShennawy_podcast = new Podcast(
+            /* artistName;*/"Sahar Shennawy",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/253dddec/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SaharShennawy.jpg",
+            eCategoryofPodcast.Develop
+
+    );
+
+
+    public static final Podcast   AbdelRahmanAlani_podcast = new Podcast(
+            /* artistName;*/"Abdelrahman Alani",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2503f550/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AbdurrahmanAlani.jpg",
+            eCategoryofPodcast.Healthy
+
+    );
+
+    public static final Podcast   ShaimaaHasona_podcast = new Podcast(
+            /* artistName;*/"Shaimaa Hasona",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2502f768/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ShaimaaHasouna2.jpg",
+            eCategoryofPodcast.Healthy
+
+    );
+
 
 
     public static final ArrayList <Podcast> All_podcasts = new ArrayList<>(
@@ -395,9 +442,13 @@ public class PodcastsConstants {
              FekraSohib_podcast,
             Engy_Safei_Eldin_podcast,
              Nilly_Shams_podcast,
-            Deana_chaaban_podcast,
+                    ShaimaaHasona_podcast,
 
-            Hesham_Ahmed_podcast
+            Hesham_Ahmed_podcast,
+                    AhmedGalal_podcast,
+                    NutritionExplained_podcast
+
+
 
             ));
 
