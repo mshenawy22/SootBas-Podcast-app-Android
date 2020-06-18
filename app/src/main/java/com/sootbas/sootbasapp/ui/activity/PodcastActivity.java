@@ -139,14 +139,20 @@ public class PodcastActivity extends BaseActivity implements
             @Override
             public void onResponse(Call<Feed> call, Response<Feed> response) {
                 mProgressBar.setVisibility(View.GONE);
-                Channel channel = response.body().getChannel();
-                if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
-                    // save feed to an in-memory cache since it's too large to send via IPC/intent
-                    EpisodesDataCache.getInstance().setPodcast(item);
-                    EpisodesDataCache.getInstance().setChannel(channel);
-                    EpisodesActivity.launch(PodcastActivity.this);
-                    finish();
-                } else {
+                if(response.body()!= null) // very important incase the rss feed for anyreason was empty (or podcast was removed)
+                {
+                    Channel channel = response.body().getChannel();
+                    if (channel != null && channel.getItemList() != null && channel.getItemList().size() > 0) {
+                        // save feed to an in-memory cache since it's too large to send via IPC/intent
+                        EpisodesDataCache.getInstance().setPodcast(item);
+                        EpisodesDataCache.getInstance().setChannel(channel);
+                        EpisodesActivity.launch(PodcastActivity.this);
+                        finish();
+                    } else {
+                        Utils.showSnackbar(mLayout, getString(R.string.error_downloading_episode_list));
+                    }
+                }
+                else {
                     Utils.showSnackbar(mLayout, getString(R.string.error_downloading_episode_list));
                 }
             }
