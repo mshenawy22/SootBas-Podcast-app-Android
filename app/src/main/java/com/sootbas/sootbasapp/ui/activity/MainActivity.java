@@ -6,8 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -17,6 +22,8 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +31,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.sootbas.sootbasapp.R;
 import com.sootbas.sootbasapp.common.Constants;
 import com.sootbas.sootbasapp.common.Utils;
@@ -54,6 +63,7 @@ import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity implements
         GenreItemFragment.Contract,
+        OriginalsFragment.Contract,
         ListItemFragment.Contract {
 
 
@@ -86,7 +96,8 @@ public class MainActivity extends AppCompatActivity implements
     private TabLayout mTabLayout;
     private int[] mTabIcons = {
 
-            R.drawable.ic_explore,
+//            R.drawable.ic_explore,
+            R.drawable.logowhite,
             R.drawable.originalsbigger,
             R.drawable.ic_playlist
     };
@@ -99,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        SubscribeToTopic();
         setContentView(R.layout.activity_main);
         mLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -324,6 +336,9 @@ public class MainActivity extends AppCompatActivity implements
         TabLayout.Tab tab = mTabLayout.getTabAt(1);
         if (tab != null) tab.setCustomView(R.layout.customtab);
 
+
+
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -444,6 +459,23 @@ public class MainActivity extends AppCompatActivity implements
         });
     }
 
+
+    private void SubscribeToTopic()
+    {
+        final String TAG = "FirebaseSubscription" ;
+        FirebaseMessaging.getInstance().subscribeToTopic("All")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Topic Subscribed";
+                        if (!task.isSuccessful()) {
+                            msg = "Subscription Failed";
+                        }
+                        Log.d(TAG,msg);
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
 
 
