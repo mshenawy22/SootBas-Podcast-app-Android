@@ -355,7 +355,7 @@ public class PodcastsConstants {
 
             /* artistName;*/"Nutrition Explained",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/252e0ea8/podcast/rss",
+            /* feedUrl; */ "https://anchor.fm/s/26a6cb30/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NutritionExplained.jpg",
             eCategoryofPodcast.NoCategory
 
