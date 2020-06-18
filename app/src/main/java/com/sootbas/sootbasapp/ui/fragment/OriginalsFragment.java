@@ -53,14 +53,12 @@ public class OriginalsFragment extends ContractFragment<OriginalsFragment.Contra
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_episodes, container, false);
+        View view = inflater.inflate(R.layout.content_podcasts, container, false);
         setupView(view);
         List<Podcast> podcastList = getArguments().getParcelableArrayList(Constants.PODCAST_LIST);
         mRecyclerView.setAdapter(new OriginalsFragment.PodcastListAdapter(podcastList));
         return view;
     }
-
-
 
 
     private void setupView(View view) {
