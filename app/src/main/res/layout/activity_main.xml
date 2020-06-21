@@ -22,12 +22,8 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="59dp"
+
         android:theme="@style/AppTheme.AppBarOverlay">
-
-
-
-
-
 
         <!--        <android.support.v7.widget.Toolbar-->
         <!--            android:id="@+id/toolbar"-->
@@ -53,18 +49,19 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="@dimen/xlarge"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="@dimen/progress_bar_width"
-        android:layout_height="@dimen/progress_bar_height"
+        android:layout_height="62dp"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:background="@drawable/sootbas_logo_round"
         android:indeterminate="true"
-        android:indeterminateDrawable="@drawable/sootbas_progress_bar"
-        android:layout_centerInParent="true"/>
+        android:indeterminateDrawable="@drawable/sootbas_progress_bar" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
