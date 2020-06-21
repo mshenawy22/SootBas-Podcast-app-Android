@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import android.view.View;
+import android.widget.TextView;
 
 //import com.daimajia.androidanimations.library.Techniques;
 //import com.daimajia.androidanimations.library.YoYo;
@@ -17,6 +18,11 @@ import com.sootbas.sootbasapp.ui.fragment.TrendingNewsFragment;
 
 //import com.example.android.newsfeedapp.Helpers.BottomNavigationViewHelper;
 import com.sootbas.sootbasapp.R;
+
+import java.util.Calendar;
+
+
+
 
 public class TrendingNewsActivity extends FragmentActivity {
 //    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu; //Bottom Navigation View Menu
@@ -38,6 +44,19 @@ public class TrendingNewsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_content);
 
+        TextView topTitle = (TextView) findViewById(R.id.title_label);
+
+
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK);
+
+        if(day == 6 )
+        {
+            topTitle.setText("Top Friday");
+        }
+        else {
+            topTitle.setText("What's New");
+        }
         //Check that the activity is using the layout version with
         // the fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
