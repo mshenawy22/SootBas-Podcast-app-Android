@@ -12,8 +12,9 @@ android {
         applicationId "com.sootbas.sootbasapp"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 35
-        versionName "1.34"
+
+        versionCode 38
+        versionName "1.37"
     }
     buildTypes {
         release {
