@@ -81,7 +81,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
     protected //Null if the WAKE_LOCK permission wasn't requested
     var wifiLock: WifiManager.WifiLock? = null
     protected var audioFocusHelper: AudioFocusHelper? = null
-
+    protected var mediacompleted = false
     protected var audioPlayer: AudioPlayerApi? = null
     protected var mediaProgressPoll = MediaProgressPoll()
     protected var mediaListener = MediaListener()
@@ -414,13 +414,13 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
         //Another part of the workaround for some Samsung devices
         workaroundIntent?.let {
 
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 //                startForegroundService(it)
 //
 //            }
 //            else
 //            {
-                startService(it)
+            startService(it)
 //            }
 
             workaroundIntent = null
@@ -487,11 +487,48 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
      */
     protected fun performNext() {
         seekToPosition = 0
-        startPaused = !isPlaying
 
+        startPaused = !isPlaying
+        //This part handles the auto play next that occurs when media completion function is called
+        //The Goal is to start playing the next episode once the current episodes is finished
+        //without the following part , next episode will be played but it will be in a paused state
+
+       if ( mediacompleted == true)
+       {
+           startPaused = isPlaying
+           mediacompleted = false
+       }
         playlistManager.next()
         startItemPlayback()
     }
+
+    protected fun performNext1() {
+        seekToPosition = 0
+        startPaused = !isPlaying
+
+//        playlistManager.next()
+
+        onMediaPlaybackEnded()
+        seekToNextPlayableItem()
+        mediaItemChanged()
+
+        //Performs the playback for the correct media type
+        var playbackHandled = false
+        mediaListener.resetRetryCount()
+
+        if (currentItemIsType(BasePlaylistManager.AUDIO)) {
+            playbackHandled = playAudioItem()
+        } else if (currentItemIsType(BasePlaylistManager.VIDEO)) {
+            playbackHandled = playVideoItem()
+        } else if (currentPlaylistItem != null && currentPlaylistItem!!.mediaType != 0) {
+            playbackHandled = playOtherItem()
+        }
+
+        if (playbackHandled) {
+            return
+        }
+    }
+
 
     /**
      * Performs the functionality to repeat the current
@@ -769,6 +806,30 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
         } else {
             performStop()
         }
+    }
+
+    protected fun startItemPlayback1() {
+        onMediaPlaybackEnded()
+        seekToNextPlayableItem()
+        mediaItemChanged()
+
+        //Performs the playback for the correct media type
+        var playbackHandled = false
+        mediaListener.resetRetryCount()
+
+        if (currentItemIsType(BasePlaylistManager.AUDIO)) {
+            playbackHandled = playAudioItem()
+        } else if (currentItemIsType(BasePlaylistManager.VIDEO)) {
+            playbackHandled = playVideoItem()
+        } else if (currentPlaylistItem != null && currentPlaylistItem!!.mediaType != 0) {
+            playbackHandled = playOtherItem()
+        }
+
+        if (playbackHandled) {
+            return
+        }
+
+
     }
 
     /**
@@ -1050,6 +1111,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
         }
 
         postPlaylistItemChanged()
+
     }
 
     /**
@@ -1140,6 +1202,7 @@ abstract class PlaylistServiceCore<I : IPlaylistItem, M : BasePlaylistManager<I>
 
         override fun onCompletion(mediaPlayerApi: MediaPlayerApi) {
             performOnMediaCompletion()
+            mediacompleted = true
         }
 
         override fun onError(mediaPlayerApi: MediaPlayerApi): Boolean {

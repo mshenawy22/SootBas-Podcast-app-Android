@@ -158,21 +158,20 @@ public class AudioService extends BasePlaylistService<AudioItem, PlaylistManager
         super.mediaItemChanged();
 
     }
+
+
     @Override
     protected void performOnMediaCompletion() {
 
 //Auto play next once finished playing current episode
 
-        if (getPlaylistManager().isNextAvailable()) {
-//            performShuffle();
-                performNext();
-            performPrevious();
+//        if (getPlaylistManager().isNextAvailable()) {
 
-            }
+            performNext();
 
-            getPlaylistManager().invokePausePlay();
 
-//            performPause();
+//            }
+
 //            performPlay();
 
 
