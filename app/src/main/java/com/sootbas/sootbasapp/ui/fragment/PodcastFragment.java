@@ -120,20 +120,6 @@ public class PodcastFragment extends ContractFragment<PodcastFragment.Contract>{
 //                mCollectionName.setText(item.getCollectionName());
 //                mNumberOfEpisodes.setText(String.format(Locale.ENGLISH, "Available episodes: %d", item.getTrackCount()));
 
-                // format the dateTime string
-                if (item.getReleaseDate() != null) {
-                    String date = Utils.dateConverter(item.getReleaseDate());
-                    if (date != null) {
-                        String day = date.substring(8, 10);
-                        String month = date.substring(4, 7);
-                        String year = date.substring(date.length() - 4, date.length());
-//                        mLatestPublicationDate.setText(String.format(Locale.ENGLISH, "Last published: %s %s %s", day, month, year));
-                    } else {
-//                        mLatestPublicationDate.setText(R.string.publication_date_unknown);
-                    }
-                } else {
-//                    mLatestPublicationDate.setText(R.string.publication_date_unknown);
-                }
                 // use glide to download and display image
                 if (item.getArtworkUrl600() != null && !item.getArtworkUrl600().isEmpty()) {
                     Utils.loadPreviewWithGlide(mContext, item.getArtworkUrl600(), mThumbnail);
