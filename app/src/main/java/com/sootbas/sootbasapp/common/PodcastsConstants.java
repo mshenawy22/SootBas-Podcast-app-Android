@@ -354,7 +354,7 @@ public class PodcastsConstants {
     public static final Podcast  NutritionExplained_podcast = new Podcast(
 
             /* artistName;*/"Nutrition Explained",
-            /* collectionName;*/ "",
+            /* collectionName;*/ "Haidy Eltawous",
             /* feedUrl; */ "https://anchor.fm/s/26a6cb30/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NutritionExplained.jpg",
             eCategoryofPodcast.NoCategory
@@ -364,7 +364,7 @@ public class PodcastsConstants {
     public static final Podcast    OmarBahaa_Originals_podcast = new Podcast(
     /* artistName;*/"معرفة النفس ",
             /* collectionName;*/ "Omar Bahaa",
-            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
+            /* feedUrl; */ "https://www.spreaker.com/show/4461232/episodes/feed",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaaoriginals.jpg",
     eCategoryofPodcast.NoCategory
 

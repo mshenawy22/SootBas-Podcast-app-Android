@@ -2,6 +2,7 @@ package com.sootbas.sootbasapp.ui.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -37,6 +38,8 @@ import com.sootbas.sootbasapp.R;
 
 import com.sootbas.sootbasapp.custom.NewsLoader;
 import com.sootbas.sootbasapp.ui.activity.PodcastActivity;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +85,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     private PodcastLists podlist ;
 
     private View rootView;
-
+    private View appContentView;
     LoaderManager loaderManager;
     boolean isConnected;
     private View progressBar;
@@ -101,6 +104,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) rootView.findViewById(R.id.list);
+
 
         /* *********** Checks if there is an internet connection ******/
         ConnectivityManager cm =
@@ -372,6 +376,17 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             selected_podcast = PodcastsConstants.Mohammed_Sherif_podcast;
         }
 
+        else if (podcast_channel.equals("NutritionExplained"))
+        {
+
+            selected_podcast = PodcastsConstants.NutritionExplained_podcast;
+        }
+
+        else if (podcast_channel.equals("OmarBahaaOriginals"))
+        {
+
+            selected_podcast = PodcastsConstants.OmarBahaa_Originals_podcast;
+        }
 
 
         else {
