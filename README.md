@@ -1,32 +1,4 @@
-Android Podcast Player App
-===============================
- 
-Demo app allows the user to explore and search iTunes for their favourite podcasts.
 
-The app is a learning exercise in the implementation of the following:
-- Designed with a phone layout in mind using activities/fragments
-- Activity/fragment communication via interfaces
-- SearchView and QuerySuggestionProvider
-- Google's ExoPlayer
-- Download and parse xml from iTunes using a combination of Retrofit, okhttp, simplexmlframework and JSoup.
-
-Pre-requisites
---------------
-
-- Min Android SDK supported v16
-
-Getting Started
----------------
-
-This sample uses the Gradle build system. To build this project, use the
-"gradlew build" command or use "Import Project" in Android Studio.
-
-Screenshots
------------
-
-![Phone](screencasts/phone-sequence-one.gif "Interacting with the app on a tablet")
-
-![Phone](screencasts/phone-sequence-two.gif "Interacting with the app on a phone")
 
 Credit
 ------
@@ -40,6 +12,10 @@ The project uses the following 3rd party libraries:
 - Square's Retrofit (https://github.com/square/retrofit) and okhttp (https://github.com/square/okhttp) library's
 - JSoup, by Jonathan Hedley (https://github.com/jhy/jsoup)
 
+
+
+Some parts of this software are under MIT License , obtained from the following repo : 
+https://github.com/theBoyMo/Android-Podcast-Player
 MIT License
 -----------
 
