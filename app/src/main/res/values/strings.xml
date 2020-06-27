@@ -19,6 +19,7 @@
     <string name="server_error">Server error, try another podcast</string>
     <string name="publication_date_unknown"></string>
     <string name="trending">What\'s New</string>
+    <string name="TopFriday">TopFriday</string>
     <string name="button_skip">skip ></string>
 <!--    <string name="served_as_it_s_hot">Served as it\'s hot</string>-->
     <string name="served_as_it_s_hot"></string>

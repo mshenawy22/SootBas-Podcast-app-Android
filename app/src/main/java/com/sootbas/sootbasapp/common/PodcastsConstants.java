@@ -5,7 +5,6 @@ import com.sootbas.sootbasapp.model.podcast.Podcast;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -22,7 +21,8 @@ public class PodcastsConstants {
         Beauty(7),
         Pray(8),
         Life(9),
-        NoCategory(10);
+        Originals(10),
+        NoCategory(11);
 
             private  int value;
 
@@ -357,7 +357,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "Haidy Eltawous",
             /* feedUrl; */ "https://anchor.fm/s/26a6cb30/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NutritionExplained.jpg",
-            eCategoryofPodcast.NoCategory
+            eCategoryofPodcast.Originals
 
     );
 
@@ -366,7 +366,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "Omar Bahaa",
             /* feedUrl; */ "https://www.spreaker.com/show/4461232/episodes/feed",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaaoriginals.jpg",
-    eCategoryofPodcast.NoCategory
+    eCategoryofPodcast.Originals
 
     );
 
@@ -379,14 +379,6 @@ public class PodcastsConstants {
 
     );
 
-    public static final Podcast   SaharShennawy_podcast = new Podcast(
-            /* artistName;*/"Sahar Shennawy",
-            /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/253dddec/podcast/rss",
-            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SaharShennawy.jpg",
-            eCategoryofPodcast.Develop
-
-    );
 
 
     public static final Podcast   AbdelRahmanAlani_podcast = new Podcast(
@@ -394,7 +386,7 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/2503f550/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AbdurrahmanAlani.jpg",
-            eCategoryofPodcast.Healthy
+            eCategoryofPodcast.NoCategory
 
     );
 
@@ -406,6 +398,34 @@ public class PodcastsConstants {
             eCategoryofPodcast.Healthy
 
     );
+
+    public static final Podcast   SaharElshennawy_podcast = new Podcast(
+            /* artistName;*/"Sahar ELShennawy",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/283745d8/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SaharShennawy.jpg",
+            eCategoryofPodcast.Life
+
+    );
+
+    public static final Podcast FakrBe5telaf_podcast = new Podcast(
+            /* artistName;*/" فــكر باختــلاف ",
+            /* collectionName;*/ "Hebatullah Gamal",
+            /* feedUrl; */ "https://anchor.fm/s/2832dc8c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/Fakr_be5telaf.jpg",
+            eCategoryofPodcast.Originals
+
+    );
+
+    public static final Podcast   HadotetShar3_podcast = new Podcast(
+            /* artistName;*/"حــدوتة شــارع",
+            /* collectionName;*/ "Alaa Ahmed",
+            /* feedUrl; */ "https://www.spreaker.com/show/4471716/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/hadotetShar3.jpg",
+            eCategoryofPodcast.Originals
+
+    );
+
 
 
 
@@ -446,7 +466,9 @@ public class PodcastsConstants {
 
             Hesham_Ahmed_podcast,
                     AhmedGalal_podcast,
-                    NutritionExplained_podcast
+                    NutritionExplained_podcast,
+                    HadotetShar3_podcast,
+                    FakrBe5telaf_podcast
 
 
 

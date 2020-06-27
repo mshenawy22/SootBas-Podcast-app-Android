@@ -51,20 +51,21 @@ public class PodcastLists {
                  break;
              case Healthy:
                  HealthandFitness_Podcast_list.add(p);
-                 break;
+                 break;m
              case Read:
                  BooksReview_Podcast_list.add(p);
                  break;
              case Life:
                  LifeStyle_Podcast_list.add(p);
                  break;
+             case Originals:
+                 Originals_Podcast_list.add(p);
+                 break;
              default:
 
          }
      }
-        Originals_Podcast_list.add(PodcastsConstants.NutritionExplained_podcast);
 
-        Originals_Podcast_list.add(PodcastsConstants.OmarBahaa_Originals_podcast);
     }
 
 

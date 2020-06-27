@@ -19,6 +19,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.sootbas.sootbasapp.common.Constants;
 import com.sootbas.sootbasapp.common.PodcastsConstants;
 import com.sootbas.sootbasapp.common.Utils;
@@ -165,7 +169,32 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             }
         });
 
+        BuildMobAdNative();
         return rootView;
+    }
+
+    public void BuildMobAdNative()
+    {
+
+        AdLoader adLoader = new AdLoader.Builder(getContext(), "ca-app-pub-3940256099942544/2247696110")
+                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        // Show the ad.
+                    }
+                })
+                .withAdListener(new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // Handle the failure by logging, altering the UI, and so on.
+                    }
+                })
+                .withNativeAdOptions(new NativeAdOptions.Builder()
+                        // Methods in the NativeAdOptions.Builder class can be
+                        // used here to specify individual options settings.
+                        .build())
+                .build();
+
     }
 
     @Override
@@ -388,10 +417,32 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             selected_podcast = PodcastsConstants.OmarBahaa_Originals_podcast;
         }
 
+        else if (podcast_channel.equals("7adotetShar3"))
+        {
+
+            selected_podcast = PodcastsConstants.HadotetShar3_podcast;
+        }
+
+        else if (podcast_channel.equals("FakarBe5telaf"))
+        {
+
+            selected_podcast = PodcastsConstants.FakrBe5telaf_podcast;
+        }
+        else if (podcast_channel.equals("SaharElshennawy"))
+        {
+
+            selected_podcast = PodcastsConstants.SaharElshennawy_podcast;
+        }
+        else if (podcast_channel.equals("ShaimaaHasona_podcast"))
+        {
+
+            selected_podcast = PodcastsConstants.ShaimaaHasona_podcast;
+        }
+
+
 
         else {
-            podcast_intent.putExtra(Constants.PODCAST_ITEM, PodcastsConstants.WaelelBasel_podcast);
-            podcast_intent.putParcelableArrayListExtra(Constants.PODCAST_LIST, podlist.getComedy_Podcast_list());
+            selected_podcast = PodcastsConstants.OmarBahaa_Originals_podcast;
 
         }
 

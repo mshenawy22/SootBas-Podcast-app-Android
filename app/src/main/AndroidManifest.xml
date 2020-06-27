@@ -119,8 +119,11 @@
             android:name="android.support.VERSION"
             android:value="26.1.0"
             xmlns:tools="http://schemas.android.com/tools"
-
         />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544/2247696110"/>
 
     </application>
 

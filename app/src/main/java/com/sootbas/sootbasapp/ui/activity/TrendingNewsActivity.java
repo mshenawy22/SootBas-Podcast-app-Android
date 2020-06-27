@@ -14,6 +14,9 @@ import android.widget.TextView;
 //import com.daimajia.androidanimations.library.Techniques;
 //import com.daimajia.androidanimations.library.YoYo;
 //import com.example.android.newsfeedapp.Adapters.SimpleFragmentPagerAdapter;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.sootbas.sootbasapp.ui.fragment.TrendingNewsFragment;
 
 //import com.example.android.newsfeedapp.Helpers.BottomNavigationViewHelper;
@@ -57,6 +60,14 @@ public class TrendingNewsActivity extends FragmentActivity {
         else {
             topTitle.setText("What's New");
         }
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+
+        });
         //Check that the activity is using the layout version with
         // the fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
@@ -82,41 +93,5 @@ public class TrendingNewsActivity extends FragmentActivity {
 
 
 
-//        ButterKnife.bind(this);
-//
-//        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
-//        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView); //Disables the default transaction in the bottom navigation view
-
-        //Sets onClick listeners on the buttons on the bottom navigation view
-//        bottomNavMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//                switch (item.getItemId()) {
-//                    case R.id.home:
-//                        Intent homeIntent = new Intent(TrendingNewsActivity.this, MainActivity.class);
-//                        startActivity(homeIntent);
-//                        break;
-//
-//                    case R.id.headline:
-//                        Intent headlineIntent = new Intent(TrendingNewsActivity.this, HeadlinesActivity.class);
-//                        startActivity(headlineIntent);
-//                        break;
-//
-//                    case R.id.favourites:
-//                        Intent favouritesIntent = new Intent(TrendingNewsActivity.this, FavouritesActivity.class);
-//                        startActivity(favouritesIntent);
-//                        break;
-//
-//                    case R.id.trending:
-//                        YoYo.with(Techniques.Tada)
-//                                .duration(700)
-//                                .playOn(findViewById(R.id.trending));
-//                        break;
-//                }
-//
-//                return false;
-//            }
-//        });
     }
 }

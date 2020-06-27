@@ -308,7 +308,10 @@
     <color name="md_blue_grey_900">#263238</color>
 
 
+
     <color name ="sootbaslogocolor">#ED2857</color>
+    <color name ="sootbaslogocolor_orange">#FC6015</color>
+    <color name ="sootbaslogocolor_middle">#F74D29</color>
     <color name ="sootbaslogocolor_transpatent">#80EF3744</color>
     <color name="md_nice_black">#333</color>
     <color name="md_transparent_niceblack_400">#80000333</color>

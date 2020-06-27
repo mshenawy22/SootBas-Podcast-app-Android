@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements
     private int[] mTabIcons = {
 
 //            R.drawable.ic_explore,
-            R.drawable.logowhite,
-            R.drawable.originalsbigger,
+            R.xml.selector_discover,
+            R.xml.selector_originals,
             R.drawable.ic_playlist
     };
 
@@ -333,8 +333,10 @@ public class MainActivity extends AppCompatActivity implements
         mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
         mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
 
-        TabLayout.Tab tab = mTabLayout.getTabAt(1);
-        if (tab != null) tab.setCustomView(R.layout.customtab);
+        TabLayout.Tab tab0 = mTabLayout.getTabAt(0);
+        if (tab0 != null) tab0.setCustomView(R.layout.customtab);
+        TabLayout.Tab tab1 = mTabLayout.getTabAt(1);
+        if (tab1 != null) tab1.setCustomView(R.layout.customtab);
 
 
 
