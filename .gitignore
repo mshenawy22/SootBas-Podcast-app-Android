@@ -45,3 +45,5 @@ app/release/app-release.aab
 *.aab
 app/release/app-release.aab
 app/release/app-release.aab
+app/src/main/java/com/sootbas/sootbasapp/ui/Adapters/MainNewsAdapter .java.bac
+app/src/main/java/com/sootbas/sootbasapp/ui/Adapters/MainNewsAdapter2.java.bac
