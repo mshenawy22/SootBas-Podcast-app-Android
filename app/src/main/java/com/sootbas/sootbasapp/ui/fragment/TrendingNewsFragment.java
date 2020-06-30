@@ -169,33 +169,10 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             }
         });
 
-        BuildMobAdNative();
+
         return rootView;
     }
 
-    public void BuildMobAdNative()
-    {
-
-        AdLoader adLoader = new AdLoader.Builder(getContext(), "ca-app-pub-3940256099942544/2247696110")
-                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                    @Override
-                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        // Show the ad.
-                    }
-                })
-                .withAdListener(new AdListener() {
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // Handle the failure by logging, altering the UI, and so on.
-                    }
-                })
-                .withNativeAdOptions(new NativeAdOptions.Builder()
-                        // Methods in the NativeAdOptions.Builder class can be
-                        // used here to specify individual options settings.
-                        .build())
-                .build();
-
-    }
 
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
@@ -248,6 +225,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         podlist = new PodcastLists();
         Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
         String podcast_channel = newsData.getUrlOfStory();
+        String story_image = newsData.getImageOfStoryResource();
        int episode_number = newsData.getEpisodenumber();
         Podcast selected_podcast = PodcastsConstants.ElDa7ee7_podcast ;
 
@@ -446,6 +424,19 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         }
 
+
+        for(Podcast p : PodcastsConstants.All_podcasts)
+        {
+
+            if (podcast_channel.equals(p.getArtistName()))
+            {
+
+                selected_podcast = p;
+
+
+            }
+
+        }
 
         podcast_intent.putExtra(Constants.DIRECTLY_OPEN_TRENDING, true);
         executeEpisodeQuery(selected_podcast , episode_number);
