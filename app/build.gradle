@@ -15,8 +15,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
 
-        versionCode 42
-        versionName "1.41"
+        versionCode 43
+        versionName "1.42"
     }
     buildTypes {
         release {
@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.4.3'
     implementation 'com.google.firebase:firebase-messaging:20.2.1'
     implementation 'com.google.gms:google-services:4.3.3'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
 //    implementation 'com.google.android.gms:play-services-ads:19.2.0'
     implementation 'com.google.android.gms:play-services-ads:19.2.0'

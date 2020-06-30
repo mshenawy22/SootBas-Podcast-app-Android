@@ -433,15 +433,11 @@ public class PodcastsConstants {
             Arrays.asList(
 
             ElDa7ee7_podcast,
-
             OmarBahaa_podcast,
             SeifEldeeb_podcast,
             AhmedHossamAbdeen_podcast,
-
             WaleedMostafa_podcast,
-
             WaelelBasel_podcast,
-
             AhmedRoshdy_podcast,
             karimanMaher_podcast,
              Zatoona_podcast,
@@ -449,8 +445,7 @@ public class PodcastsConstants {
             NedalReads_podcast,
             AdhamAbdelRahman_podcast,
             MohamedGoabas_podcast,
-
-             Eman_Gamal_podcast,
+              Eman_Gamal_podcast,
             RowaydaAdel_podcast,
             MichaelBeshay_podcast,
             RihamIraky_podcast,
@@ -462,13 +457,14 @@ public class PodcastsConstants {
              FekraSohib_podcast,
             Engy_Safei_Eldin_podcast,
              Nilly_Shams_podcast,
-                    ShaimaaHasona_podcast,
+              ShaimaaHasona_podcast,
 
             Hesham_Ahmed_podcast,
                     AhmedGalal_podcast,
                     NutritionExplained_podcast,
                     HadotetShar3_podcast,
-                    FakrBe5telaf_podcast
+                    FakrBe5telaf_podcast,
+                    SaharElshennawy_podcast
 
 
 
