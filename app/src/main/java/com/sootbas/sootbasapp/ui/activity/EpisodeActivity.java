@@ -36,6 +36,7 @@ public class EpisodeActivity extends BlankActivity implements
     public static void launch(Activity activity, int position) {
         Intent intent = new Intent(activity, EpisodeActivity.class);
         intent.putExtra(Constants.EPISODE_SELECTED, position);
+        activity.setTitle(R.string.app_name);
         activity.startActivity(intent);
     }
 
