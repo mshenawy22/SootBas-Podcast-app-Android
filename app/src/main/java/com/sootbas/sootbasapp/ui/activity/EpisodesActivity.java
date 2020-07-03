@@ -34,7 +34,7 @@ public class EpisodesActivity extends BlankActivity implements
     private static final long GAME_LENGTH_MILLISECONDS = 15000;
 //    private static final String AD_UNIT_ID = "/6499/example/interstitial";
     private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; // test ad id  https://developers.google.com/admob/android/interstitial?hl=en-GB
-//    private static final String AD_UNIT_ID = "ca-app-pub-1445013205034544/6056124030"; // real ad id
+//    private static final String AD_UNIT_ID = "ca-app-pub-1445013205034544/8842672117"; // real ad id
 
     private static final String TAG = "Episodes Activity";
 
@@ -48,8 +48,11 @@ public class EpisodesActivity extends BlankActivity implements
 
     // impl of contract method
     @Override
-    public void launchPlayer(int selected) {
+    public void launchPlayer(int selected)
+    {
+
         EpisodeActivity.launch(this, selected);
+        showInterstitial();
     }
 
     @Override
@@ -150,9 +153,9 @@ public class EpisodesActivity extends BlankActivity implements
         gameIsInProgress = true;
         timerMilliseconds = milliseconds;
 //if (!getLifecycle().getCurrentState().isAtLeast(RESUMED)){
-
-    createTimer(milliseconds);
-    countDownTimer.start();
+//
+//    createTimer(milliseconds);
+//    countDownTimer.start();
 
 
     }
@@ -180,7 +183,7 @@ public class EpisodesActivity extends BlankActivity implements
 //                retryButton.`setVisibility`(View.VISIBLE);
                 if (isInForeground == false) {
                     gameIsInProgress = false;
-                    showInterstitial();
+//                    showInterstitial();
                 }
             }
         };
