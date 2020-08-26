@@ -35,6 +35,7 @@ import com.sootbas.sootbasapp.rest.RssClient;
 import com.sootbas.sootbasapp.rest.RssInterface;
 import com.sootbas.sootbasapp.ui.Adapters.MainNewsAdapter;
 import com.sootbas.sootbasapp.custom.NewsData;
+import com.sootbas.sootbasapp.ui.Adapters.PodcastApiLoader;
 import com.sootbas.sootbasapp.ui.activity.EpisodeActivity;
 
 import com.sootbas.sootbasapp.R;
@@ -86,7 +87,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
      */
     private static final int NEWS_LOADER_ID = 1;
 
-    private PodcastLists podlist ;
+
 
     private View rootView;
     private View appContentView;
@@ -132,7 +133,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         newsListView.setAdapter(mAdapter);
-
+//       new PodcastApiLoader(getActivity());
         if (isConnected) {
             // Get a reference to the LoaderManager, in order to interact with loaders.
             loaderManager = getLoaderManager();
@@ -222,7 +223,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
     {
 
-        podlist = new PodcastLists();
+
         Intent podcast_intent = new Intent(getContext(), PodcastActivity.class);
         String podcast_channel = newsData.getUrlOfStory();
         String story_image = newsData.getImageOfStoryResource();

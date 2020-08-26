@@ -56,7 +56,7 @@ public class SplashScreenActivity extends AppCompatActivity{
                }
                else {
 
-                   TrendingNewsActivity.launch(SplashScreenActivity.this);
+                   MainActivity.launch(SplashScreenActivity.this);
                }
 
                 finish();

@@ -20,6 +20,12 @@ public class PodcastLists {
     private ArrayList <Podcast> Originals_Podcast_list = new ArrayList<Podcast>() ;
 
 
+    private void Loadpodcasts()
+    {
+
+
+    }
+
     //default constructor
     public PodcastLists()
     {
@@ -51,7 +57,7 @@ public class PodcastLists {
                  break;
              case Healthy:
                  HealthandFitness_Podcast_list.add(p);
-                 break;m
+                 break;
              case Read:
                  BooksReview_Podcast_list.add(p);
                  break;

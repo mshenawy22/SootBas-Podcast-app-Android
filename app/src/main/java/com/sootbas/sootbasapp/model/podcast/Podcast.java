@@ -83,7 +83,7 @@ public class Podcast implements Parcelable {
 
 
     public Podcast( String artistName,String collectionName,String feedUrl,
-                   String    artworkUrl600 , PodcastsConstants.eCategoryofPodcast categoryofPodcast )
+                   String    artworkUrl600 , PodcastsConstants.eCategoryofPodcast categoryofPodcast , String collectionID  )
     {
         this.wrapperType = "track";
         this.kind        = "podcast";
@@ -93,10 +93,17 @@ public class Podcast implements Parcelable {
         this.artworkUrl600 = artworkUrl600;
         this.collectionViewUrl = "";
         this.categoryofPodcast = categoryofPodcast.getValue();
+        this.collectionId = collectionID;
 
-        String delims = "[/]+"; // only works for anchor style rss url
-        String[] tokens = feedUrl.split(delims);
-        this.collectionId  = tokens[3];
+//        String delims = "[/]+"; // only works for anchor style rss url
+//        try {
+//            String[] tokens = feedUrl.split(delims);
+//            this.collectionId = tokens[3];
+//        }
+//            catch (ArrayIndexOutOfBoundsException exception )
+//        {
+//            //do nothing
+//        }
 
 
 

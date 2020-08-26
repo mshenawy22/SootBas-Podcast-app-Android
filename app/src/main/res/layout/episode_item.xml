@@ -67,9 +67,10 @@
                 <TextView
                     android:id="@+id/episode_description"
                     tools:text="The one where the pig got away"
+                    android:visibility="invisible"
                     android:paddingEnd="@dimen/normal"
                     style="@style/TextStyle.ListItem"
-                    android:maxLines="4"
+                    android:maxLines="1"
                     android:layout_width="0dp"
                     android:layout_weight="4"
                     tools:ignore="RtlSymmetry"/>

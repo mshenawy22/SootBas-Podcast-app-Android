@@ -54,34 +54,35 @@ public class PodcastsConstants {
 
             /* artistName;*/"El Da7ee7",
             /* collectionName;*/ "الدحيح",
-            /* feedUrl; */ " https://anchor.fm/s/19f63614/podcast/rss",
+//            /* feedUrl; */ " https://anchor.fm/s/19f63614/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/elda7ee7",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/da7ee7.jpg",
-            eCategoryofPodcast.Learn
+            eCategoryofPodcast.Learn ,
+            "101"
 
            );
-
-
-
 
 
     public static final Podcast OmarBahaa_podcast = new Podcast(
 
             /* artistName;*/"Omar Bahaa",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/1b6b0650/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/omar-bahaa",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaa.jpg",
 
-            eCategoryofPodcast.Develop
+            eCategoryofPodcast.Develop,
+            "102"
     );
 
     public static final Podcast SeifEldeeb_podcast = new Podcast(
 
             /* artistName;*/"Seif Eldeeb",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/1b342d4c/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/seif-el-deeb",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SeifElDeeb.jpg",
 
-            eCategoryofPodcast.Pray
+            eCategoryofPodcast.Pray,
+            "103"
     );
 
 
@@ -92,9 +93,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Ahmed Hossam",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/1b6d50a4/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/ahmed-hossam-abdeen",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ahmedhossamabdeen600.jpg",
-            eCategoryofPodcast.Pray
+            eCategoryofPodcast.Pray,
+            "104"
 
             );
 
@@ -104,9 +106,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Waleed Mostafa",
             /* collectionName;*/ "",
-            /* feedUrl; */ " https://anchor.fm/s/1e71c1f4/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/waleed-mostafa",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/waleedmostafa.jpg",
-            eCategoryofPodcast.Comedy
+            eCategoryofPodcast.Comedy,
+            "105"
 
             );
 
@@ -116,9 +119,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Wael ElBasel",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/1f820144/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/wael-elbasel",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/waelelbasel.jpg",
-            eCategoryofPodcast.Life
+            eCategoryofPodcast.Life,
+            "106"
 
 
             );
@@ -128,9 +132,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Ahmed Roshdy",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/1fa83a6c/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/ahmed-roshdy",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AhmedRoshdy.jpg",
-            eCategoryofPodcast.Develop
+            eCategoryofPodcast.Develop,
+            "107"
 
             );
 
@@ -140,7 +145,8 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1f979db0/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/KarimanMaher.jpg",
-            eCategoryofPodcast.Develop
+            eCategoryofPodcast.Develop,
+            "108"
 
             );
 
@@ -150,7 +156,8 @@ public class PodcastsConstants {
             /* cmaollectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/1ffbaf44/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ahmedelbaz.jpg",
-            eCategoryofPodcast.Comedy
+            eCategoryofPodcast.Comedy,
+            "109"
 
 
     );
@@ -159,18 +166,20 @@ public class PodcastsConstants {
 
             /* artistName;*/"El Zatoona",
             /* collectionName;*/ "",
-            /* feedUrl; */ " https://anchor.fm/s/1ebd8b20/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/el-zatoona",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/elzatoona.jpg",
-            eCategoryofPodcast.Read
+            eCategoryofPodcast.Read,
+            "110"
 
     );
 
     public static final Podcast NedalReads_podcast = new Podcast(
             /* artistName;*/"Nedal Reads ",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/202970f0/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/nedal-reads",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/nedalreads.jpg",
-            eCategoryofPodcast.Read
+            eCategoryofPodcast.Read,
+            "111"
 
 
     );
@@ -178,19 +187,21 @@ public class PodcastsConstants {
     public static final Podcast AdhamAbdelRahman_podcast = new Podcast(
             /* artistName;*/"Adham AbdelRahman",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/205a42fc/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/adham-abdelrahman",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AdhamAbdelRahman.jpg",
-            eCategoryofPodcast.Comedy
+            eCategoryofPodcast.Comedy,
+            "112"
 
     );
 
     public static final Podcast MohamedGoabas_podcast = new Podcast(
             /* artistName;*/"Mohamed Goabas",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/214d10cc/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/mohaed-goabas",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MohamedGoabaz.jpg",
 
-            eCategoryofPodcast.Pray
+            eCategoryofPodcast.Pray,
+            "113"
 
     );
 
@@ -202,7 +213,8 @@ public class PodcastsConstants {
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/sohaibfekra.jpg",
 
 
-            eCategoryofPodcast.Learn
+            eCategoryofPodcast.Learn,
+            "114"
 
 
     );
@@ -211,9 +223,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Rowayda Adel",
             /* collectionName;*/ "انــتي#",
-            /* feedUrl; */ "https://anchor.fm/s/22fb39e4/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/rowayda-adel",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/rowayda600.jpg",
-            eCategoryofPodcast.Beauty
+            eCategoryofPodcast.Beauty,
+            "115"
 
 
     );
@@ -222,9 +235,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Michael Beshay",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/22780344/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/mickael-beshay",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MichaelBeshay600.jpg",
-            eCategoryofPodcast.Develop
+            eCategoryofPodcast.Develop,
+            "116"
 
 
 
@@ -234,9 +248,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Riham Eliraky",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/2275d704/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/dr-riham-eliraky",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/RihamElIraky600.jpg",
-            eCategoryofPodcast.Healthy
+            eCategoryofPodcast.Healthy,
+            "117"
 
     );
 
@@ -244,9 +259,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Explore with Khatib",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/22730718/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/explore-with-khateeb-sootbas",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/exlorewithkhateeb600.jpg",
-            eCategoryofPodcast.Life
+            eCategoryofPodcast.Life,
+            "118"
     );
 
 
@@ -254,9 +270,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Ayman Kashef",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/1fc62180/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/ayman-kashef-sootbas",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AymanKashef600.jpg",
-            eCategoryofPodcast.Life
+            eCategoryofPodcast.Life,
+            "119"
 
     );
 
@@ -266,7 +283,8 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/20fe3e48/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/mix.jpg",
-            eCategoryofPodcast.NoCategory
+            eCategoryofPodcast.NoCategory,
+            "120"
 
 
 
@@ -277,10 +295,11 @@ public class PodcastsConstants {
 
             /* artistName;*/"Mohammed Sherif",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/2429e5e0/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/mohammed-sherif",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MuhammadSherif.jpg",
 
-            eCategoryofPodcast.Learn
+            eCategoryofPodcast.Learn,
+            "121"
 
     );
 
@@ -288,9 +307,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Reham Aiaad",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/24354660/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/reham-aiaad",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/RehamAiaad.jpg",
-            eCategoryofPodcast.Learn
+            eCategoryofPodcast.Learn,
+            "122"
 
 
     );
@@ -299,10 +319,11 @@ public class PodcastsConstants {
 
             /* artistName;*/"Engy Safei Eldin",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/243a9d2c/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/engy-safei-eldin",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/EngySafei.jpg",
 
-            eCategoryofPodcast.Develop
+            eCategoryofPodcast.Develop,
+            "123"
 
     );
 
@@ -312,7 +333,8 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/243b9150/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/DeanaChaaban.jpg",
-            eCategoryofPodcast.Healthy
+            eCategoryofPodcast.Healthy,
+            "124"
 
     );
 
@@ -323,11 +345,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Eman Gamal",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/245f2d54/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/dr-eman-gamal",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/EmanGamal.jpg",
-            eCategoryofPodcast.Beauty
-
-
+            eCategoryofPodcast.Beauty,
+            "125"
 
     );
 
@@ -335,9 +356,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Hesham Ahmed",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/2056519c/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/hesham-ahmed",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/HeshamAhmed.jpg",
-            eCategoryofPodcast.Comedy
+            eCategoryofPodcast.Comedy,
+            "126"
 
     );
 
@@ -345,9 +367,10 @@ public class PodcastsConstants {
 
             /* artistName;*/"Nilly Shams",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/252e0ea8/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/dr-nilly-shams",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NillyShams.jpg",
-            eCategoryofPodcast.Healthy
+            eCategoryofPodcast.Healthy,
+            "127"
 
     );
 
@@ -355,27 +378,30 @@ public class PodcastsConstants {
 
             /* artistName;*/"Nutrition Explained",
             /* collectionName;*/ "Haidy Eltawous",
-            /* feedUrl; */ "https://anchor.fm/s/26a6cb30/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/nutrition-explained",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/NutritionExplained.jpg",
-            eCategoryofPodcast.Originals
+            eCategoryofPodcast.Originals,
+            "128"
 
     );
 
     public static final Podcast    OmarBahaa_Originals_podcast = new Podcast(
     /* artistName;*/"معرفة النفس ",
             /* collectionName;*/ "Omar Bahaa",
-            /* feedUrl; */ "https://www.spreaker.com/show/4461232/episodes/feed",
+            /* feedUrl; */ "https://feeds.transistor.fm/ff0df6a1-a2f2-4713-a934-6a55ed1b3bf1",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/omarbahaaoriginals.jpg",
-    eCategoryofPodcast.Originals
+    eCategoryofPodcast.Originals,
+            "129"
 
     );
 
     public static final Podcast   AhmedGalal_podcast = new Podcast(
             /* artistName;*/"Ahmed Galal",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/256af930/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/ahmed-galal",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AhmedGalal.jpg",
-            eCategoryofPodcast.Comedy
+            eCategoryofPodcast.Comedy,
+            "130"
 
     );
 
@@ -386,16 +412,18 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/2503f550/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AbdurrahmanAlani.jpg",
-            eCategoryofPodcast.NoCategory
+            eCategoryofPodcast.NoCategory,
+            "131"
 
     );
 
     public static final Podcast   ShaimaaHasona_podcast = new Podcast(
             /* artistName;*/"Shaimaa Hasona",
             /* collectionName;*/ "",
-            /* feedUrl; */ "https://anchor.fm/s/2502f768/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/shaimaa-hasona",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/ShaimaaHasouna2.jpg",
-            eCategoryofPodcast.Healthy
+            eCategoryofPodcast.Healthy,
+            "132"
 
     );
 
@@ -404,68 +432,183 @@ public class PodcastsConstants {
             /* collectionName;*/ "",
             /* feedUrl; */ "https://anchor.fm/s/283745d8/podcast/rss",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/SaharShennawy.jpg",
-            eCategoryofPodcast.Life
+            eCategoryofPodcast.Life,
+            "133"
 
     );
 
     public static final Podcast FakrBe5telaf_podcast = new Podcast(
             /* artistName;*/" فــكر باختــلاف ",
             /* collectionName;*/ "Hebatullah Gamal",
-            /* feedUrl; */ "https://anchor.fm/s/2832dc8c/podcast/rss",
+            /* feedUrl; */ "https://feeds.transistor.fm/82fd19b2-62f0-4f57-a1cb-fd44086b1ce3",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/Fakr_be5telaf.jpg",
-            eCategoryofPodcast.Originals
+            eCategoryofPodcast.Originals,
+            "134"
 
     );
 
     public static final Podcast   HadotetShar3_podcast = new Podcast(
-            /* artistName;*/"حــدوتة شــارع",
+            /* artistName;*/" حــدوتة شــارع ",
             /* collectionName;*/ "Alaa Ahmed",
             /* feedUrl; */ "https://www.spreaker.com/show/4471716/episodes/feed",
             /* artworkUrl600;*/"https://vloggerpics.sootbas.com/hadotetShar3.jpg",
-            eCategoryofPodcast.Originals
+            eCategoryofPodcast.Originals,
+            "135"
 
     );
 
+    public static final Podcast   AbakretEl3arab_podcast = new Podcast(
+            /* artistName;*/" عباقرة العرب ",
+            /* collectionName;*/ "Asmaa Tarek",
+            /* feedUrl; */ "https://www.spreaker.com/show/4490530/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AbakretEl3arab.jpg",
+            eCategoryofPodcast.Originals,
+            "136"
+
+    );
+
+    public static final Podcast   ChangewithAmira_podcast = new Podcast(
+            /* artistName;*/"Change with Amira",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2a4a818c/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/changewithAmira.jpg",
+            eCategoryofPodcast.Healthy,
+            "137"
+
+    );
+
+    public static final Podcast   SherifMokadem_podcast = new Podcast(
+            /* artistName;*/"Sherif Mokadem",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://www.spreaker.com/show/4509508/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/sherifMokadem.jpg",
+            eCategoryofPodcast.Life,
+            "138"
+
+    );
+
+    public static final Podcast   AsmaKhalifa_podcast = new Podcast(
+            /* artistName;*/"Asma Khalifa",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://www.spreaker.com/show/4509500/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/asfakhalifa.jpg",
+            eCategoryofPodcast.Beauty,
+            "139"
+    );
+
+    public static final Podcast   MariamElSayem_podcast = new Podcast(
+            /* artistName;*/"Mariam ElSayem ",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://anchor.fm/s/2bffa7b4/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/mariamelsayem.jpg",
+            eCategoryofPodcast.Read,
+            "140"
+    );
+
+    public static final Podcast   HaidyElTawous_podcast = new Podcast(
+            /* artistName;*/"Haidy ElTawous ",
+            /* collectionName;*/ "",
+            /* feedUrl; */ "https://www.spreaker.com/show/4509553/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/HaidyElTawous.jpg",
+            eCategoryofPodcast.Healthy,
+            "141"
+    );
+
+    public static final Podcast   e3adetdabt_podcast = new Podcast(
+            /* artistName;*/" اعادة ضبط ",
+            /* collectionName;*/ "Asmaa ElShamy",
+            /* feedUrl; */ "https://www.spreaker.com/show/4526474/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/23adet_dabt.jpg",
+            eCategoryofPodcast.Originals,
+            "142"
+    );
+
+    public static final Podcast   hadotetkelma_podcast = new Podcast(
+            /* artistName;*/" حدوتة كلمة ",
+            /* collectionName;*/ "Alaa Ahmed",
+            /* feedUrl; */ "https://www.spreaker.com/show/4525940/episodes/feed",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/hadotet_kelma.jpg",
+            eCategoryofPodcast.Originals,
+            "143"
+    );
+
+    public static final Podcast   alar2yelmasal_podcast = new Podcast(
+            /* artistName;*/" علي رأي المثل ",
+            /* collectionName;*/ "Ahmed Hashim",
+            /* feedUrl; */ "https://anchor.fm/s/2ecd83f8/podcast/rss",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/3lar2yelmasal.jpg",
+            eCategoryofPodcast.Originals,
+            "144"
+    );
+
+    public static final Podcast   HealthyTalks_S1_podcast = new Podcast(
+            /* artistName;*/"Healthy Talks-الصيام المتقطع ",
+            /* collectionName;*/ "Dr Healthfully",
+            /* feedUrl; */ "https://feeds.transistor.fm/ad3000ff-f2bb-46fb-9a77-1a1c90827c7b",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/HealthyTalks_ElSyam.jpg",
+            eCategoryofPodcast.Originals,
+            "145"
+    );
+
+    public static final Podcast   AswaneFelSeka_podcast = new Podcast(
+            /* artistName;*/"  أسواني في السكة  ",
+            /* collectionName;*/ " أسماء الشامي ",
+            /* feedUrl; */ "https://feeds.transistor.fm/b2ddabf6-a924-41ff-8534-05118b4191ef",
+            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/AswaneFelSeka.jpg",
+            eCategoryofPodcast.Originals,
+            "146"
+    );
 
 
 
     public static final ArrayList <Podcast> All_podcasts = new ArrayList<>(
             Arrays.asList(
-
+            HealthyTalks_S1_podcast,
+              AswaneFelSeka_podcast,
+            alar2yelmasal_podcast,
+            e3adetdabt_podcast,
+            hadotetkelma_podcast,
             ElDa7ee7_podcast,
             OmarBahaa_podcast,
             SeifEldeeb_podcast,
             AhmedHossamAbdeen_podcast,
             WaleedMostafa_podcast,
-            WaelelBasel_podcast,
             AhmedRoshdy_podcast,
             karimanMaher_podcast,
-             Zatoona_podcast,
             AhmedElBaz_podcast,
             NedalReads_podcast,
+            MariamElSayem_podcast,
             AdhamAbdelRahman_podcast,
             MohamedGoabas_podcast,
-              Eman_Gamal_podcast,
+            Eman_Gamal_podcast,
             RowaydaAdel_podcast,
             MichaelBeshay_podcast,
             RihamIraky_podcast,
             ExploreWithKhatib_podcast,
             AymanKashef_podcast,
             Mix_podcast,
-             Reham_Aiaad_podcast,
+            Reham_Aiaad_podcast,
             Mohammed_Sherif_podcast,
-             FekraSohib_podcast,
+            FekraSohib_podcast,
             Engy_Safei_Eldin_podcast,
-             Nilly_Shams_podcast,
-              ShaimaaHasona_podcast,
-
+            Nilly_Shams_podcast,
+            ShaimaaHasona_podcast,
+            Zatoona_podcast,
             Hesham_Ahmed_podcast,
-                    AhmedGalal_podcast,
-                    NutritionExplained_podcast,
-                    HadotetShar3_podcast,
-                    FakrBe5telaf_podcast,
-                    SaharElshennawy_podcast
+            AhmedGalal_podcast,
+            OmarBahaa_Originals_podcast,
+            NutritionExplained_podcast,
+            HadotetShar3_podcast,
+            FakrBe5telaf_podcast,
+            SaharElshennawy_podcast,
 
+            ChangewithAmira_podcast,
+
+            SherifMokadem_podcast,
+            AsmaKhalifa_podcast,
+            WaelelBasel_podcast,
+            MariamElSayem_podcast,
+            HaidyElTawous_podcast
 
 
             ));

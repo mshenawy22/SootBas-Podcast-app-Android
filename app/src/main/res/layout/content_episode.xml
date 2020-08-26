@@ -29,28 +29,28 @@
 
             <!-- title & description -->
             <LinearLayout
-                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/gradient_bg_270"
+                android:orientation="vertical"
                 android:paddingStart="@dimen/normal"
-                android:paddingEnd="@dimen/normal"
                 android:paddingTop="@dimen/normal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:paddingEnd="@dimen/normal">
 
                 <TextView
                     android:id="@+id/episode_title"
                     style="@style/TextStyle.PodcastPlayer.Title"
-                    tools:text="Bill and Ted talk nonsense"
+
                     android:maxLines="1"
-                    />
+                    tools:text="Bill and Ted talk nonsense" />
 
                 <TextView
                     android:id="@+id/episode_description"
                     style="@style/TextStyle.PodcastPlayer"
-                    android:maxLines="2"
-                    tools:text="the episode about the last of the great spenders,\nthe giraffe and the cat"
-                    />
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    tools:text="the episode about the last of the great spenders,\nthe giraffe and the cat" />
 
             </LinearLayout>
 

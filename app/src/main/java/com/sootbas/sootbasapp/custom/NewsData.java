@@ -73,6 +73,15 @@ public class NewsData implements Parcelable {
         return imageOfStoryResource;
     }
 
+    /**
+     * Gets the image resource ID of the place
+     *
+     * @return the image resource ID of the place
+     */
+    public void setImageOfStoryResource(String default_image_url) {
+         imageOfStoryResource = default_image_url ;
+    }
+
     public int getEpisodenumber() {
         return EpisodeNumber;
     }

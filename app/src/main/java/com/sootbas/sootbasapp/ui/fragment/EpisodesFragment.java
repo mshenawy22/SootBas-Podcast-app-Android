@@ -3,6 +3,12 @@ package com.sootbas.sootbasapp.ui.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -59,6 +65,7 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
     private TextView mPodcastGenre;
     private ImageView mPodcastThumbnail;
     private String mImageUrl;
+    private AdView mAdView;
 
     public EpisodesFragment() {}
 
@@ -82,6 +89,16 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
 
         Podcast podcast = getArguments().getParcelable(Constants.PODCAST_ITEM);
         Channel channel = getArguments().getParcelable(Constants.PODCAST_CHANNEL);
+
+// MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+//     @Override
+//     public void onInitializationComplete(InitializationStatus initializationStatus) {
+//
+//     }
+// });
+//        mAdView = view.findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
         if (podcast != null && channel != null) {
             displayContent(podcast, channel);
             setupAppBar(view);

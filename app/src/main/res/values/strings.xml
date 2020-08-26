@@ -27,5 +27,6 @@
     <string name="author">Author</string>
     <string name="no_news">No news found.</string>
     <string name="no_internet_connection">Check your internet connection</string>
+    <string name="default_notification_channel_id">1001</string>
 
 </resources>

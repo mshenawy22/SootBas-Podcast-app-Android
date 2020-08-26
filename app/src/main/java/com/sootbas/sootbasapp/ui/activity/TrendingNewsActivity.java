@@ -53,13 +53,13 @@ public class TrendingNewsActivity extends FragmentActivity {
         Calendar c = Calendar.getInstance();
         int day = c.get(Calendar.DAY_OF_WEEK);
 
-        if(day == 6 )
-        {
-            topTitle.setText("Top Friday");
-        }
-        else {
-            topTitle.setText("What's New");
-        }
+//        if(day == 6 )
+//        {
+//            topTitle.setText("Top Friday");
+//        }
+//        else {
+            topTitle.setText("Our Picks");
+//        }
 
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {

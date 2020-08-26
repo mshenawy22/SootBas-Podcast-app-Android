@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        SubscribeToTopic();
+        SubscribeToTopic();
         setContentView(R.layout.activity_main);
         mLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -474,7 +474,7 @@ public class MainActivity extends AppCompatActivity implements
                             msg = "Subscription Failed";
                         }
                         Log.d(TAG,msg);
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
