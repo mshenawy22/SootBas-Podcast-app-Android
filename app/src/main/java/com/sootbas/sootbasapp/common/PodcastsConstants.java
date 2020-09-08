@@ -296,7 +296,7 @@ public class PodcastsConstants {
             /* artistName;*/"Mohammed Sherif",
             /* collectionName;*/ "",
             /* feedUrl; */ "https://feeds.transistor.fm/mohammed-sherif",
-            /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MuhammadSherif.jpg",
+                /* artworkUrl600;*/"https://vloggerpics.sootbas.com/MuhammadSherif.jpg",
 
             eCategoryofPodcast.Learn,
             "121"

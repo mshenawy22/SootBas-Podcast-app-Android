@@ -338,10 +338,18 @@ public class EpisodesFragment extends ContractFragment<EpisodesFragment.Contract
                     // set episode duration // FIXME
                     if (episode.getDuration() != null && !episode.getDuration().isEmpty()) {
 //                        public static Long valueOf(long l)
-                      long Lduration = Long.parseLong(episode.getDuration(), 10) /60 ; // converting second to minutes
-                       if (Lduration < 1) Lduration =1;
-                        String Sduration = Long.toString(Lduration, 10 );
-                        mEpisodeDuration.setText(String.format(Locale.ENGLISH, "%s mins", Sduration));
+                        try {
+                            long Lduration = Long.parseLong(episode.getDuration(), 10) / 60; // converting second to minutes
+                            if (Lduration < 1) Lduration = 1;
+                            String Sduration = Long.toString(Lduration, 10);
+                            mEpisodeDuration.setText(String.format(Locale.ENGLISH, "%s mins", Sduration));
+                        }
+                        catch (java.lang.NumberFormatException e )
+                        {
+                            System.out.println("java.lang.NumberFormatException ");
+                            mEpisodeDuration.setText(String.format(Locale.ENGLISH, "%s mins", episode.getDuration()));
+                        }
+
                     }
                 }
             }
