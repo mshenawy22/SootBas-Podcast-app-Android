@@ -35,6 +35,7 @@ public class ItunesGenreIdConstants {
     public static final int PODCAST_Books_Reviews = 1413;
     public static final int PODCAST_Women = 1414;
     public static final int PODCAST_Life = 1415;
+    public static final int SOOTBAS_ORIGINALS = 1416;
 
 
 }

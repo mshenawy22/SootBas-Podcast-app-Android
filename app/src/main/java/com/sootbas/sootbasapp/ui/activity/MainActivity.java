@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements
         OriginalsFragment.Contract,
         ListItemFragment.Contract {
 
-
+    private ArrayList<Podcast> Originalspodcastlist;
     private PodcastLists podlist ;
     // implementation of interface methods
     @Override
@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         podlist = new PodcastLists();
+        executeOriginalsQuery();
         // instantiate the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -241,6 +242,41 @@ public class MainActivity extends AppCompatActivity implements
         });
     }
 
+
+    private  void executeOriginalsQuery() {
+        ;
+        mProgressBar.setVisibility(View.VISIBLE);
+        Timber.i("%s: executing podcast download task", Constants.LOG_TAG);
+        ApiInterface restService = ApiClient.getClient().create(ApiInterface.class);
+//        Call<Results> call = restService.getGenrePodcasts(
+//                Constants.REST_TERM, genreId, Constants.REST_LIMIT, Constants.REST_SORT_POPULAR
+//        );
+        Call<Results> call = restService.getGenrePodcasts(
+                1416
+        );
+
+        call.enqueue(new Callback<Results>() {
+            @Override
+            public void onResponse(Call<Results> call, Response<Results> response) {
+                mProgressBar.setVisibility(View.GONE);
+                Originalspodcastlist = (ArrayList<Podcast>) response.body().getResults();
+
+                if (Originalspodcastlist != null && Originalspodcastlist.size() > 0) {
+//                    PodcastActivity.launch(MainActivity.this, Originalspodcastlist, "SootBas Originals", false);
+                } else {
+                    Utils.showSnackbar(mLayout, "No results found");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Results> call, Throwable t) {
+                mProgressBar.setVisibility(View.GONE);
+                Utils.showSnackbar(mLayout, "Server error, try again");
+                Timber.e("%s error executing genre query: %s", Constants.LOG_TAG, t.getMessage());
+            }
+        });
+    }
+
     // return a list of podcasts for the supplied genre
     private void executeGenreQuery(int genreId, final String genreTitle) {
         mProgressBar.setVisibility(View.VISIBLE);
@@ -258,57 +294,6 @@ public class MainActivity extends AppCompatActivity implements
             public void onResponse(Call<Results> call, Response<Results> response) {
                 mProgressBar.setVisibility(View.GONE);
                 ArrayList<Podcast> list = (ArrayList<Podcast>) response.body().getResults();
-//                ArrayList<Podcast> list;
-
-//                if (genreTitle.equals("#Pray")) {
-//
-//                    list = podlist.getReligion_Podcast_list();
-//                }
-//                else if (genreTitle.equals("#Develop"))
-//                {
-//                    list =  podlist.getSelfDevelopment_Podcast_list();
-//
-//                }
-//                else if (genreTitle.equals("#Nutrition") )
-//                {
-//                    list =  podlist.getHealthandFitness_Podcast_list();
-//                }
-//                else if (genreTitle.equals("#Laugh"))
-//                {
-//                    list =  podlist.getComedy_Podcast_list();
-//                }
-//                else if (genreTitle.equals("#Travel"))
-//                {
-//                    list =  podlist.getLifeStyle_Podcast_list();
-//                }
-//                else if (genreTitle.equals("#LifeStyle")) {
-//                    list = podlist.getLifeStyle_Podcast_list();
-//                }
-//
-//                else if (genreTitle.equals("#Critic"))
-//                {
-//                    list =  podlist.getFilmReviews_Podcast_list();
-//                }
-//                else if (genreTitle.equals("#Learn"))
-//                {
-//                    list =  podlist.getSelfLearning_Podcast_list();
-//                }
-//                else if (genreTitle.equals("#Read"))
-//                {
-//
-//                    list =  podlist.getBooksReview_Podcast_list() ;
-//                }
-//                else if (genreTitle.equals("#Beauty"))
-//                {
-//                    list =  podlist.getWomen_Podcast_list() ;
-//                }
-//
-//                else {
-//                    list =  podlist.getSelfLearning_Podcast_list() ;
-//                }
-
-
-
 
                 if (list != null && list.size() > 0) {
                     PodcastActivity.launch(MainActivity.this, list, genreTitle, false);
@@ -353,10 +338,8 @@ public class MainActivity extends AppCompatActivity implements
     private void setupViewPager(ViewPager viewPager) {
         CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(GenreItemFragment.newInstance(), "Explore");
-
-
-
         adapter.addFragment(OriginalsFragment.newInstance( podlist.getOriginals_Podcast_list()), "Originals");
+//        adapter.addFragment(OriginalsFragment.newInstance( Originalspodcastlist ), "Originals");
 
         viewPager.setAdapter(adapter);
     }
