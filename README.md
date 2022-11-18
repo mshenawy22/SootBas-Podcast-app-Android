@@ -1,4 +1,18 @@
+SootBas App
+------
+SootBas app is a podcast app targetting the arab world , It has been published on the play Store in April 2020 and it calloborated with over 40 content creators in the Egypt and the middle east.
+http://www.sootbas.com
 
+https://play.google.com/store/apps/details?id=com.sootbas.sootbasapp
+
+
+
+![image](https://user-images.githubusercontent.com/49027183/202813016-0af0c36f-8dca-4a2f-90de-2287fa0d3307.png)
+![image](https://user-images.githubusercontent.com/49027183/202813045-97e4e08a-8555-468a-a005-a06f2993ae41.png)
+
+Collaboration
+------
+Pull requests are welcome
 
 Credit
 ------
